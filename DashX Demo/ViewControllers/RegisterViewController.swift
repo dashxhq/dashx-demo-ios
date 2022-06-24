@@ -35,40 +35,68 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    // MARK: ViewModel
-    struct ViewModel {
-        var firstName: String = ""
-        var lastName: String = ""
-        var email: String = ""
-        var password: String = ""
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.isEnabled = false
+            registerButton.backgroundColor = UIColor(named: "primaryColorDisabled")
+            registerButton.setTitleColor(UIColor.white.withAlphaComponent(0.75), for: UIControl.State.disabled)
+        }
     }
     
-    var viewModel: ViewModel = ViewModel()
+    private var formUtils: FormUtils!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
+        
+        formUtils = FormUtils(fields: [firstNameField, lastNameField, emailField, passwordField, registerButton])
     }
     
     // MARK: Actions
     @IBAction func onClickRegister(_ sender: UIButton) {
-        register()
+        performRegistration()
     }
     
     @IBAction func onClickLogin(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func register() {
-        /*
-         Raise errors or Disable Register button when:
-         viewModel.firstName.isEmpty &&
-         viewModel.lastName.isEmpty &&
-         !viewModel.email.isValidEmail() &&
-         viewModel.password.isEmpty
-         */
+    func performRegistration() {
+        if !(emailField.text?.isValidEmail() ?? false) {
+            errorLabel.text = "Please enter a valid email"
+            return
+        }
         
+        setFormState(isEnabled: false)
+        registerButton.setTitle("Registering", for: UIControl.State.disabled)
+        
+        APIClient.registerUser(firstName: firstNameField.text!, lastName: lastNameField.text!, email: emailField.text!, password: passwordField.text!) { responseDictionary in
+            
+            DispatchQueue.main.async {
+                self.goToDashboardScreen()
+            }
+        } onError: { networkError in
+            
+            DispatchQueue.main.async {
+                self.registerButton.setTitle("Register", for: UIControl.State.disabled)
+                
+                self.setFormState(isEnabled: true)
+                self.errorLabel.text = networkError.message
+            }
+        }
+    }
+    
+    func setFormState(isEnabled: Bool) {
+        formUtils.setFieldsStatus(isEnabled: isEnabled)
+    }
+    
+    func goToDashboardScreen() {
+        let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
+        let navVC = UINavigationController(rootViewController: dashboardVC)
+        UIApplication.shared.windows.first?.rootViewController = navVC
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
     func setTextFieldListeners() {
@@ -80,30 +108,13 @@ class RegisterViewController: UIViewController {
     
     @objc
     func textFieldEditingChanged(_ textField: UITextField) {
-        switch textField {
-        case firstNameField:
-            if let text = firstNameField.text {
-                viewModel.firstName = text
-            }
-            break
-        case lastNameField:
-            if let text = lastNameField.text {
-                viewModel.lastName = text
-            }
-            break
-        case emailField:
-            if let text = emailField.text {
-                viewModel.email = text
-            }
-            break
-        case passwordField:
-            if let text = passwordField.text {
-                viewModel.password = text
-            }
-            break
-        default:
-            break
+        if errorLabel.text != nil {
+            errorLabel.text = ""
         }
+        
+        let registerButtonEnabled = [firstNameField, lastNameField, emailField, passwordField].filter{$0.text?.isEmpty ?? true}.count == 0
+        registerButton.isEnabled = registerButtonEnabled
+        registerButton.backgroundColor = registerButtonEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
     
 }
@@ -122,7 +133,7 @@ extension RegisterViewController: UITextFieldDelegate {
             break
         case passwordField:
             passwordField.resignFirstResponder()
-            register()
+            performRegistration()
             break
         default:
             break

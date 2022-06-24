@@ -23,24 +23,29 @@ class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: ViewModel
-    struct ViewModel {
-        var email: String = ""
-        var password: String = ""
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = UIColor(named: "primaryColorDisabled")
+            loginButton.setTitleColor(UIColor.white.withAlphaComponent(0.75), for: UIControl.State.disabled)
+        }
     }
     
-    var viewModel: ViewModel = ViewModel()
+    private var formUtils: FormUtils!
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
         setupThemedNavigationBar()
+        
+        formUtils = FormUtils(fields: [emailField, passwordField, loginButton])
     }
     
     // MARK: Actions
     @IBAction func onClickLogin(_ sender: UIButton) {
-        login()
+        performLogin()
     }
     
     @IBAction func onClickRegister(_ sender: UIButton) {
@@ -49,15 +54,37 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onClickForgotPassword(_ sender: UIButton) {
-        
+        //No op for now
     }
     
-    func login() {
-        /*
-         Raise errors or Disable Login button when:
-         !viewModel.email.isValidEmail() &&
-         viewModel.password.isEmpty
-         */
+    func performLogin() {
+        if !(emailField.text?.isValidEmail() ?? false) {
+            errorLabel.text = "Please enter a valid email"
+            return
+        }
+        
+        setFormState(isEnabled: false)
+        loginButton.setTitle("Logging in", for: UIControl.State.disabled)
+        
+        APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { responseDictionary in
+            DispatchQueue.main.async {
+                self.goToDashboardScreen()
+            }
+        } onError: { networkError in
+            DispatchQueue.main.async {
+                self.loginButton.setTitle("Login", for: UIControl.State.disabled)
+                
+                self.setFormState(isEnabled: true)
+                self.errorLabel.text = networkError.message
+            }
+        }
+    }
+    
+    func setFormState(isEnabled: Bool) {
+        formUtils.setFieldsStatus(isEnabled: isEnabled)
+    }
+    
+    func goToDashboardScreen() {
         let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
         let navVC = UINavigationController(rootViewController: dashboardVC)
         UIApplication.shared.windows.first?.rootViewController = navVC
@@ -71,20 +98,13 @@ class LoginViewController: UIViewController {
     
     @objc
     func textFieldEditingChanged(_ textField: UITextField) {
-        switch textField {
-        case emailField:
-            if let text = emailField.text {
-                viewModel.email = text
-            }
-            break
-        case passwordField:
-            if let text = passwordField.text {
-                viewModel.password = text
-            }
-            break
-        default:
-            break
+        if errorLabel.text != nil {
+            errorLabel.text = ""
         }
+        
+        let registerButtonEnabled = [emailField, passwordField].filter{$0.text?.isEmpty ?? true}.count == 0
+        loginButton.isEnabled = registerButtonEnabled
+        loginButton.backgroundColor = registerButtonEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
 }
 
@@ -96,7 +116,7 @@ extension LoginViewController: UITextFieldDelegate {
             break
         case passwordField:
             passwordField.resignFirstResponder()
-            login()
+            performLogin()
             break
         default:
             break
