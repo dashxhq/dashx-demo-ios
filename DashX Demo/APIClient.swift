@@ -13,7 +13,10 @@ let demoServerBaseUrl = "https://node.dashxdemo.com"
 class APIClient {
     private static let network = NetworkUtils(baseURL: demoServerBaseUrl)
     
-    static func loginUser(email: String, password: String, onSuccess: @escaping (NSDictionary?) -> Void, onError: @escaping (NetworkError) -> Void) {
+    static func loginUser(email: String,
+                          password: String,
+                          onSuccess: @escaping (NSDictionary?) -> Void,
+                          onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/login"
         let params: NSDictionary = [
@@ -24,7 +27,12 @@ class APIClient {
         network.makePostAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
-    static func registerUser(firstName: String, lastName: String, email: String, password: String, onSuccess: @escaping (NSDictionary?) -> Void, onError: @escaping (NetworkError) -> Void) {
+    static func registerUser(firstName: String,
+                             lastName: String,
+                             email: String,
+                             password: String,
+                             onSuccess: @escaping (NSDictionary?) -> Void,
+                             onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/register"
         let params: NSDictionary = [

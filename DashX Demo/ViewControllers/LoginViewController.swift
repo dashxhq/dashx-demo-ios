@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onClickForgotPassword(_ sender: UIButton) {
-        //No op for now
+        // No op for now
     }
     
     func performLogin() {
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         setFormState(isEnabled: false)
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
         
-        APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { responseDictionary in
+        APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { _ in
             DispatchQueue.main.async {
                 self.goToDashboardScreen()
             }
@@ -102,9 +102,11 @@ class LoginViewController: UIViewController {
             errorLabel.text = ""
         }
         
-        let registerButtonEnabled = [emailField, passwordField].filter{$0.text?.isEmpty ?? true}.count == 0
+        let registerButtonEnabled = [emailField,
+                                     passwordField].filter { $0.text?.isEmpty ?? true }.count == 0
         loginButton.isEnabled = registerButtonEnabled
-        loginButton.backgroundColor = registerButtonEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
+        loginButton.backgroundColor = registerButtonEnabled ?
+        UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
 }
 
@@ -113,11 +115,9 @@ extension LoginViewController: UITextFieldDelegate {
         switch textField {
         case emailField:
             passwordField.becomeFirstResponder()
-            break
         case passwordField:
             passwordField.resignFirstResponder()
             performLogin()
-            break
         default:
             break
         }

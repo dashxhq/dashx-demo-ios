@@ -72,7 +72,10 @@ class RegisterViewController: UIViewController {
         setFormState(isEnabled: false)
         registerButton.setTitle("Registering", for: UIControl.State.disabled)
         
-        APIClient.registerUser(firstName: firstNameField.text!, lastName: lastNameField.text!, email: emailField.text!, password: passwordField.text!) { responseDictionary in
+        APIClient.registerUser(firstName: firstNameField.text!,
+                               lastName: lastNameField.text!,
+                               email: emailField.text!,
+                               password: passwordField.text!) { _ in
             
             DispatchQueue.main.async {
                 self.goToDashboardScreen()
@@ -112,9 +115,15 @@ class RegisterViewController: UIViewController {
             errorLabel.text = ""
         }
         
-        let registerButtonEnabled = [firstNameField, lastNameField, emailField, passwordField].filter{$0.text?.isEmpty ?? true}.count == 0
+        let registerButtonEnabled = [firstNameField,
+                                     lastNameField,
+                                     emailField,
+                                     passwordField]
+            .filter {$0.text?.isEmpty ?? true}
+            .count == 0
         registerButton.isEnabled = registerButtonEnabled
-        registerButton.backgroundColor = registerButtonEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
+        registerButton.backgroundColor = registerButtonEnabled ?
+        UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
     
 }
@@ -124,17 +133,13 @@ extension RegisterViewController: UITextFieldDelegate {
         switch textField {
         case firstNameField:
             lastNameField.becomeFirstResponder()
-            break
         case lastNameField:
             emailField.becomeFirstResponder()
-            break
         case emailField:
             passwordField.becomeFirstResponder()
-            break
         case passwordField:
             passwordField.resignFirstResponder()
             performRegistration()
-            break
         default:
             break
         }
