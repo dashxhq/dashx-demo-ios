@@ -15,4 +15,12 @@ class DashboardViewController: UIViewController {
         setupThemedNavigationBar()
     }
     
+    @IBAction func onClickLogoutButton(_ sender: UIButton) {
+        LocalStorage.instance.setUser(nil)
+        
+        let loginVC = UIViewController.instance(of: LoginViewController.identifier)
+        let navVC = UINavigationController(rootViewController: loginVC)
+        self.view.window?.rootViewController = navVC
+    }
+    
 }

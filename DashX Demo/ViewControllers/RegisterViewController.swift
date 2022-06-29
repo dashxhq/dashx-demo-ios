@@ -78,7 +78,11 @@ class RegisterViewController: UIViewController {
                                password: passwordField.text!) { _ in
             
             DispatchQueue.main.async {
-                self.goToDashboardScreen()
+                self.registerButton.setTitle("Registration successful!", for: UIControl.State.disabled)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         } onError: { networkError in
             

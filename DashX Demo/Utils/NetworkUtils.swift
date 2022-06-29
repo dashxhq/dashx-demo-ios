@@ -11,11 +11,12 @@ class NetworkError {
     var statusCode: Int!
     var code: String?
     var message: String?
-    var data: NSDictionary?
+    var data: Data?
     
-    init(statusCode: Int, message: String?, data: NSDictionary? = nil) {
+    init(statusCode: Int, message: String?, data: Data? = nil) {
         self.statusCode = statusCode
         self.message = message
+        self.data = data
     }
 }
 
@@ -43,10 +44,10 @@ class NetworkUtils {
         return request
     }
 
-    func makePostAPICall(path: String,
+    func makePostAPICall<T: Decodable>(path: String,
                          httpMethod: String = "POST",
                          params: NSDictionary,
-                         onSuccess: @escaping (NSDictionary?) -> Void,
+                         onSuccess: @escaping (T?) -> Void,
                          onError: @escaping (NetworkError) -> Void) {
         
         if let url = self.getURL(atPath: path),
@@ -59,19 +60,17 @@ class NetworkUtils {
                 return
               }
               
-            let jsonResponse = try? JSONSerialization.jsonObject(
-                with: data!,
-                options: [JSONSerialization.ReadingOptions.allowFragments]
-            ) as? NSDictionary
             let httpResponse = response as? HTTPURLResponse
                 
             if (200...299).contains(httpResponse?.statusCode ?? 0) {
-                onSuccess(jsonResponse)
+                let decodedModel = try? JSONDecoder().decode(T.self, from: data!)
+                onSuccess(decodedModel)
             } else {
-                print("Error with the response code, unexpected status code: \(httpResponse?.statusCode ?? 0)")
+                print("Error with the response. Status code: \(httpResponse?.statusCode ?? 0)")
+                let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data!)
                 onError(NetworkError(statusCode: httpResponse!.statusCode,
-                                     message: jsonResponse?["message"] as? String ?? "",
-                                     data: jsonResponse))
+                                     message: errorResponse?.message ?? "",
+                                     data: data))
                 return
             }
             })

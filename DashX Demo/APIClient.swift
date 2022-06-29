@@ -15,7 +15,7 @@ class APIClient {
     
     static func loginUser(email: String,
                           password: String,
-                          onSuccess: @escaping (NSDictionary?) -> Void,
+                          onSuccess: @escaping (LoginResponse?) -> Void,
                           onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/login"
@@ -31,7 +31,7 @@ class APIClient {
                              lastName: String,
                              email: String,
                              password: String,
-                             onSuccess: @escaping (NSDictionary?) -> Void,
+                             onSuccess: @escaping (MessageResponse?) -> Void,
                              onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/register"
@@ -40,6 +40,18 @@ class APIClient {
             "last_name": lastName,
             "email": email,
             "password": password
+        ]
+        
+        network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)
+    }
+    
+    static func forgotPassword(email: String,
+                               onSuccess: @escaping (MessageResponse?) -> Void,
+                               onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/forgot-password"
+        let params: NSDictionary = [
+            "email": email,
         ]
         
         network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)

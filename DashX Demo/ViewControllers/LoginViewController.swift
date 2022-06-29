@@ -54,7 +54,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onClickForgotPassword(_ sender: UIButton) {
-        // No op for now
+        let forgotPasswordVC = UIViewController.instance(of: ForgotPasswordViewController.identifier)
+        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
     func performLogin() {
@@ -66,7 +67,9 @@ class LoginViewController: UIViewController {
         setFormState(isEnabled: false)
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
         
-        APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { _ in
+        APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
+            self.persistDashXData(response)
+            
             DispatchQueue.main.async {
                 self.goToDashboardScreen()
             }
@@ -77,6 +80,15 @@ class LoginViewController: UIViewController {
                 self.setFormState(isEnabled: true)
                 self.errorLabel.text = networkError.message
             }
+        }
+    }
+    
+    func persistDashXData(_ response: LoginResponse?) {
+        if let response = response, let decodedToken = response.decodedToken {
+            let user = decodedToken.user, dashXToken = response.decodedToken?.dashxToken
+            
+            LocalStorage.instance.setUser(user)
+            LocalStorage.instance.setDashXToken(dashXToken)
         }
     }
     

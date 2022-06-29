@@ -14,19 +14,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to
-        // the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are
-        // new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let isAuthenticated = false
-        if isAuthenticated {
+        checkStoredUserAndNavigate()
+    }
+    
+    func checkStoredUserAndNavigate() {
+        if LocalStorage.instance.getUser() != nil {
+            // User exists, go to Dashboard/Home
             let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
             let navVC = UINavigationController(rootViewController: dashboardVC)
             self.window?.rootViewController = navVC
         } else {
+            // Open login screen
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
             let navVC = UINavigationController(rootViewController: loginVC)
             self.window?.rootViewController = navVC
