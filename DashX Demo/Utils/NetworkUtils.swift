@@ -45,10 +45,10 @@ class NetworkUtils {
     }
 
     func makePostAPICall<T: Decodable>(path: String,
-                         httpMethod: String = "POST",
-                         params: NSDictionary,
-                         onSuccess: @escaping (T?) -> Void,
-                         onError: @escaping (NetworkError) -> Void) {
+                                       httpMethod: String = "POST",
+                                       params: NSDictionary,
+                                       onSuccess: @escaping (T?) -> Void,
+                                       onError: @escaping (NetworkError) -> Void) {
         
         if let url = self.getURL(atPath: path),
             let request = getURLRequest(httpMethod: httpMethod, url: url, params: params) {

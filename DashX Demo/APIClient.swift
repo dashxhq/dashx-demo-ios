@@ -51,7 +51,7 @@ class APIClient {
         // Prepare request parts
         let path = "/forgot-password"
         let params: NSDictionary = [
-            "email": email,
+            "email": email
         ]
         
         network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)

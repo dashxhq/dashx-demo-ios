@@ -81,7 +81,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Kk9-c6-eyl">
                                                         <rect key="frame" x="0.0" y="53.5" width="366" height="268"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-BZ-XiM">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="rpf-BZ-XiM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="44" id="X0H-nN-ltq"/>
@@ -89,7 +89,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="KUV-zo-0LD">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="KUV-zo-0LD">
                                                                 <rect key="frame" x="0.0" y="56" width="366" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
@@ -248,17 +248,17 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="exP-5g-nD6">
                                                         <rect key="frame" x="0.0" y="53.5" width="366" height="380"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-08-VSF">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-08-VSF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="honorifix-prefix"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wek-lq-MoY">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Last Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Wek-lq-MoY">
                                                                 <rect key="frame" x="0.0" y="56" width="366" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="honorifix-suffix"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="H7Q-WZ-9d0">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="H7Q-WZ-9d0">
                                                                 <rect key="frame" x="0.0" y="112" width="366" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="44" id="qOz-nW-Nen"/>
@@ -266,7 +266,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-wf-dUC">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="YcE-wf-dUC">
                                                                 <rect key="frame" x="0.0" y="168" width="366" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
@@ -449,7 +449,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="NdG-zA-MJH">
                                                         <rect key="frame" x="0.0" y="53.5" width="366" height="156"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-qD-0ox">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="7J7-qD-0ox">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="44"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="44" id="eu7-Rc-s2R"/>
@@ -536,7 +536,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="dashXLogo" width="200" height="200"/>
+        <image name="dashXLogo" width="114" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

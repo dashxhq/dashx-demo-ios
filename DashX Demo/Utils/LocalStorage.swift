@@ -20,7 +20,8 @@ class LocalStorage {
     private let defaults = UserDefaults.standard
     
     private func getValue<T: Decodable>(forKey key: LocalStorageKey, as type: T.Type) -> T? {
-        if let storedString = defaults.value(forKey: key.rawValue) as? String, let data = storedString.data(using: .utf8) {
+        if let storedString = defaults.value(forKey: key.rawValue) as? String,
+            let data = storedString.data(using: .utf8) {
             return try? JSONDecoder().decode(type, from: data)
             
         }
