@@ -4,11 +4,70 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Store-->
+        <scene sceneID="fQu-gp-XVg">
+            <objects>
+                <viewController id="3id-xF-yrL" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7yp-dV-b5d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="0M7-Pz-a2W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Store" image="cylinder" catalog="system" id="vdK-ep-wfD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yK-Mf-RXX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2916" y="84"/>
+        </scene>
+        <!--Bookmarks-->
+        <scene sceneID="Agg-vX-OFz">
+            <objects>
+                <viewController id="Pnf-O4-fwd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UQf-1E-372">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="2VX-3H-haR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bookmarks" image="bookmark" catalog="system" id="48P-2l-PSb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LNN-nI-G1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2016" y="84"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ucM-Qa-6WY">
+            <objects>
+                <tabBarController restorationIdentifier="TabBarController" storyboardIdentifier="TabBarController" id="cSx-ca-aWH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="nbS-iQ-enW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.99517864674579426" green="1" blue="0.97035156862192917" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" name="primaryColor"/>
+                        <color key="selectedImageTintColor" systemColor="systemIndigoColor"/>
+                        <tabBarAppearance key="standardAppearance" stackedItemPositioning="automatic">
+                            <color key="shadowColor" systemColor="systemBackgroundColor"/>
+                            <color key="selectionIndicatorTintColor" name="primaryColor"/>
+                        </tabBarAppearance>
+                    </tabBar>
+                    <connections>
+                        <segue destination="VUT-iC-XbY" kind="relationship" relationship="viewControllers" id="BuM-0e-tdl"/>
+                        <segue destination="3id-xF-yrL" kind="relationship" relationship="viewControllers" id="ckE-9Q-7Je"/>
+                        <segue destination="Pnf-O4-fwd" kind="relationship" relationship="viewControllers" id="u4Y-UC-Vya"/>
+                        <segue destination="D3u-u3-nGk" kind="relationship" relationship="viewControllers" id="H16-Bv-X9m"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBI-ck-WaU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2703" y="-666"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="JMx-FB-WKm">
             <objects>
@@ -35,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fsy-wr-TY2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875" y="-601"/>
+            <point key="canvasLocation" x="-1852" y="1969"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="AaK-IM-uyO">
@@ -202,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kp1-rb-l4v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="153"/>
+            <point key="canvasLocation" x="-2704" y="1199"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="vzd-nr-9wi">
@@ -363,47 +422,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="exa-cJ-hc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="153"/>
+            <point key="canvasLocation" x="-962" y="1199"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--Home-->
         <scene sceneID="ZoN-xu-a3A">
             <objects>
-                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VUT-iC-XbY" customClass="DashboardViewController" customModule="DashX_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VUT-iC-XbY" userLabel="Home" customClass="HomeViewController" customModule="DashX_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R1c-I9-orW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziT-nD-qHr">
-                                <rect key="frame" x="180.5" y="441" width="53" height="24"/>
+                                <rect key="frame" x="180.5" y="416.5" width="53" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzw-hM-1cV">
-                                <rect key="frame" x="172" y="483" width="70" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Logout">
-                                    <color key="baseBackgroundColor" systemColor="systemIndigoColor"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="onClickLogoutButton:" destination="VUT-iC-XbY" eventType="touchUpInside" id="uti-sv-Ihc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2TC-BS-JtL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tzw-hM-1cV" firstAttribute="top" secondItem="ziT-nD-qHr" secondAttribute="bottom" constant="18" id="0cW-lA-1hU"/>
                             <constraint firstItem="ziT-nD-qHr" firstAttribute="centerY" secondItem="2TC-BS-JtL" secondAttribute="centerY" id="PQb-Ae-lEI"/>
-                            <constraint firstItem="tzw-hM-1cV" firstAttribute="centerX" secondItem="2TC-BS-JtL" secondAttribute="centerX" id="Sxa-n3-KDv"/>
                             <constraint firstItem="ziT-nD-qHr" firstAttribute="centerX" secondItem="2TC-BS-JtL" secondAttribute="centerX" id="vEP-3x-ubK"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="Crm-jY-wAX"/>
                     <navigationItem key="navigationItem" id="EOd-so-cXO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQP-aL-HTe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="290" y="990"/>
+            <point key="canvasLocation" x="-3839" y="84"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="o6b-oH-CpJ">
@@ -532,11 +580,71 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rFq-EL-ycI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-874" y="153"/>
+            <point key="canvasLocation" x="-1852" y="1199"/>
+        </scene>
+        <!--More-->
+        <scene sceneID="trm-yq-LgD">
+            <objects>
+                <viewController id="D3u-u3-nGk" customClass="MoreItemsViewController" customModule="DashX_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ohQ-xo-1vI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PHV-Bd-mF2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MoreScreenTableViewCell" textLabel="rwG-h6-BLY" style="IBUITableViewCellStyleDefault" id="AKL-Rw-p7M" customClass="MoreScreenTableViewCell" customModule="DashX_Demo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AKL-Rw-p7M" id="kvv-dN-ja1">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rwG-h6-BLY">
+                                                    <rect key="frame" x="20" y="0.0" width="357.5" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="rwG-h6-BLY" id="Oky-ul-1SH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ddk-gu-f4M"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ddk-gu-f4M" firstAttribute="trailing" secondItem="PHV-Bd-mF2" secondAttribute="trailing" id="6o8-wD-jA3"/>
+                            <constraint firstItem="PHV-Bd-mF2" firstAttribute="leading" secondItem="Ddk-gu-f4M" secondAttribute="leading" id="JCO-E5-SV4"/>
+                            <constraint firstItem="PHV-Bd-mF2" firstAttribute="top" secondItem="Ddk-gu-f4M" secondAttribute="top" id="Pdp-dK-Vzj"/>
+                            <constraint firstItem="Ddk-gu-f4M" firstAttribute="bottom" secondItem="PHV-Bd-mF2" secondAttribute="bottom" id="rrD-k5-Qev"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="More" image="rectangle.and.pencil.and.ellipsis" catalog="system" id="tNo-Jf-FFn"/>
+                    <connections>
+                        <outlet property="tableView" destination="PHV-Bd-mF2" id="Ysn-74-wk7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="04Q-eY-cQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1097" y="84"/>
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="cylinder" catalog="system" width="121" height="128"/>
         <image name="dashXLogo" width="114" height="113"/>
+        <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
+        <namedColor name="primaryColor">
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

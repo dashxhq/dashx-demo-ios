@@ -71,7 +71,7 @@ class LoginViewController: UIViewController {
             self.persistDashXData(response)
             
             DispatchQueue.main.async {
-                self.goToDashboardScreen()
+                self.goToTabBarScreen()
             }
         } onError: { networkError in
             DispatchQueue.main.async {
@@ -96,9 +96,9 @@ class LoginViewController: UIViewController {
         formUtils.setFieldsStatus(isEnabled: isEnabled)
     }
     
-    func goToDashboardScreen() {
-        let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
-        let navVC = UINavigationController(rootViewController: dashboardVC)
+    func goToTabBarScreen() {
+        let tabBarVC = UIViewController.instance(of: "TabBarController")
+        let navVC = UINavigationController(rootViewController: tabBarVC)
         UIApplication.shared.windows.first?.rootViewController = navVC
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

@@ -24,8 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func checkStoredUserAndNavigate() {
         if LocalStorage.instance.getUser() != nil {
             // User exists, go to Dashboard/Home
-            let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
-            let navVC = UINavigationController(rootViewController: dashboardVC)
+            let tabBarVC = UIViewController.instance(of: "TabBarController")
+            let navVC = UINavigationController(rootViewController: tabBarVC)
             self.window?.rootViewController = navVC
         } else {
             // Open login screen

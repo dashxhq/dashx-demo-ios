@@ -74,13 +74,6 @@ class ForgotPasswordViewController: UIViewController {
         formUtils.setFieldsStatus(isEnabled: isEnabled)
     }
     
-    func goToDashboardScreen() {
-        let dashboardVC = UIViewController.instance(of: DashboardViewController.identifier)
-        let navVC = UINavigationController(rootViewController: dashboardVC)
-        UIApplication.shared.windows.first?.rootViewController = navVC
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
-    }
-    
     func setTextFieldListeners() {
         emailField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
