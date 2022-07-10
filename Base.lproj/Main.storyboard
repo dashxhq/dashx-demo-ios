@@ -76,7 +76,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Bn3-MQ-TxJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Bn3-MQ-TxJ">
                                 <rect key="frame" x="167" y="413" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="QQX-rI-4Se"/>
@@ -113,7 +113,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0dp-1K-zps">
                                                 <rect key="frame" x="124.5" y="24" width="165" height="36"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-sW-UH5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-sW-UH5">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="0IB-jV-CQV"/>
@@ -280,7 +280,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="jw0-wp-K3I">
                                                 <rect key="frame" x="124.5" y="24" width="165" height="36"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-zA-0Tq">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-zA-0Tq">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="36" id="Zdn-Vu-Oka"/>
@@ -470,7 +470,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0ot-WP-WvZ">
                                                 <rect key="frame" x="124.5" y="24" width="165" height="36"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-Rb-kvu">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DashXLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zfM-Rb-kvu">
                                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="36" id="NVS-KM-cN6"/>
@@ -637,9 +637,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DashXLogo" width="1024" height="1024"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="cylinder" catalog="system" width="121" height="128"/>
-        <image name="dashXLogo" width="114" height="113"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <namedColor name="primaryColor">
