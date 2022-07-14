@@ -48,6 +48,10 @@ struct LoginResponse: Codable {
     }
 }
 
+struct UpdateProfileResponse: Codable {
+    var user: User?
+}
+
 struct JWTTokenContent: Codable {
 //    // Define key mapping with JSON
     enum CodingKeys: String, CodingKey {

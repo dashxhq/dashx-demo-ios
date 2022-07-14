@@ -21,9 +21,9 @@ class MoreItemsViewController: UIViewController {
         
         screenItems = [
             (title: "Billing", action: { return }),
-            (title: "Profile", action: { return }),
+            (title: "Profile", action: goToUpdateProfileScreen),
             (title: "Settings", action: { return }),
-            (title: "Logout", action: { self.performLogout() })
+            (title: "Logout", action: performLogout)
         ]
         
         // Setup tableview
@@ -31,10 +31,16 @@ class MoreItemsViewController: UIViewController {
         tableView.dataSource = self
     }
     
+    func goToUpdateProfileScreen() {
+        let updateProfileVC = UIViewController.instance(of: UpdateProfileViewController.identifier)
+        self.navigationController?.pushViewController(updateProfileVC, animated: true)
+    }
+    
     func performLogout() {
         // Induce artificial "processing" gap instead of snappy logout
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            LocalStorage.instance.setUser(nil)
+            // Clear local storage keys
+            LocalStorage.instance.clearAll()
             
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
             let navVC = UINavigationController(rootViewController: loginVC)

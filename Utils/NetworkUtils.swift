@@ -35,6 +35,12 @@ class NetworkUtils {
                                url: URL,
                                params: NSDictionary) -> URLRequest? {
         var request =  URLRequest(url: url)
+        
+        // Set bearer authentication header
+        if let token = LocalStorage.instance.getToken() {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
         request.httpMethod = httpMethod
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")

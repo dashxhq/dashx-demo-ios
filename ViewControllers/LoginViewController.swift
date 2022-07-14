@@ -89,6 +89,7 @@ class LoginViewController: UIViewController {
             
             LocalStorage.instance.setUser(user)
             LocalStorage.instance.setDashXToken(dashXToken)
+            LocalStorage.instance.setToken(response.token)
         }
     }
     

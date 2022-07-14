@@ -1,3 +1,29 @@
-PODFILE CHECKSUM: 90e6f7ecb4af983cf22bdeaff8ec9ce60f44cce0
+PODS:
+  - Alamofire (4.9.1)
+  - Apollo (0.51.2):
+    - Apollo/Core (= 0.51.2)
+  - Apollo/Core (0.51.2)
+  - DashX (1.0.0):
+    - Alamofire (~> 4.7)
+    - Apollo (~> 0.51.2)
+
+DEPENDENCIES:
+  - DashX (from `../dashx-ios-latest`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - Apollo
+
+EXTERNAL SOURCES:
+  DashX:
+    :path: "../dashx-ios-latest"
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
+  DashX: 7e228a48ed64343983f7e6649ec75f05e1d49415
+
+PODFILE CHECKSUM: e39e060d03be8068b0db474be4b8fa523abb94c2
 
 COCOAPODS: 1.11.3

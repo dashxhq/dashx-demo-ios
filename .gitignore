@@ -37,7 +37,6 @@ Packages
 .build/
 xcuserdata
 DerivedData/
-*.xcodeproj
 
 
 ### Xcode ###
@@ -69,14 +68,9 @@ build/
 *.gcda
 
 ### Xcode Patch ###
-*.xcodeproj
 *.xcworkspace
-*.xcodeproj/*
-!*.xcodeproj/project.pbxproj
-!*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
-*.entitlements
 
 # fastlane specific
 **/fastlane/report.xml
@@ -91,3 +85,5 @@ build/
 **/fastlane/test_output
 
 **/fastlane/builds
+
+fastlane/metadata/review_information

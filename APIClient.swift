@@ -56,4 +56,20 @@ class APIClient {
         
         network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)
     }
+    
+    static func updateProfile(firstName: String,
+                              lastName: String,
+                              email: String,
+                              onSuccess: @escaping (UpdateProfileResponse?) -> Void,
+                              onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/update-profile"
+        let params: NSDictionary = [
+            "first_name": firstName,
+            "last_name": lastName,
+            "email": email
+        ]
+        
+        network.makePostAPICall(path: path, httpMethod: "PATCH", params: params, onSuccess: onSuccess, onError: onError)
+    }
 }

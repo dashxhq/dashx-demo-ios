@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum LocalStorageKey: String {
+enum LocalStorageKey: String, CaseIterable {
     case user
     case dashXToken
+    case token
 }
 
 class LocalStorage {
@@ -29,9 +30,13 @@ class LocalStorage {
         return nil
     }
     
+    private func removeValue(forKey key: LocalStorageKey) {
+        defaults.removeObject(forKey: key.rawValue)
+    }
+    
     private func setValue<T: Encodable>(forKey key: LocalStorageKey, value: T?) {
         if value == nil {
-            defaults.removeObject(forKey: key.rawValue)
+            removeValue(forKey: key)
         } else if let data = try? JSONEncoder().encode(value), let jsonString = String(data: data, encoding: .utf8) {
             defaults.setValue(jsonString, forKey: key.rawValue)
             defaults.synchronize()
@@ -52,5 +57,20 @@ class LocalStorage {
     
     func setDashXToken(_ value: String?) {
         setValue(forKey: .dashXToken, value: value)
+    }
+    
+    func getToken() -> String? {
+        return getValue(forKey: .token, as: String.self)
+    }
+    
+    func setToken(_ value: String?) {
+        setValue(forKey: .token, value: value)
+    }
+    
+    /** Clears all the stored values */
+    func clearAll() {
+        for key in LocalStorageKey.allCases {
+            removeValue(forKey: key)
+        }
     }
 }
