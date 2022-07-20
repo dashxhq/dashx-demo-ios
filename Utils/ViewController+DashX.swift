@@ -13,9 +13,10 @@ extension UIViewController {
         return UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
     
-    func setupThemedNavigationBar(tintColor: UIColor = .black,
-                                  barTintColor: UIColor = .white,
+    func setupThemedNavigationBar(for mode: UIUserInterfaceStyle,
                                   isTranslucent: Bool = true) {
+        let tintColor: UIColor = (mode == .dark) ? .white : .black
+        let barTintColor: UIColor = (mode == .dark) ? .black : .white
         self.navigationController?.navigationBar.tintColor = tintColor
         self.navigationController?.navigationBar.barTintColor = barTintColor
         self.navigationController?.navigationBar.shadowImage = UIImage()

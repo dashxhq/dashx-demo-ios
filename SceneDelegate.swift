@@ -17,14 +17,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if (scene as? UIWindowScene) == nil {
             return
         }
-        
+        UIApplication.shared.addTapGestureRecognizer()
         checkStoredUserAndNavigate()
     }
     
     func checkStoredUserAndNavigate() {
         if LocalStorage.instance.getUser() != nil {
             // User exists, go to Dashboard/Home
-            let tabBarVC = UIViewController.instance(of: "TabBarController")
+            let tabBarVC = UIViewController.instance(of: MainTabBarController.identifier)
             let navVC = UINavigationController(rootViewController: tabBarVC)
             self.window?.rootViewController = navVC
         } else {

@@ -24,7 +24,7 @@ class APIClient {
             "password": password
         ]
         
-        network.makePostAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
+        network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
     static func registerUser(firstName: String,
@@ -42,7 +42,7 @@ class APIClient {
             "password": password
         ]
         
-        network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)
+        network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
     static func forgotPassword(email: String,
@@ -54,7 +54,7 @@ class APIClient {
             "email": email
         ]
         
-        network.makePostAPICall(path: path, httpMethod: "POST", params: params, onSuccess: onSuccess, onError: onError)
+        network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
     static func updateProfile(firstName: String,
@@ -70,6 +70,26 @@ class APIClient {
             "email": email
         ]
         
-        network.makePostAPICall(path: path, httpMethod: "PATCH", params: params, onSuccess: onSuccess, onError: onError)
+        network.makeAPICall(path: path, httpMethod: .patch, params: params, onSuccess: onSuccess, onError: onError)
+    }
+    
+    static func getPosts(onSuccess: @escaping (PostsResponse?) -> Void,
+                         onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/posts"
+        
+        network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
+    }
+    
+    static func addPost(text: String,
+                        onSuccess: @escaping (AddPostResponse?) -> Void,
+                        onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/posts"
+        let params: NSDictionary = [
+            "text": text
+        ]
+        
+        network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
 }

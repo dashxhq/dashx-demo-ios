@@ -17,7 +17,6 @@ class MoreItemsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupThemedNavigationBar()
         
         screenItems = [
             (title: "Billing", action: { return }),
@@ -29,6 +28,16 @@ class MoreItemsViewController: UIViewController {
         // Setup tableview
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    // MARK: ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
     
     func goToUpdateProfileScreen() {

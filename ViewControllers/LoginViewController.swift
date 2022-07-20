@@ -38,9 +38,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
-        setupThemedNavigationBar()
-        
         formUtils = FormUtils(fields: [emailField, passwordField, loginButton])
+    }
+    
+    // MARK: ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
     
     // MARK: Actions
@@ -98,7 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     func goToTabBarScreen() {
-        let tabBarVC = UIViewController.instance(of: "TabBarController")
+        let tabBarVC = UIViewController.instance(of: MainTabBarController.identifier)
         let navVC = UINavigationController(rootViewController: tabBarVC)
         UIApplication.shared.windows.first?.rootViewController = navVC
         UIApplication.shared.windows.first?.makeKeyAndVisible()

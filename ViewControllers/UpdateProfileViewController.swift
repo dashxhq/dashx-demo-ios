@@ -49,6 +49,11 @@ class UpdateProfileViewController: UIViewController {
         formUtils = FormUtils(fields: [firstNameField, lastNameField, emailField, updateProfileButton])
     }
     
+    // MARK: TraitCollectionDidChange
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
+    }
+    
     func populateProfileData() {
         if let localUser = LocalStorage.instance.getUser() {
             firstNameField.text = localUser.firstName

@@ -32,9 +32,18 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
-        setupThemedNavigationBar()
-        
         formUtils = FormUtils(fields: [emailField, forgotPasswordButton])
+    }
+    
+    // MARK: ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
+    }
+    
+    // MARK: TraitCollectionDidChange
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
     
     // MARK: Actions

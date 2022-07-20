@@ -7,7 +7,9 @@
 
 import Foundation
 
-// MARK: Network Responses
+// MARK: -  Network Responses
+
+// MARK: - LoginResponse
 struct LoginResponse: Codable {
     var message: String?
     var token: String?
@@ -48,10 +50,43 @@ struct LoginResponse: Codable {
     }
 }
 
+// MARK: - UpdateProfileResponse
 struct UpdateProfileResponse: Codable {
     var user: User?
 }
 
+// MARK: - PostsResponse
+struct PostsResponse: Codable {
+    let posts: [Post]
+}
+
+// MARK: - AddPostResponse
+struct AddPostResponse: Codable {
+    let message: String
+    let post: Post
+}
+
+// MARK: - Post
+struct Post: Codable {
+    let id, userID: Int
+    let text: String
+    // MARK: Type isn't defined, always null
+//    let image, video: Type Don't know?
+    let createdAt, updatedAt: String
+    let user: User
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userID = "user_id"
+        case text
+//        case image, video
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case user
+    }
+}
+
+// MARK: - JWTTokenContent
 struct JWTTokenContent: Codable {
 //    // Define key mapping with JSON
     enum CodingKeys: String, CodingKey {
@@ -65,14 +100,18 @@ struct JWTTokenContent: Codable {
     var exp: Int?
 }
 
+// MARK: - ErrorResponse
 struct ErrorResponse: Codable {
     var message: String?
 }
 
+// MARK: - MessageResponse
 // Used for responses with only "message" field e.g. signup / forgot password
 typealias MessageResponse = ErrorResponse
 
 // MARK: Business Data Models
+
+// MARK: - User
 struct User: Codable {
     enum CodingKeys: String, CodingKey {
         case id, email
@@ -84,4 +123,13 @@ struct User: Codable {
     var firstName: String?
     var lastName: String?
     var email: String?
+    
+    var name: String {
+        var temp = firstName ?? ""
+        if firstName != nil {
+            temp = temp + " "
+        }
+        temp = temp + (lastName ?? "")
+        return temp
+    }
 }

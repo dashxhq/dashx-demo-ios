@@ -8,5 +8,15 @@
 import UIKit
 
 class MoreScreenTableViewCell: UITableViewCell {
-    @IBOutlet var titleLabel: UILabel!    
+    static let idenitifier = "MoreScreenTableViewCell"
+    
+    @IBOutlet var titleLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

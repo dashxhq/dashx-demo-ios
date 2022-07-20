@@ -7,6 +7,14 @@
 
 import Foundation
 
+enum HttpMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case patch = "PATCH"
+    case delete = "DELETE"
+    case put = "PUT"
+}
+
 class NetworkError {
     var statusCode: Int!
     var code: String?
@@ -31,9 +39,9 @@ class NetworkUtils {
         return URL(string: self.baseURL + path)
     }
     
-    private func getURLRequest(httpMethod: String,
+    private func getURLRequest(httpMethod: HttpMethod,
                                url: URL,
-                               params: NSDictionary) -> URLRequest? {
+                               params: NSDictionary? = nil) -> URLRequest? {
         var request =  URLRequest(url: url)
         
         // Set bearer authentication header
@@ -41,23 +49,25 @@ class NetworkUtils {
             request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         
-        request.httpMethod = httpMethod
+        request.httpMethod = httpMethod.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: params,
-                                                         options: .prettyPrinted) else { return nil }
-        request.httpBody = httpBody
+        if let params = params {
+            guard let httpBody = try? JSONSerialization.data(withJSONObject: params,
+                                                             options: .prettyPrinted) else { return nil }
+            request.httpBody = httpBody
+        }
         return request
     }
-
-    func makePostAPICall<T: Decodable>(path: String,
-                                       httpMethod: String = "POST",
-                                       params: NSDictionary,
-                                       onSuccess: @escaping (T?) -> Void,
-                                       onError: @escaping (NetworkError) -> Void) {
+    
+    func makeAPICall<T: Decodable>(path: String,
+                                   httpMethod: HttpMethod = .post,
+                                   params: NSDictionary? = nil,
+                                   onSuccess: @escaping (T?) -> Void,
+                                   onError: @escaping (NetworkError) -> Void) {
         
         if let url = self.getURL(atPath: path),
-            let request = getURLRequest(httpMethod: httpMethod, url: url, params: params) {
+           let request = getURLRequest(httpMethod: httpMethod, url: url, params: params) {
          
             let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
               if let error = error {

@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupThemedNavigationBar()
         
         do {
             print("Sending event to DashX")
@@ -23,5 +22,11 @@ class HomeViewController: UIViewController {
         } catch {
             print("DashXError: \(error)")
         }
+    }
+    
+    // MARK: ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
 }

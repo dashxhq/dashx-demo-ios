@@ -54,6 +54,11 @@ class RegisterViewController: UIViewController {
         formUtils = FormUtils(fields: [firstNameField, lastNameField, emailField, passwordField, registerButton])
     }
     
+    // MARK: TraitCollectionDidChange
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
+    }
+    
     // MARK: Actions
     @IBAction func onClickRegister(_ sender: UIButton) {
         performRegistration()

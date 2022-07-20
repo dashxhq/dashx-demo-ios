@@ -29,8 +29,18 @@ platform :ios do
   end
   
   desc "Upload to App Store"
-  lane :upload_to_appstore do
-    deliver
+  lane :release do
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "DashX Demo.xcodeproj"
+    )
+    gym(scheme: "DashX Demo",
+	configuration:"Release",
+        export_options: {
+                method: "app-store",
+                provisioningProfiles: {"com.dashxdemo.app"=>"DashX AppStore"}
+    })
+  upload_to_testflight(skip_waiting_for_build_processing: true, skip_submission: true)
   end
   
   desc "Upload to AppCenter"

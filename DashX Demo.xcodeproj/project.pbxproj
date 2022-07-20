@@ -10,7 +10,6 @@
 		3D25EEA1286D5BAD0096A79C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D25EEA0286D5BAD0096A79C /* Podfile */; };
 		3D25EEA3286D5E2C0096A79C /* DashXUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */; };
 		3D809F04287B0C5E00679C40 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */; };
-		3D809F06287B1A3100679C40 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D809F05287B1A3100679C40 /* PostsListViewController.swift */; };
 		3D9821F8286AB85800549F7C /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821F7286AB85800549F7C /* LocalStorage.swift */; };
 		3D9821FC286B103300549F7C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821FB286B103300549F7C /* Models.swift */; };
 		3D9821FE286C0A5400549F7C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821FD286C0A5400549F7C /* ForgotPasswordViewController.swift */; };
@@ -20,7 +19,6 @@
 		3DAF6A2E28769AA5007A29CD /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2B28769AA4007A29CD /* Gemfile */; };
 		3DAF6A2F28769AA5007A29CD /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2C28769AA5007A29CD /* fastlane */; };
 		3DAF6A3028769AA5007A29CD /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2D28769AA5007A29CD /* Gemfile.lock */; };
-		3DC92CD2287D9DA700BA25F7 /* PostsListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC92CD1287D9DA700BA25F7 /* PostsListItemTableViewCell.swift */; };
 		3DE983E6286F1BAC00C615AB /* MoreItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */; };
 		3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */; };
 		659A10192DA2623613BBBB2F /* Pods_DashX_Demo_DashX_DemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9BD4AA7BDA9BD372761F9D0 /* Pods_DashX_Demo_DashX_DemoUITests.framework */; };
@@ -35,6 +33,11 @@
 		ED4799522864B01300EABFD7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799512864B01300EABFD7 /* HomeViewController.swift */; };
 		ED4799552864B21900EABFD7 /* ViewController+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799542864B21900EABFD7 /* ViewController+DashX.swift */; };
 		ED4799582864BC0100EABFD7 /* String+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799572864BC0000EABFD7 /* String+DashX.swift */; };
+		ED4884152881144F00F8F07A /* PostsListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */; };
+		ED48841728812A4B00F8F07A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841628812A4B00F8F07A /* MainTabBarController.swift */; };
+		ED4884192881579400F8F07A /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4884182881579400F8F07A /* LoadingTableViewCell.swift */; };
+		ED48841B288175D900F8F07A /* UIApplication+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841A288175D900F8F07A /* UIApplication+DashX.swift */; };
+		EDA899AF28801F3500561530 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA899AE28801F3500561530 /* PostsListViewController.swift */; };
 		F7D2DC2FA7E4C95C810B28F3 /* Pods_DashX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +63,6 @@
 		3D25EEA0286D5BAD0096A79C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashXUtils.swift; sourceTree = "<group>"; };
 		3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
-		3D809F05287B1A3100679C40 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
 		3D9821F7286AB85800549F7C /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		3D9821FB286B103300549F7C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		3D9821FD286C0A5400549F7C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 		3DAF6A2B28769AA4007A29CD /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		3DAF6A2C28769AA5007A29CD /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		3DAF6A2D28769AA5007A29CD /* Gemfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
-		3DC92CD1287D9DA700BA25F7 /* PostsListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListItemTableViewCell.swift; sourceTree = "<group>"; };
 		3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreItemsViewController.swift; sourceTree = "<group>"; };
 		3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreScreenTableViewCell.swift; sourceTree = "<group>"; };
 		467963F08C04D648EBE3A592 /* Pods-DashX Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashX Demo.debug.xcconfig"; path = "Target Support Files/Pods-DashX Demo/Pods-DashX Demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +96,11 @@
 		ED4799512864B01300EABFD7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ED4799542864B21900EABFD7 /* ViewController+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DashX.swift"; sourceTree = "<group>"; };
 		ED4799572864BC0000EABFD7 /* String+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DashX.swift"; sourceTree = "<group>"; };
+		ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListItemTableViewCell.swift; sourceTree = "<group>"; };
+		ED48841628812A4B00F8F07A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		ED4884182881579400F8F07A /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		ED48841A288175D900F8F07A /* UIApplication+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+DashX.swift"; sourceTree = "<group>"; };
+		EDA899AE28801F3500561530 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */,
-				3DC92CD1287D9DA700BA25F7 /* PostsListItemTableViewCell.swift */,
+				ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */,
+				ED4884182881579400F8F07A /* LoadingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,12 +202,13 @@
 			isa = PBXGroup;
 			children = (
 				ED2AF11E286484F400374BD3 /* LoginViewController.swift */,
+				ED48841628812A4B00F8F07A /* MainTabBarController.swift */,
 				ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */,
 				ED4799512864B01300EABFD7 /* HomeViewController.swift */,
 				3D9821FD286C0A5400549F7C /* ForgotPasswordViewController.swift */,
 				3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */,
 				3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */,
-				3D809F05287B1A3100679C40 /* PostsListViewController.swift */,
+				EDA899AE28801F3500561530 /* PostsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				3D9C0EE2286598DF00638BF2 /* FormUtils.swift */,
 				3D9821F7286AB85800549F7C /* LocalStorage.swift */,
 				3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */,
+				ED48841A288175D900F8F07A /* UIApplication+DashX.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,7 +239,7 @@
 				ED2AF0E82864833800374BD3 /* Frameworks */,
 				ED2AF0E92864833800374BD3 /* Resources */,
 				3D9821F52869B8B300549F7C /* ShellScript */,
-				0EC9F42DF11AA96F1A427A05 /* [CP] Embed Pods Frameworks */,
+				530EC671C493BFED85C58944 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -268,7 +277,7 @@
 				ED2AF1072864833A00374BD3 /* Sources */,
 				ED2AF1082864833A00374BD3 /* Frameworks */,
 				ED2AF1092864833A00374BD3 /* Resources */,
-				69E05E98F495889AAAD79FC0 /* [CP] Embed Pods Frameworks */,
+				8AA8D58571C3152056A976D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -357,23 +366,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0EC9F42DF11AA96F1A427A05 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1B0659BDA152699CF94D3B5A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,21 +427,21 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		69E05E98F495889AAAD79FC0 /* [CP] Embed Pods Frameworks */ = {
+		530EC671C493BFED85C58944 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7540C5F1B1BD747A54753009 /* [CP] Check Pods Manifest.lock */ = {
@@ -474,6 +466,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8AA8D58571C3152056A976D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DashX Demo-DashX DemoUITests/Pods-DashX Demo-DashX DemoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -483,23 +492,26 @@
 			files = (
 				3D9821F8286AB85800549F7C /* LocalStorage.swift in Sources */,
 				3D9C0EDF2865847A00638BF2 /* NetworkUtils.swift in Sources */,
+				ED48841728812A4B00F8F07A /* MainTabBarController.swift in Sources */,
 				ED4799582864BC0100EABFD7 /* String+DashX.swift in Sources */,
 				3D9821FC286B103300549F7C /* Models.swift in Sources */,
+				ED48841B288175D900F8F07A /* UIApplication+DashX.swift in Sources */,
 				3D9C0EE1286584C900638BF2 /* APIClient.swift in Sources */,
 				ED2AF11F286484F400374BD3 /* LoginViewController.swift in Sources */,
 				ED2AF0EF2864833800374BD3 /* AppDelegate.swift in Sources */,
+				EDA899AF28801F3500561530 /* PostsListViewController.swift in Sources */,
 				3D9C0EE3286598DF00638BF2 /* FormUtils.swift in Sources */,
-				3D809F06287B1A3100679C40 /* PostsListViewController.swift in Sources */,
 				ED4799552864B21900EABFD7 /* ViewController+DashX.swift in Sources */,
 				3DE983E6286F1BAC00C615AB /* MoreItemsViewController.swift in Sources */,
 				ED4799522864B01300EABFD7 /* HomeViewController.swift in Sources */,
 				3D9821FE286C0A5400549F7C /* ForgotPasswordViewController.swift in Sources */,
 				3D809F04287B0C5E00679C40 /* UpdateProfileViewController.swift in Sources */,
+				ED4884152881144F00F8F07A /* PostsListItemTableViewCell.swift in Sources */,
 				ED2AF0F12864833800374BD3 /* SceneDelegate.swift in Sources */,
 				3D25EEA3286D5E2C0096A79C /* DashXUtils.swift in Sources */,
+				ED4884192881579400F8F07A /* LoadingTableViewCell.swift in Sources */,
 				3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */,
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,
-				3DC92CD2287D9DA700BA25F7 /* PostsListItemTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,9 +686,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
@@ -691,9 +703,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dashx.demoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashxdemo.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "DashX AppStore";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -706,9 +718,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
@@ -723,9 +735,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dashx.demoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashxdemo.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "DashX AppStore";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -738,7 +750,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -758,7 +770,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -777,7 +789,7 @@
 			baseConfigurationReference = 6775E11ECEA6C961565A97BA /* Pods-DashX Demo-DashX DemoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -795,7 +807,7 @@
 			baseConfigurationReference = 4EE518A63930D6B27C414750 /* Pods-DashX Demo-DashX DemoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
