@@ -66,6 +66,9 @@ class PostsListViewController: UIViewController {
     var isAddPostLoading = false
     var isAddPostScreenVisible = false
     var rightBarButton: UIBarButtonItem!
+    var isMessageTextViewNotEdited: Bool {
+        (messageTextView.textColor == UIColor.white.withAlphaComponent(0.3)) || (messageTextView.textColor == UIColor.black.withAlphaComponent(0.3))
+    }
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -165,8 +168,9 @@ class PostsListViewController: UIViewController {
                 self.postButton.titleLabel?.text = "Posted"
                 self.messageTextView.isEditable = true
                 self.isAddPostLoading = false
-                self.dismissAndClearAddPostView()
-                // TODO: Show success banner
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                    self.dismissAndClearAddPostView()
+                }
                 self.fetchPosts()
             }
         } onError: { [weak self] networkError in
@@ -202,14 +206,12 @@ class PostsListViewController: UIViewController {
         postButton.isEnabled = false
     }
     
-    func validatePostButton() {
-        postButton.isEnabled = (messageTextView.text.isEmpty ? false : true)
-    }
-    
     func validatePostMessageTextView() {
         if messageTextView.text.isEmpty {
+            postButton.isEnabled = false
             showAddPostError("Text is required!")
         } else {
+            postButton.isEnabled = true
             hideAddPostError()
         }
     }
@@ -240,7 +242,9 @@ class PostsListViewController: UIViewController {
     }
     
     func removePlaceholderTextForMessageTextView() {
-        messageTextView.text = ""
+        if isMessageTextViewNotEdited {
+            messageTextView.text = ""
+        }
         messageTextView.textColor = (traitCollection.userInterfaceStyle == .dark) ? UIColor.white : UIColor.black
     }
 }
@@ -285,7 +289,6 @@ extension PostsListViewController: UITextViewDelegate {
         guard textView == messageTextView else { return }
         DispatchQueue.main.async {
             self.validatePostMessageTextView()
-            self.validatePostButton()
         }
     }
     
@@ -293,7 +296,6 @@ extension PostsListViewController: UITextViewDelegate {
         guard textView == messageTextView else { return }
         DispatchQueue.main.async {
             self.validatePostMessageTextView()
-            self.validatePostButton()
         }
     }
 }

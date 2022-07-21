@@ -31,6 +31,18 @@ class LoginViewController: UIViewController {
             loginButton.setTitleColor(UIColor.white.withAlphaComponent(0.75), for: UIControl.State.disabled)
         }
     }
+    @IBOutlet weak var registerButton: UIButton! {
+        didSet {
+            registerButton.titleLabel?.textColor = UIColor(named: "primaryColor")
+            registerButton.layer.borderColor = UIColor(named: "primaryColor")?.cgColor
+            registerButton.layer.borderWidth = 1
+        }
+    }
+    @IBOutlet weak var contactUsButton: UIButton! {
+        didSet {
+            contactUsButton.titleLabel?.textColor = UIColor(named: "primaryColor")
+        }
+    }
     
     private var formUtils: FormUtils!
     
@@ -60,6 +72,11 @@ class LoginViewController: UIViewController {
     @IBAction func onClickForgotPassword(_ sender: UIButton) {
         let forgotPasswordVC = UIViewController.instance(of: ForgotPasswordViewController.identifier)
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+    }
+    
+    @IBAction func onClickContactUs(_ sender: UIButton) {
+        let contactUsVC = UIViewController.instance(of: ContactUsViewController.identifier)
+        self.navigationController?.pushViewController(contactUsVC, animated: true)
     }
     
     func performLogin() {

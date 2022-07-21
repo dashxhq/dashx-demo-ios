@@ -43,6 +43,13 @@ class RegisterViewController: UIViewController {
             registerButton.setTitleColor(UIColor.white.withAlphaComponent(0.75), for: UIControl.State.disabled)
         }
     }
+    @IBOutlet weak var loginButton: UIButton! {
+        didSet {
+            loginButton.titleLabel?.textColor = UIColor(named: "primaryColor")
+            loginButton.layer.borderColor = UIColor(named: "primaryColor")?.cgColor
+            loginButton.layer.borderWidth = 1
+        }
+    }
     
     private var formUtils: FormUtils!
     

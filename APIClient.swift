@@ -92,4 +92,20 @@ class APIClient {
         
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
+    
+    static func contactUs(name: String,
+                          email: String,
+                          feedback: String,
+                          onSuccess: @escaping (ContactUsResponse?) -> Void,
+                          onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/contact"
+        let params: NSDictionary = [
+            "name": name,
+            "email": email,
+            "feedback" : feedback
+        ]
+        
+        network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
+    }
 }

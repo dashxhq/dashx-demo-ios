@@ -105,6 +105,11 @@ struct ErrorResponse: Codable {
     var message: String?
 }
 
+// MARK: - ContactUsResponse
+struct ContactUsResponse: Codable {
+    var message: String
+}
+
 // MARK: - MessageResponse
 // Used for responses with only "message" field e.g. signup / forgot password
 typealias MessageResponse = ErrorResponse
