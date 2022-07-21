@@ -141,7 +141,7 @@ class PostsListViewController: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.isPostsLoading = false
-                self.posts = data?.posts.map { Post(userName: $0.user.name, createdDate: $0.createdAt, message: $0.text) } ?? []
+                self.posts = data?.posts.map { Post(userName: $0.user.name, createdDate: $0.createdAt.postedDate(), message: $0.text) } ?? []
                 self.noPostsPlaceholderView.isHidden = (self.posts.isEmpty ? false : true)
                 self.hideFetchPostsError()
                 self.postsTableView.reloadData()
