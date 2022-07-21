@@ -108,4 +108,21 @@ class APIClient {
         
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
+    
+    static func getBookmarks(onSuccess: @escaping (ContactUsResponse?) -> Void,
+                             onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/posts/bookmarked"
+        
+        network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
+    }
+    
+    static func toggleBookmark(postId: Int,
+                               onSuccess: @escaping (NoResponse?) -> Void,
+                               onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/posts/\(postId)/toggle-bookmark"
+        
+        network.makeAPICall(path: path, httpMethod: .put, onSuccess: onSuccess, onError: onError)
+    }
 }

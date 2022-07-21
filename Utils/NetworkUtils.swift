@@ -79,6 +79,9 @@ class NetworkUtils {
             let httpResponse = response as? HTTPURLResponse
                 
             if (200...299).contains(httpResponse?.statusCode ?? 0) {
+                if httpResponse?.statusCode == 204 {
+                    onSuccess(NoResponse() as? T)
+                }
                 let decodedModel = try? JSONDecoder().decode(T.self, from: data!)
                 onSuccess(decodedModel)
             } else {

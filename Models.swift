@@ -71,17 +71,22 @@ struct Post: Codable {
     let id, userID: Int
     let text: String
     // MARK: Type isn't defined, always null
-//    let image, video: Type Don't know?
+    // let image, video: Type Don't know?
     let createdAt, updatedAt: String
+    let bookmarkedAt: String?
     let user: User
-
+    var isBookmarked: Bool {
+        bookmarkedAt != nil
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case userID = "user_id"
         case text
-//        case image, video
+        // case image, video
         case createdAt = "created_at"
         case updatedAt = "updated_at"
+        case bookmarkedAt = "bookmarked_at"
         case user
     }
 }
@@ -108,6 +113,41 @@ struct ErrorResponse: Codable {
 // MARK: - ContactUsResponse
 struct ContactUsResponse: Codable {
     var message: String
+}
+
+// MARK: - BookMarksResponse
+struct BookMarksResponse: Codable {
+    let message: String
+    let bookmarks: [Bookmark]
+}
+
+// MARK: - NoResponse
+struct NoResponse: Codable {
+    init() { }
+}
+
+// MARK: - Bookmark
+struct Bookmark: Codable {
+    let id, userID: Int
+    let text: String
+    // MARK: Type isn't defined, always null
+    // let image, video: Type Don't know?
+    let createdAt, updatedAt: String
+    let bookmarkID: Int
+    let bookmarkedAt: String
+    let user: User
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userID = "user_id"
+        case text
+        // case image, video
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+        case bookmarkID = "bookmark_id"
+        case bookmarkedAt = "bookmarked_at"
+        case user
+    }
 }
 
 // MARK: - MessageResponse
