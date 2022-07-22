@@ -178,3 +178,26 @@ struct User: Codable {
         return temp
     }
 }
+
+// MARK: - FetchStoredPreferencesResponse
+struct FetchStoredPreferencesResponse: Codable {
+    let preferenceData: PreferenceData
+}
+
+struct PreferenceData: Codable {
+    let newBookMark: [String : Bool]
+    let newPost: [String: Bool]
+    
+    var newBookMarkNotificationEnabled: Bool {
+        newBookMark["enabled"] ?? false
+    }
+    
+    var newPostNotificationEnabled: Bool {
+        newPost["enabled"] ?? false
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case newBookMark = "new-bookmark"
+        case newPost = "new-post"
+    }
+}

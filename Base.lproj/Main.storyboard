@@ -627,6 +627,65 @@
             </objects>
             <point key="canvasLocation" x="1672" y="84"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Dbv-lK-tET">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uBm-9j-fWv" customClass="SettingsViewController" customModule="DashX_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xao-4P-Pb9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xML-0P-wV9">
+                                <rect key="frame" x="20" y="84" width="374" height="82"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-1K-VRh">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When someone creates a post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8i-sW-h6V">
+                                                <rect key="frame" x="0.0" y="5.5" width="305" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cce-v4-wcg">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2k4-Yi-W2h">
+                                        <rect key="frame" x="0.0" y="51" width="374" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When someone bookmarks your post" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-KZ-m0B">
+                                                <rect key="frame" x="0.0" y="5.5" width="305" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kG9-VB-h3s">
+                                                <rect key="frame" x="325" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CGk-nk-EV8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xML-0P-wV9" firstAttribute="top" secondItem="CGk-nk-EV8" secondAttribute="top" constant="40" id="Vp1-ZU-ZGW"/>
+                            <constraint firstItem="xML-0P-wV9" firstAttribute="leading" secondItem="CGk-nk-EV8" secondAttribute="leading" constant="20" id="h4A-in-sOE"/>
+                            <constraint firstItem="CGk-nk-EV8" firstAttribute="trailing" secondItem="xML-0P-wV9" secondAttribute="trailing" constant="20" id="oSv-ZR-GHL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="someOneBookmarksYourPostSwitch" destination="kG9-VB-h3s" id="b0V-44-Zqf"/>
+                        <outlet property="someOneCreatesAPostSwitch" destination="cce-v4-wcg" id="fQu-u4-hFR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RCw-Xi-WCq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2481" y="84"/>
+        </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="Yvt-1L-b4j">
             <objects>

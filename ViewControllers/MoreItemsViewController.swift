@@ -21,8 +21,8 @@ class MoreItemsViewController: UIViewController {
         screenItems = [
             (title: "Billing", action: { return }),
             (title: "Profile", action: goToUpdateProfileScreen),
-            (title: "Settings", action: { return }),
-            (title: "Logout", action: performLogout)
+            (title: "Settings", action: goToSettingsScreen),
+            (title: "Logout", action: showAlertToLogoutConfirmation)
         ]
         
         // Setup tableview
@@ -43,6 +43,24 @@ class MoreItemsViewController: UIViewController {
     func goToUpdateProfileScreen() {
         let updateProfileVC = UIViewController.instance(of: UpdateProfileViewController.identifier)
         self.navigationController?.pushViewController(updateProfileVC, animated: true)
+    }
+    
+    func goToSettingsScreen() {
+        let settingsVC = UIViewController.instance(of: SettingsViewController.identifier)
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    func showAlertToLogoutConfirmation() {
+        let logoutConfirmationAlert = UIAlertController(title: "Confirm Logout", message: "Please confirm you are logging out", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            logoutConfirmationAlert.dismiss(animated: true)
+        })
+        let logoutAction = UIAlertAction(title: "Okay", style: .destructive, handler: { _ in
+            self.performLogout()
+        })
+        logoutConfirmationAlert.addAction(cancelAction)
+        logoutConfirmationAlert.addAction(logoutAction)
+        self.present(logoutConfirmationAlert, animated: true)
     }
     
     func performLogout() {

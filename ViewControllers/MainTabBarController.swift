@@ -14,6 +14,8 @@ class MainTabBarController: UITabBarController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        DashXUtils.trackEventClient()
+        DashXUtils.client1.track("TestEventFromiOSApp")
     }
     
 }
