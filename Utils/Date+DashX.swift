@@ -48,7 +48,7 @@ extension Date {
             if Int(hrs) == 1 && remainingSeconds < Date.minute {
                 return "a hour ago"
             }
-            return (remainingSeconds >= Date.minute) ? "\(Int(hour) + 1) hours ago" : "\(Int(hour) + 1) hours ago"
+            return (remainingSeconds >= Date.minute) ? "\(Int(hrs) + 1) hours ago" : "\(Int(hrs) + 1) hours ago"
         }
         
         let days = Int(secondsDiffered / Date.day)
