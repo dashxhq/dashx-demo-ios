@@ -177,4 +177,27 @@ struct User: Codable {
         temp = temp + (lastName ?? "")
         return temp
     }
+    
+    var idString: String? {
+        id == nil ? nil : String(id!)
+    }
+}
+
+// MARK: - PreferenceDataResponse
+struct PreferenceDataResponse: Codable {
+    let newBookMark: [String : Bool]
+    let newPost: [String: Bool]
+    
+    var newBookMarkNotificationEnabled: Bool {
+        newBookMark["enabled"] ?? false
+    }
+    
+    var newPostNotificationEnabled: Bool {
+        newPost["enabled"] ?? false
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case newBookMark = "new-bookmark"
+        case newPost = "new-post"
+    }
 }
