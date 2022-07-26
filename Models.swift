@@ -177,6 +177,10 @@ struct User: Codable {
         temp = temp + (lastName ?? "")
         return temp
     }
+    
+    var idString: String? {
+        id == nil ? nil : String(id!)
+    }
 }
 
 // MARK: - PreferenceDataResponse

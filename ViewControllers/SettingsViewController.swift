@@ -125,7 +125,7 @@ class SettingsViewController: UIViewController {
                         self.showError(with: error.localizedDescription)
                     }
                 } else {
-                    self.showError(with: "Stored preferences response is empty")
+                    self.showError(with: "Stored preferences response is empty.")
                 }
                 self.isPreferencesLoading = false
             }
@@ -156,9 +156,9 @@ class SettingsViewController: UIViewController {
                     if let success = jsonDictionary["success"] as? Bool, success {
                         self.newBookMarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
                         self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
-                        // Show success
+                        self.showSuccess(with: "Preferences saved.")
                     } else {
-                        self.showError(with: "Save stored preferences response is empty")
+                        self.showError(with: "Save stored preferences response is empty.")
                     }
                 }
                 self.setButtonsState(isHidden: true)

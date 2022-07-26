@@ -25,13 +25,13 @@ class DashXUtils {
     
     static func performIdentify(user: User) {
         let userDetails: NSDictionary = [
-            "uid": user.id == nil ? "" : String(user.id!),
-            "email": user.email == nil ? "" :  user.email!,
+            "uid": user.idString as Any,
+            "email": user.email as Any,
             "name": user.name,
-            "firstName": user.firstName == nil ? "" : user.firstName!,
-            "lastName": user.lastName == nil ? "" : user.lastName!
+            "firstName": user.firstName as Any,
+            "lastName": user.lastName as Any
         ]
-        client1.setAccountUid(with: user.id == nil ? "" : String(user.id!))
+        client1.setIdentity(uid: user.idString)
         do {
             try client1.identify(withOptions: userDetails)
         } catch {

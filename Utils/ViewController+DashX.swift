@@ -52,4 +52,9 @@ extension UIViewController {
         self.present(errorAlertVC, animated: true)
     }
     
+    func showSuccess(with message: String) {
+        let successAlertVC = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
+        successAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in successAlertVC.dismiss(animated: true)}))
+        self.present(successAlertVC, animated: true)
+    }
 }
