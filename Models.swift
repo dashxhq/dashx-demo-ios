@@ -179,12 +179,8 @@ struct User: Codable {
     }
 }
 
-// MARK: - FetchStoredPreferencesResponse
-struct FetchStoredPreferencesResponse: Codable {
-    let preferenceData: PreferenceData
-}
-
-struct PreferenceData: Codable {
+// MARK: - PreferenceDataResponse
+struct PreferenceDataResponse: Codable {
     let newBookMark: [String : Bool]
     let newPost: [String: Bool]
     

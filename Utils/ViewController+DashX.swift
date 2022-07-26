@@ -24,4 +24,32 @@ extension UIViewController {
         self.navigationController?.navigationBar.isTranslucent = isTranslucent
     }
     
+    func showProgressView() {
+        let progressView = ProgressView.init(frame: .zero)
+        progressView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(progressView)
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint(item: progressView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: progressView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: progressView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: progressView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0)
+        ])
+        self.view.bringSubviewToFront(progressView)
+    }
+    
+    func hideProgressView() {
+        for subView in self.view.subviews {
+            if subView.isKind(of: ProgressView.self) {
+                subView.isHidden = true
+                subView.removeFromSuperview()
+            }
+        }
+    }
+    
+    func showError(with message: String) {
+        let errorAlertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        errorAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in errorAlertVC.dismiss(animated: true)}))
+        self.present(errorAlertVC, animated: true)
+    }
+    
 }

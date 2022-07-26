@@ -24,15 +24,16 @@ class DashXUtils {
     }
     
     static func performIdentify(user: User) {
-        let userDetails: [String: Any] = [
+        let userDetails: NSDictionary = [
             "uid": user.id == nil ? "" : String(user.id!),
             "email": user.email == nil ? "" :  user.email!,
             "name": user.name,
             "firstName": user.firstName == nil ? "" : user.firstName!,
             "lastName": user.lastName == nil ? "" : user.lastName!
         ]
+        client1.setAccountUid(with: user.id == nil ? "" : String(user.id!))
         do {
-            try client1.identify(user.id == nil ? "" : String(user.id!), withOptions: userDetails as NSDictionary)
+            try client1.identify(withOptions: userDetails)
         } catch {
             print("Error: \(error)")
         }

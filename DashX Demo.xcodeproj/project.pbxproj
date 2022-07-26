@@ -40,6 +40,7 @@
 		EDAC2D1E288993090082CD01 /* DateFormatter+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */; };
 		EDAC2D20288994200082CD01 /* Date+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1F288994200082CD01 /* Date+DashX.swift */; };
 		EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */; };
+		EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC40D4D288F0D180075F470 /* ProgressView.swift */; };
 		EDED11A828890C700003B262 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED11A728890C700003B262 /* ContactUsViewController.swift */; };
 		F7D2DC2FA7E4C95C810B28F3 /* Pods_DashX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+DashX.swift"; sourceTree = "<group>"; };
 		EDAC2D1F288994200082CD01 /* Date+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DashX.swift"; sourceTree = "<group>"; };
 		EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EDC40D4D288F0D180075F470 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		EDED11A728890C700003B262 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 				3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */,
 				ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */,
 				ED4884182881579400F8F07A /* LoadingTableViewCell.swift */,
+				EDC40D4D288F0D180075F470 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */,
 				3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */,
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,
+				EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
