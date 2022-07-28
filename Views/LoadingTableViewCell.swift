@@ -10,6 +10,7 @@ import UIKit
 
 class LoadingTableViewCell: UITableViewCell {
     static let identifier = "LoadingTableViewCell"
+    static let nib = UINib(nibName: LoadingTableViewCell.identifier, bundle: nil)
     
     @IBOutlet weak var textLabl: UILabel!
     
