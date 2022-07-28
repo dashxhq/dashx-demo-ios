@@ -11,20 +11,6 @@ import UIKit
 class PostsListViewController: UIViewController {
     static let identifier = "PostsListViewController"
     
-    struct Post {
-        let userImage: String?
-        let userName: String
-        let createdDate: String
-        let message: String
-        
-        init(userImage: String? = nil, userName: String, createdDate: String, message: String) {
-            self.userImage = userImage
-            self.userName = userName
-            self.createdDate = createdDate
-            self.message = message
-        }
-    }
-    
     // MARK: Outlets
     @IBOutlet weak var fetchPostsErrorLabel: UILabel! {
         didSet {
@@ -61,6 +47,7 @@ class PostsListViewController: UIViewController {
         }
     }
     
+    typealias Post = PostsListItemTableViewCell.Post
     var posts: [Post] = []
     var isPostsLoading = false
     var isAddPostLoading = false
@@ -131,17 +118,19 @@ class PostsListViewController: UIViewController {
     func setUpTableView() {
         postsTableView.delegate = self
         postsTableView.dataSource = self
+        postsTableView.register(PostsListItemTableViewCell.nib, forCellReuseIdentifier: PostsListItemTableViewCell.identifier)
+        postsTableView.register(LoadingTableViewCell.nib, forCellReuseIdentifier: LoadingTableViewCell.identifier)
     }
     
     func fetchPosts() {
         isPostsLoading = true
         postsTableView.reloadData()
         
-        APIClient.getPosts{ [weak self] data in
+        APIClient.getPosts { [weak self] data in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.isPostsLoading = false
-                self.posts = data?.posts.map { Post(userName: $0.user.name, createdDate: $0.createdAt.postedDate(), message: $0.text) } ?? []
+                self.posts = data?.posts.map { Post(id: $0.id, userName: $0.user.name, createdDate: $0.createdAt.postedDate(), message: $0.text, isBookmarked: $0.isBookmarked) } ?? []
                 self.noPostsPlaceholderView.isHidden = (self.posts.isEmpty ? false : true)
                 self.hideFetchPostsError()
                 self.postsTableView.reloadData()
@@ -151,6 +140,7 @@ class PostsListViewController: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.isPostsLoading = false
+                self.postsTableView.reloadData()
                 self.noPostsPlaceholderView.isHidden = true
                 self.showFetchPostsError(networkError.message)
             }
@@ -181,6 +171,21 @@ class PostsListViewController: UIViewController {
                 self.messageTextView.isEditable = true
                 self.isAddPostLoading = false
                 self.showAddPostError(networkError.message)
+            }
+        }
+    }
+    
+    func setBookmark(forPostWith index: Int) {
+        posts[index].isBookmarked.toggle()
+        postsTableView.reloadData()
+        APIClient.toggleBookmark(postId: posts[index].id) { response in
+            // Nothing to do
+        } onError: { [weak self] networkError in
+            print(networkError)
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.posts[index].isBookmarked.toggle()
+                self.postsTableView.reloadData()
             }
         }
     }
@@ -267,9 +272,13 @@ extension PostsListViewController: UITableViewDataSource {
         
         let cell: PostsListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostsListItemTableViewCell.identifier, for: indexPath) as! PostsListItemTableViewCell
         let rowData = posts[indexPath.row]
-        cell.userNameLabel.text = rowData.userName
-        cell.createdDateLabel.text = rowData.createdDate
-        cell.messageLabel.text = rowData.message
+        cell.setUpData(post: rowData)
+        cell.onClickBookmarkAction = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.setBookmark(forPostWith: indexPath.row)
+            }
+        }
         return cell
     }
 }

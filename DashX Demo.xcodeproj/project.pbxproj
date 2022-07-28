@@ -29,6 +29,9 @@
 		ED2AF0F82864833900374BD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F72864833900374BD3 /* Assets.xcassets */; };
 		ED2AF0FB2864833900374BD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F92864833900374BD3 /* LaunchScreen.storyboard */; };
 		ED2AF11F286484F400374BD3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF11E286484F400374BD3 /* LoginViewController.swift */; };
+		ED3EB080289233BB00FEB6EF /* PostsListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */; };
+		ED3EB082289234B500FEB6EF /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3EB081289234B500FEB6EF /* LoadingTableViewCell.xib */; };
+		ED3EB08428923B6000FEB6EF /* BookmarksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */; };
 		ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */; };
 		ED4799552864B21900EABFD7 /* ViewController+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799542864B21900EABFD7 /* ViewController+DashX.swift */; };
 		ED4799582864BC0100EABFD7 /* String+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799572864BC0000EABFD7 /* String+DashX.swift */; };
@@ -96,6 +99,9 @@
 		ED2AF1012864833A00374BD3 /* DashX DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DashX DemoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2AF10B2864833A00374BD3 /* DashX DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DashX DemoUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2AF11E286484F400374BD3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsListItemTableViewCell.xib; sourceTree = "<group>"; };
+		ED3EB081289234B500FEB6EF /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksListViewController.swift; sourceTree = "<group>"; };
 		ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		ED4799542864B21900EABFD7 /* ViewController+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DashX.swift"; sourceTree = "<group>"; };
 		ED4799572864BC0000EABFD7 /* String+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DashX.swift"; sourceTree = "<group>"; };
@@ -167,7 +173,9 @@
 			children = (
 				3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */,
 				ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */,
+				ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */,
 				ED4884182881579400F8F07A /* LoadingTableViewCell.swift */,
+				ED3EB081289234B500FEB6EF /* LoadingTableViewCell.xib */,
 				EDC40D4D288F0D180075F470 /* ProgressView.swift */,
 			);
 			path = Views;
@@ -218,6 +226,7 @@
 				3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */,
 				3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */,
 				EDA899AE28801F3500561530 /* PostsListViewController.swift */,
+				ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */,
 				EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -354,9 +363,11 @@
 				3DAF6A2F28769AA5007A29CD /* fastlane in Resources */,
 				ED2AF0FB2864833900374BD3 /* LaunchScreen.storyboard in Resources */,
 				3DAF6A3028769AA5007A29CD /* Gemfile.lock in Resources */,
+				ED3EB082289234B500FEB6EF /* LoadingTableViewCell.xib in Resources */,
 				ED2AF0F82864833900374BD3 /* Assets.xcassets in Resources */,
 				3DAF6A2E28769AA5007A29CD /* Gemfile in Resources */,
 				3D25EEA1286D5BAD0096A79C /* Podfile in Resources */,
+				ED3EB080289233BB00FEB6EF /* PostsListItemTableViewCell.xib in Resources */,
 				ED2AF0F62864833800374BD3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +538,7 @@
 				EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */,
 				3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */,
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,
+				ED3EB08428923B6000FEB6EF /* BookmarksListViewController.swift in Sources */,
 				EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

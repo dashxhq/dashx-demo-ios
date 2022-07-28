@@ -109,7 +109,7 @@ class APIClient {
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
-    static func getBookmarks(onSuccess: @escaping (ContactUsResponse?) -> Void,
+    static func getBookmarks(onSuccess: @escaping (PostsResponse?) -> Void,
                              onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/posts/bookmarked"
