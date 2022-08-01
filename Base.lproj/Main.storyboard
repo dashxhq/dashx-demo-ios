@@ -636,7 +636,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xML-0P-wV9">
-                                <rect key="frame" x="20" y="84" width="374" height="183"/>
+                                <rect key="frame" x="20" y="84" width="374" height="119"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tsg-1K-VRh">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="49.5"/>
@@ -688,40 +688,6 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="HQr-RJ-3jm">
-                                        <rect key="frame" x="0.0" y="139" width="374" height="44"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyU-Cc-OQh">
-                                                <rect key="frame" x="0.0" y="0.0" width="154" height="44"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdV-88-2GL">
-                                                <rect key="frame" x="184" y="0.0" width="80" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="08b-Iq-cp8"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
-                                                <connections>
-                                                    <action selector="onClickCancel:" destination="uBm-9j-fWv" eventType="touchUpInside" id="1Ds-yP-dlM"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-gJ-Nbu">
-                                                <rect key="frame" x="294" y="0.0" width="80" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="zso-bh-klU"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
-                                                <connections>
-                                                    <action selector="onClickSave:" destination="uBm-9j-fWv" eventType="touchUpInside" id="0Iw-nN-aOx"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="2I5-xh-UYO"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -734,9 +700,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonsStackView" destination="HQr-RJ-3jm" id="ulw-79-udS"/>
-                        <outlet property="cancelButton" destination="NdV-88-2GL" id="aZn-42-57m"/>
-                        <outlet property="saveButton" destination="F9t-gJ-Nbu" id="y80-FM-ZJF"/>
                         <outlet property="someOneBookmarksYourPostSwitch" destination="kG9-VB-h3s" id="b0V-44-Zqf"/>
                         <outlet property="someOneCreatesAPostSwitch" destination="cce-v4-wcg" id="fQu-u4-hFR"/>
                     </connections>
