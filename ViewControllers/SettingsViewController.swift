@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var someOneCreatesAPostSwitch: UISwitch!
     @IBOutlet weak var someOneBookmarksYourPostSwitch: UISwitch!
-    var rightBarButton: UIBarButtonItem!
+    private var rightBarButton: UIBarButtonItem!
     
     private var newBookMarkNotificationEnabled: Bool = false {
         didSet {

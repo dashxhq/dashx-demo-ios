@@ -15,8 +15,18 @@ class BookmarksListViewController: UIViewController {
     @IBOutlet weak var noPostsPlaceholderView: UIView!
     
     typealias Post = PostsListItemTableViewCell.Post
-    var posts: [Post] = []
-    var isPostsLoading = false
+    private var posts: [Post] = []
+    private var isLoadingForTheFirstTime = true
+    private var isPostsLoading = false {
+        didSet {
+            if isPostsLoading && isLoadingForTheFirstTime {
+                self.isLoadingForTheFirstTime = false
+                self.showProgressView()
+            } else {
+                self.hideProgressView()
+            }
+        }
+    }
     
     // MARK: ViewDidLoad
     override func viewDidLoad() {
@@ -36,7 +46,6 @@ class BookmarksListViewController: UIViewController {
         postsTableView.delegate = self
         postsTableView.dataSource = self
         postsTableView.register(PostsListItemTableViewCell.nib, forCellReuseIdentifier: PostsListItemTableViewCell.identifier)
-        postsTableView.register(LoadingTableViewCell.nib, forCellReuseIdentifier: LoadingTableViewCell.identifier)
     }
     
     func fetchPosts() {
@@ -65,20 +74,14 @@ class BookmarksListViewController: UIViewController {
 
 extension BookmarksListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isPostsLoading ? 2 : 1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isPostsLoading ? (section == 0 ? 1 : posts.count) : posts.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isPostsLoading && indexPath.section == 0 {
-            let cell: LoadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.identifier, for: indexPath) as! LoadingTableViewCell
-            cell.textLabl.text = "Loading Bookmarked Posts..."
-            return cell
-        }
-        
         let cell: PostsListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostsListItemTableViewCell.identifier, for: indexPath) as! PostsListItemTableViewCell
         let rowData = posts[indexPath.row]
         cell.setUpData(post: rowData)
