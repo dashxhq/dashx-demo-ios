@@ -46,8 +46,8 @@ extension UIViewController {
         }
     }
     
-    func showError(with message: String) {
-        let errorAlertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+    func showError(with message: String?) {
+        let errorAlertVC = UIAlertController(title: "Error", message: message ?? "Something went wrong", preferredStyle: .alert)
         errorAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in errorAlertVC.dismiss(animated: true)}))
         self.present(errorAlertVC, animated: true)
     }

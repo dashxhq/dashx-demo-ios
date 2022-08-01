@@ -61,9 +61,9 @@ class BookmarksListViewController: UIViewController {
                 self.postsTableView.reloadData()
             }
         } onError: { [weak self] networkError in
-            print(networkError)
             guard let self = self else { return }
             DispatchQueue.main.async {
+                self.showError(with: networkError.message)
                 self.isPostsLoading = false
                 self.postsTableView.reloadData()
                 self.noPostsPlaceholderView.isHidden = true
