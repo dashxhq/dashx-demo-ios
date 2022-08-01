@@ -13,22 +13,7 @@ class SettingsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var someOneCreatesAPostSwitch: UISwitch!
     @IBOutlet weak var someOneBookmarksYourPostSwitch: UISwitch!
-    @IBOutlet weak var buttonsStackView: UIStackView!
-    @IBOutlet weak var cancelButton: UIButton! {
-        didSet {
-            cancelButton.titleLabel?.textColor = UIColor(named: "primaryColor")
-            cancelButton.layer.cornerRadius = 6
-            cancelButton.layer.borderColor = UIColor(named: "primaryColor")?.cgColor
-            cancelButton.layer.borderWidth = 1
-        }
-    }
-    @IBOutlet weak var saveButton: UIButton! {
-        didSet {
-            saveButton.backgroundColor = UIColor(named: "primaryColor")
-            saveButton.setTitleColor(UIColor.white, for: .normal)
-            saveButton.layer.cornerRadius = 6
-        }
-    }
+    var rightBarButton: UIBarButtonItem!
     
     private var newBookMarkNotificationEnabled: Bool = false {
         didSet {
@@ -58,10 +43,16 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchStoredPreferences()
-        setToggleListeners()
-        setButtonsState(isHidden: true)
+        setUpRightBarButton()
+        setUpToggleListeners()
         self.navigationItem.title = "Preferences"
+    }
+    
+    // MARK: - ViewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        fetchStoredPreferences()
     }
     
     // MARK: - TraitCollectionDidChange
@@ -69,41 +60,28 @@ class SettingsViewController: UIViewController {
         setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
     
-    // MARK: - Actions
-    @IBAction func onClickCancel(_ sender: UIButton) {
-        resetToggles()
-        setButtonsState(isHidden: true)
+    func setUpRightBarButton() {
+        rightBarButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(rightBarButtonTapped))
+        rightBarButton.tintColor = .systemBlue
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
-    @IBAction func onClickSave(_ sender: UIButton) {
-        saveStoredPreferences()
-    }
-    
-    func setToggleListeners() {
+    func setUpToggleListeners() {
         someOneCreatesAPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
         someOneBookmarksYourPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
     }
     
-    var valueUpdated: Bool {
-        (someOneCreatesAPostSwitch.isOn != newPostNotificationEnabled) || (someOneBookmarksYourPostSwitch.isOn != newBookMarkNotificationEnabled)
+    // MARK: - Actions
+    @objc
+    func rightBarButtonTapped() {
+        saveStoredPreferences()
     }
     
     @objc
-    func onSwitchValueChanged(_ view: UISwitch) {
-        switch view {
-        case someOneCreatesAPostSwitch:
-            setButtonsState(isHidden: !valueUpdated)
-            break
-        case someOneBookmarksYourPostSwitch:
-            setButtonsState(isHidden: !valueUpdated)
-            break
-        default:
-            break
-        }
-    }
+    func onSwitchValueChanged(_ view: UISwitch) { }
     
-    func setButtonsState(isHidden: Bool) {
-        buttonsStackView.isHidden = isHidden
+    var valueUpdated: Bool {
+        (someOneCreatesAPostSwitch.isOn != newPostNotificationEnabled) || (someOneBookmarksYourPostSwitch.isOn != newBookMarkNotificationEnabled)
     }
     
     func resetToggles() {
@@ -161,13 +139,11 @@ class SettingsViewController: UIViewController {
                         self.showError(with: "Save stored preferences response is empty.")
                     }
                 }
-                self.setButtonsState(isHidden: true)
                 self.isPreferencesLoading = false
             }
         } failureCallback: { error in
             DispatchQueue.main.async {
                 self.showError(with: error.localizedDescription)
-                self.setButtonsState(isHidden: true)
                 self.isPreferencesLoading = false
             }
         }
