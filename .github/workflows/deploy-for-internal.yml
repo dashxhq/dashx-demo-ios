@@ -1,0 +1,42 @@
+name: Deploy release build for internal
+
+on:
+  # Triggers the workflow on push only for the "develop" branch
+  push:
+    branches: [ "develop" ]
+    
+jobs:
+  deploy:
+    name: Deploying to Testflight
+    runs-on: macOS-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Bundle Update
+        run: gem install bundler:1.17.2
+      - name: Bundle Install
+        run: bundle install
+      - name: Install Pod Dependencies
+        run: bundle exec pod install
+      - name: Upload release build for internal
+        run: bundle exec fastlane release_for_internal
+        env:
+          USERNAME: '${{ secrets.USERNAME }}'
+          BUILD_SCHEME: '${{ secrets.BUILD_SCHEME }}'
+          WORKSPACE: '${{ secrets.WORKSPACE }}'
+          APP_IDENTIFIER: '${{ secrets.APP_IDENTIFIER }}'
+          APP_APPLE_ID: '${{ secrets.APP_APPLE_ID }}'
+          TEAM_ID: '${{ secrets.TEAM_ID }}'
+          GIT_AUTHORIZATION: '${{ secrets.GIT_AUTHORIZATION }}'
+          MATCH_APP_STORE_PROVISIONING_PROFILE: '${{ secrets.MATCH_APP_STORE_PROVISIONING_PROFILE }}'
+          MATCH_DEVELOPMENT_PROVISIONING_PROFILE: '${{ secrets.MATCH_DEVELOPMENT_PROVISIONING_PROFILE }}'
+          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
+          APP_STORE_CONNECT_API_KEY_KEY_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}'
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}'
+          APP_STORE_CONNECT_API_KEY_CONTENT: '${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}'
+          TEMP_KEYCHAIN_USER: '${{ secrets.TEMP_KEYCHAIN_USER }}'
+          TEMP_KEYCHAIN_PASSWORD: '${{ secrets.TEMP_KEYCHAIN_PASSWORD }}'
+          INTERNAL_TESTERS_GROUP: '${{ secrets.INTERNAL_TESTERS_GROUP }}'
+          DEMO_TESTERS_GROUP: '${{ secrets.DEMO_TESTERS_GROUP }}'
+          CHANGELOG: '${{ secrets.CHANGELOG }}'

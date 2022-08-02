@@ -6,7 +6,8 @@ target 'DashX Demo' do
   use_frameworks!
 
   # Pods for DashX Demo
-
+  pod 'DashX'
+  
   target 'DashX DemoTests' do
     inherit! :search_paths
     # Pods for testing
