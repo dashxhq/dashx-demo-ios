@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DashX
 
 class SettingsViewController: UIViewController {
     static let identifier = "SettingsViewController"
@@ -15,10 +16,12 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var someOneBookmarksYourPostSwitch: UISwitch!
     private var rightBarButton: UIBarButtonItem!
     
-    private var newBookMarkNotificationEnabled: Bool = false {
+    var preferenceData: PreferenceDataResponse!
+    
+    private var newBookmarkNotificationEnabled: Bool = false {
         didSet {
             if someOneBookmarksYourPostSwitch != nil {
-                someOneBookmarksYourPostSwitch.isOn = newBookMarkNotificationEnabled
+                someOneBookmarksYourPostSwitch.isOn = newBookmarkNotificationEnabled
             }
         }
     }
@@ -80,24 +83,16 @@ class SettingsViewController: UIViewController {
     @objc
     func onSwitchValueChanged(_ view: UISwitch) { }
     
-    var valueUpdated: Bool {
-        (someOneCreatesAPostSwitch.isOn != newPostNotificationEnabled) || (someOneBookmarksYourPostSwitch.isOn != newBookMarkNotificationEnabled)
-    }
-    
-    func resetToggles() {
-        someOneCreatesAPostSwitch.isOn = newPostNotificationEnabled
-        someOneBookmarksYourPostSwitch.isOn = newBookMarkNotificationEnabled
-    }
-    
     func fetchStoredPreferences() {
         isPreferencesLoading = true
-        DashXUtils.client1.fetchStoredPreferences { response in
+        DashX.fetchStoredPreferences { response in
             DispatchQueue.main.async {
                 if let jsonDictionary = response.jsonValue as? [String: Any] {
                     do {
                         let json = try JSONSerialization.data(withJSONObject: jsonDictionary)
                         let preferenceData = try JSONDecoder().decode(PreferenceDataResponse.self, from: json)
-                        self.newBookMarkNotificationEnabled = preferenceData.newBookMarkNotificationEnabled
+                        self.preferenceData = preferenceData
+                        self.newBookmarkNotificationEnabled = preferenceData.newBookmarkNotificationEnabled
                         self.newPostNotificationEnabled = preferenceData.newPostNotificationEnabled
                     } catch {
                         self.showError(with: error.localizedDescription)
@@ -117,34 +112,28 @@ class SettingsViewController: UIViewController {
     
     func saveStoredPreferences() {
         isPreferencesLoading = true
-        let preferenceData: NSDictionary = [
-            "new-bookmark":
-                [
-                    "enabled": someOneBookmarksYourPostSwitch.isOn
-                ],
-            "new-post":
-                [
-                    "enabled": someOneCreatesAPostSwitch.isOn
-                ]
-        ]
-        DashXUtils.client1.saveStoredPreferences(preferenceData: preferenceData) { response in
-            DispatchQueue.main.async {
-                print(response.jsonValue)
-                if let jsonDictionary = response.jsonValue as? [String: Any] {
-                    if let success = jsonDictionary["success"] as? Bool, success {
-                        self.newBookMarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
-                        self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
-                        self.showSuccess(with: "Preferences saved.")
-                    } else {
-                        self.showError(with: "Save stored preferences response is empty.")
+        preferenceData.newPost.enabled = someOneCreatesAPostSwitch.isOn
+        preferenceData.newBookmark.enabled = someOneBookmarksYourPostSwitch.isOn
+        if let data = try? JSONEncoder().encode(preferenceData), let dictionary = try? JSONSerialization.jsonObject(with: data) as? NSDictionary {
+            DashX.saveStoredPreferences(preferenceData: dictionary) { response in
+                DispatchQueue.main.async {
+                    print(response.jsonValue)
+                    if let jsonDictionary = response.jsonValue as? [String: Any] {
+                        if let success = jsonDictionary["success"] as? Bool, success {
+                            self.newBookmarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
+                            self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
+                            self.showSuccess(with: "Preferences saved.")
+                        } else {
+                            self.showError(with: "Save stored preferences response is empty.")
+                        }
                     }
+                    self.isPreferencesLoading = false
                 }
-                self.isPreferencesLoading = false
-            }
-        } failureCallback: { error in
-            DispatchQueue.main.async {
-                self.showError(with: error.localizedDescription)
-                self.isPreferencesLoading = false
+            } failureCallback: { error in
+                DispatchQueue.main.async {
+                    self.showError(with: error.localizedDescription)
+                    self.isPreferencesLoading = false
+                }
             }
         }
     }

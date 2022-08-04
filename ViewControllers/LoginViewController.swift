@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DashX
 
 class LoginViewController: UIViewController {
     static let identifier = "LoginViewController"
@@ -112,7 +113,19 @@ class LoginViewController: UIViewController {
             LocalStorage.instance.setDashXToken(dashXToken)
             LocalStorage.instance.setToken(response.token)
             if let user = user {
-                DashXUtils.performIdentify(user: user)
+                let userDetails: NSDictionary = [
+                    UserAttributes.UID: user.idString as Any,
+                    UserAttributes.EMAIL: user.email as Any,
+                    UserAttributes.NAME: user.name,
+                    UserAttributes.FIRST_NAME: user.firstName as Any,
+                    UserAttributes.LAST_NAME: user.lastName as Any
+                ]
+                DashX.setIdentity(uid: user.idString)
+                do {
+                    try DashX.identify(withOptions: userDetails)
+                } catch {
+                    print("Error: \(error)")
+                }
             }
         }
     }

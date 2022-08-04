@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DashX
 
 // MARK: -  Network Responses
 
@@ -115,8 +116,8 @@ struct ContactUsResponse: Codable {
     var message: String
 }
 
-// MARK: - BookMarksResponse
-struct BookMarksResponse: Codable {
+// MARK: - BookmarksResponse
+struct BookmarksResponse: Codable {
     let message: String
     let bookmarks: [Bookmark]
 }
@@ -185,19 +186,19 @@ struct User: Codable {
 
 // MARK: - PreferenceDataResponse
 struct PreferenceDataResponse: Codable {
-    let newBookMark: [String : Bool]
-    let newPost: [String: Bool]
-    
-    var newBookMarkNotificationEnabled: Bool {
-        newBookMark["enabled"] ?? false
+    var newBookmark: DashX.Preference
+    var newPost: DashX.Preference
+        
+    var newBookmarkNotificationEnabled: Bool {
+        newBookmark.enabled ?? false
     }
     
     var newPostNotificationEnabled: Bool {
-        newPost["enabled"] ?? false
+        newPost.enabled ?? false
     }
     
     enum CodingKeys: String, CodingKey {
-        case newBookMark = "new-bookmark"
+        case newBookmark = "new-bookmark"
         case newPost = "new-post"
     }
 }
