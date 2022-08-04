@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3D25EEA1286D5BAD0096A79C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D25EEA0286D5BAD0096A79C /* Podfile */; };
-		3D25EEA3286D5E2C0096A79C /* DashXUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */; };
 		3D809F04287B0C5E00679C40 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */; };
 		3D9821F8286AB85800549F7C /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821F7286AB85800549F7C /* LocalStorage.swift */; };
 		3D9821FC286B103300549F7C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821FB286B103300549F7C /* Models.swift */; };
@@ -41,6 +40,7 @@
 		EDAC2D20288994200082CD01 /* Date+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1F288994200082CD01 /* Date+DashX.swift */; };
 		EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */; };
 		EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC40D4D288F0D180075F470 /* ProgressView.swift */; };
+		EDD35389289BA5B9004B77EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD35388289BA5B9004B77EF /* Constants.swift */; };
 		EDED11A828890C700003B262 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED11A728890C700003B262 /* ContactUsViewController.swift */; };
 		F7D2DC2FA7E4C95C810B28F3 /* Pods_DashX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */; };
 /* End PBXBuildFile section */
@@ -65,7 +65,6 @@
 /* Begin PBXFileReference section */
 		2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DashX_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25EEA0286D5BAD0096A79C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashXUtils.swift; sourceTree = "<group>"; };
 		3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
 		3D9821F7286AB85800549F7C /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		3D9821FB286B103300549F7C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		EDAC2D1F288994200082CD01 /* Date+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DashX.swift"; sourceTree = "<group>"; };
 		EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EDC40D4D288F0D180075F470 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		EDD35388289BA5B9004B77EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EDED11A728890C700003B262 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -231,10 +231,10 @@
 				ED4799572864BC0000EABFD7 /* String+DashX.swift */,
 				3D9C0EE2286598DF00638BF2 /* FormUtils.swift */,
 				3D9821F7286AB85800549F7C /* LocalStorage.swift */,
-				3D25EEA2286D5E2C0096A79C /* DashXUtils.swift */,
 				ED48841A288175D900F8F07A /* UIApplication+DashX.swift */,
 				EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */,
 				EDAC2D1F288994200082CD01 /* Date+DashX.swift */,
+				EDD35388289BA5B9004B77EF /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -522,12 +522,12 @@
 				EDAC2D1E288993090082CD01 /* DateFormatter+DashX.swift in Sources */,
 				ED4884152881144F00F8F07A /* PostsListItemTableViewCell.swift in Sources */,
 				ED2AF0F12864833800374BD3 /* SceneDelegate.swift in Sources */,
-				3D25EEA3286D5E2C0096A79C /* DashXUtils.swift in Sources */,
 				ED4884192881579400F8F07A /* LoadingTableViewCell.swift in Sources */,
 				EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */,
 				3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */,
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,
 				EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */,
+				EDD35389289BA5B9004B77EF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DashX
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,14 +20,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         UIApplication.shared.addTapGestureRecognizer()
         checkStoredUserAndNavigate()
+        setUpDashX()
+    }
+    
+    func setUpDashX() {
+        DashX.setPublicKey(to: Constants.publicKey)
+        DashX.setBaseURI(to: Constants.baseUri)
+        DashX.setTargetEnvironment(to: Constants.targetEnvironment)
     }
     
     func checkStoredUserAndNavigate() {
-        if let user = LocalStorage.instance.getUser() {
+        if LocalStorage.instance.getUser() != nil {
             // User exists, go to Dashboard/Home
             let tabBarVC = UIViewController.instance(of: MainTabBarController.identifier)
             self.window?.rootViewController = tabBarVC
-            DashXUtils.performIdentify(user: user)
         } else {
             // Open login screen
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
