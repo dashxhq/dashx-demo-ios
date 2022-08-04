@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var someOneCreatesAPostSwitch: UISwitch!
     @IBOutlet weak var someOneBookmarksYourPostSwitch: UISwitch!
     var rightBarButton: UIBarButtonItem!
+    var preferenceData: PreferenceDataResponse!
     
     private var newBookmarkNotificationEnabled: Bool = false {
         didSet {
@@ -89,6 +90,7 @@ class SettingsViewController: UIViewController {
                     do {
                         let json = try JSONSerialization.data(withJSONObject: jsonDictionary)
                         let preferenceData = try JSONDecoder().decode(PreferenceDataResponse.self, from: json)
+                        self.preferenceData = preferenceData
                         self.newBookmarkNotificationEnabled = preferenceData.newBookmarkNotificationEnabled
                         self.newPostNotificationEnabled = preferenceData.newPostNotificationEnabled
                     } catch {
@@ -109,34 +111,28 @@ class SettingsViewController: UIViewController {
     
     func saveStoredPreferences() {
         isPreferencesLoading = true
-        let preferenceData: NSDictionary = [
-            "new-bookmark":
-                [
-                    "enabled": someOneBookmarksYourPostSwitch.isOn
-                ],
-            "new-post":
-                [
-                    "enabled": someOneCreatesAPostSwitch.isOn
-                ]
-        ]
-        DashX.saveStoredPreferences(preferenceData: preferenceData) { response in
-            DispatchQueue.main.async {
-                print(response.jsonValue)
-                if let jsonDictionary = response.jsonValue as? [String: Any] {
-                    if let success = jsonDictionary["success"] as? Bool, success {
-                        self.newBookmarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
-                        self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
-                        self.showSuccess(with: "Preferences saved.")
-                    } else {
-                        self.showError(with: "Save stored preferences response is empty.")
+        preferenceData.newPost.enabled = someOneCreatesAPostSwitch.isOn
+        preferenceData.newBookmark.enabled = someOneBookmarksYourPostSwitch.isOn
+        if let data = try? JSONEncoder().encode(preferenceData), let dictionary = try? JSONSerialization.jsonObject(with: data) as? NSDictionary {
+            DashX.saveStoredPreferences(preferenceData: dictionary) { response in
+                DispatchQueue.main.async {
+                    print(response.jsonValue)
+                    if let jsonDictionary = response.jsonValue as? [String: Any] {
+                        if let success = jsonDictionary["success"] as? Bool, success {
+                            self.newBookmarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
+                            self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
+                            self.showSuccess(with: "Preferences saved.")
+                        } else {
+                            self.showError(with: "Save stored preferences response is empty.")
+                        }
                     }
+                    self.isPreferencesLoading = false
                 }
-                self.isPreferencesLoading = false
-            }
-        } failureCallback: { error in
-            DispatchQueue.main.async {
-                self.showError(with: error.localizedDescription)
-                self.isPreferencesLoading = false
+            } failureCallback: { error in
+                DispatchQueue.main.async {
+                    self.showError(with: error.localizedDescription)
+                    self.isPreferencesLoading = false
+                }
             }
         }
     }

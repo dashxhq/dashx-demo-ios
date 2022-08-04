@@ -186,8 +186,8 @@ struct User: Codable {
 
 // MARK: - PreferenceDataResponse
 struct PreferenceDataResponse: Codable {
-    let newBookmark: DashX.Preference
-    let newPost: DashX.Preference
+    var newBookmark: DashX.Preference
+    var newPost: DashX.Preference
         
     var newBookmarkNotificationEnabled: Bool {
         newBookmark.enabled ?? false
