@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DashX
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -20,13 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         UIApplication.shared.addTapGestureRecognizer()
         checkStoredUserAndNavigate()
-        setUpDashX()
-    }
-    
-    func setUpDashX() {
-        DashX.setPublicKey(to: Constants.publicKey)
-        DashX.setBaseURI(to: Constants.baseUri)
-        DashX.setTargetEnvironment(to: Constants.targetEnvironment)
     }
     
     func checkStoredUserAndNavigate() {
