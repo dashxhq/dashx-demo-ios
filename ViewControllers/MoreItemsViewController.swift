@@ -65,9 +65,13 @@ class MoreItemsViewController: UIViewController {
     
     func performLogout() {
         // Induce artificial "processing" gap instead of snappy logout
+        self.showProgressView()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             // Clear local storage keys
             LocalStorage.instance.clearAll()
+            DashX.reset()
+            
+            self.hideProgressView()
             
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
             let navVC = UINavigationController(rootViewController: loginVC)
