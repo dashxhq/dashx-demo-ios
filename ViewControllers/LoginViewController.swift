@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DashX
 
 class LoginViewController: UIViewController {
     static let identifier = "LoginViewController"
@@ -89,6 +90,11 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
         
         APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
+            guard let response = response else {
+                // TODO: Show error: Response is empty
+                return
+            }
+            
             self.persistDashXData(response)
             
             DispatchQueue.main.async {
@@ -104,13 +110,17 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func persistDashXData(_ response: LoginResponse?) {
-        if let response = response, let decodedToken = response.decodedToken {
-            let user = decodedToken.user, dashXToken = response.decodedToken?.dashxToken
+    func persistDashXData(_ response: LoginResponse) {
+        if let decodedToken = response.decodedToken,
+           let dashXToken = decodedToken.dashxToken,
+           let user = decodedToken.user,
+           let userId = user.idString {
             
             LocalStorage.instance.setUser(user)
             LocalStorage.instance.setDashXToken(dashXToken)
             LocalStorage.instance.setToken(response.token)
+            
+            DashX.setIdentity(uid: userId, token: dashXToken)
         }
     }
     

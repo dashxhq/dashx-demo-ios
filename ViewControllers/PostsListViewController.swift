@@ -125,7 +125,8 @@ class PostsListViewController: UIViewController {
     
     func setUpRightBarButton() {
         rightBarButton = UIBarButtonItem(title: "Add Post", style: .plain, target: self, action: #selector(rightBarButtonTapped))
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = rightBarButton
+        rightBarButton.tintColor = .systemBlue
+        self.navigationItem.rightBarButtonItem = rightBarButton
     }
     
     func setUpTableView() {

@@ -21,8 +21,8 @@ class MoreItemsViewController: UIViewController {
         screenItems = [
             (title: "Billing", action: { return }),
             (title: "Profile", action: goToUpdateProfileScreen),
-            (title: "Settings", action: { return }),
-            (title: "Logout", action: performLogout)
+            (title: "Settings", action: goToSettingsScreen),
+            (title: "Logout", action: showAlertToLogoutConfirmation)
         ]
         
         // Setup tableview
@@ -45,11 +45,33 @@ class MoreItemsViewController: UIViewController {
         self.navigationController?.pushViewController(updateProfileVC, animated: true)
     }
     
+    func goToSettingsScreen() {
+        let settingsVC = UIViewController.instance(of: SettingsViewController.identifier)
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    func showAlertToLogoutConfirmation() {
+        let logoutConfirmationAlert = UIAlertController(title: "Confirm Logout", message: "Are you sure you wish to logout?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+            logoutConfirmationAlert.dismiss(animated: true)
+        })
+        let logoutAction = UIAlertAction(title: "Okay", style: .destructive, handler: { _ in
+            self.performLogout()
+        })
+        logoutConfirmationAlert.addAction(cancelAction)
+        logoutConfirmationAlert.addAction(logoutAction)
+        self.present(logoutConfirmationAlert, animated: true)
+    }
+    
     func performLogout() {
         // Induce artificial "processing" gap instead of snappy logout
+        self.showProgressView()
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             // Clear local storage keys
             LocalStorage.instance.clearAll()
+            DashX.reset()
+            
+            self.hideProgressView()
             
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
             let navVC = UINavigationController(rootViewController: loginVC)

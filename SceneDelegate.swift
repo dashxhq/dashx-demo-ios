@@ -25,8 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if LocalStorage.instance.getUser() != nil {
             // User exists, go to Dashboard/Home
             let tabBarVC = UIViewController.instance(of: MainTabBarController.identifier)
-            let navVC = UINavigationController(rootViewController: tabBarVC)
-            self.window?.rootViewController = navVC
+            self.window?.rootViewController = tabBarVC
         } else {
             // Open login screen
             let loginVC = UIViewController.instance(of: LoginViewController.identifier)
