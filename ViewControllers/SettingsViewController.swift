@@ -12,23 +12,23 @@ class SettingsViewController: UIViewController {
     static let identifier = "SettingsViewController"
     
     // MARK: - Outlets
-    @IBOutlet weak var someOneCreatesAPostSwitch: UISwitch!
-    @IBOutlet weak var someOneBookmarksYourPostSwitch: UISwitch!
+    @IBOutlet weak var someoneCreatesAPostSwitch: UISwitch!
+    @IBOutlet weak var someoneBookmarksYourPostSwitch: UISwitch!
     private var rightBarButton: UIBarButtonItem!
     
     var preferenceData: PreferenceDataResponse?
     
     private var newBookmarkNotificationEnabled: Bool = false {
         didSet {
-            if someOneBookmarksYourPostSwitch != nil {
-                someOneBookmarksYourPostSwitch.isOn = newBookmarkNotificationEnabled
+            if someoneBookmarksYourPostSwitch != nil {
+                someoneBookmarksYourPostSwitch.isOn = newBookmarkNotificationEnabled
             }
         }
     }
     private var newPostNotificationEnabled: Bool = false {
         didSet {
-            if someOneCreatesAPostSwitch != nil {
-                someOneCreatesAPostSwitch.isOn = newPostNotificationEnabled
+            if someoneCreatesAPostSwitch != nil {
+                someoneCreatesAPostSwitch.isOn = newPostNotificationEnabled
             }
         }
     }
@@ -70,8 +70,8 @@ class SettingsViewController: UIViewController {
     }
     
     func setUpToggleListeners() {
-        someOneCreatesAPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
-        someOneBookmarksYourPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
+        someoneCreatesAPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
+        someoneBookmarksYourPostSwitch.addTarget(self, action: #selector(onSwitchValueChanged), for: .valueChanged)
     }
     
     // MARK: - Actions
@@ -112,16 +112,17 @@ class SettingsViewController: UIViewController {
     
     func saveStoredPreferences() {
         isPreferencesLoading = true
-        preferenceData?.newPost.enabled = someOneCreatesAPostSwitch.isOn
-        preferenceData?.newBookmark.enabled = someOneBookmarksYourPostSwitch.isOn
+        preferenceData?.newPost.enabled = someoneCreatesAPostSwitch.isOn
+        preferenceData?.newBookmark.enabled = someoneBookmarksYourPostSwitch.isOn
+        
         if let data = try? JSONEncoder().encode(preferenceData), let dictionary = try? JSONSerialization.jsonObject(with: data) as? NSDictionary {
             DashX.saveStoredPreferences(preferenceData: dictionary) { response in
                 DispatchQueue.main.async {
                     print(response.jsonValue)
                     if let jsonDictionary = response.jsonValue as? [String: Any] {
                         if let success = jsonDictionary["success"] as? Bool, success {
-                            self.newBookmarkNotificationEnabled = self.someOneBookmarksYourPostSwitch.isOn
-                            self.newPostNotificationEnabled = self.someOneCreatesAPostSwitch.isOn
+                            self.newBookmarkNotificationEnabled = self.someoneBookmarksYourPostSwitch.isOn
+                            self.newPostNotificationEnabled = self.someoneCreatesAPostSwitch.isOn
                             self.showSuccess(with: "Preferences saved.")
                         } else {
                             self.showError(with: "Save stored preferences response is empty.")

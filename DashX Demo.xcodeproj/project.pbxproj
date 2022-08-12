@@ -170,6 +170,7 @@
 				3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */,
 				ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */,
 				ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */,
+				ED4884182881579400F8F07A /* LoadingTableViewCell.swift */,
 				EDC40D4D288F0D180075F470 /* ProgressView.swift */,
 			);
 			path = Views;

@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import DashX
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        /// Configure DashX
+        DashX.configure(
+            withPublicKey: Constants.publicKey,
+            baseURI: Constants.baseUri,
+            targetEnvironment: Constants.targetEnvironment
+        )
         return true
     }
 

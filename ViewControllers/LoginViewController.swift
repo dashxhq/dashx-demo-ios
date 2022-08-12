@@ -90,6 +90,11 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
         
         APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
+            guard let response = response else {
+                // TODO: Show error: Response is empty
+                return
+            }
+            
             self.persistDashXData(response)
             
             DispatchQueue.main.async {
@@ -105,28 +110,17 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func persistDashXData(_ response: LoginResponse?) {
-        if let response = response, let decodedToken = response.decodedToken {
-            let user = decodedToken.user, dashXToken = response.decodedToken?.dashxToken
+    func persistDashXData(_ response: LoginResponse) {
+        if let decodedToken = response.decodedToken,
+           let dashXToken = decodedToken.dashxToken,
+           let user = decodedToken.user,
+           let userId = user.idString {
             
             LocalStorage.instance.setUser(user)
             LocalStorage.instance.setDashXToken(dashXToken)
             LocalStorage.instance.setToken(response.token)
-            if let user = user {
-                let userDetails: NSDictionary = [
-                    UserAttributes.UID: user.idString as Any,
-                    UserAttributes.EMAIL: user.email as Any,
-                    UserAttributes.NAME: user.name,
-                    UserAttributes.FIRST_NAME: user.firstName as Any,
-                    UserAttributes.LAST_NAME: user.lastName as Any
-                ]
-                DashX.setIdentity(uid: user.idString)
-                do {
-                    try DashX.identify(withOptions: userDetails)
-                } catch {
-                    print("Error: \(error)")
-                }
-            }
+            
+            DashX.setIdentity(uid: userId, token: dashXToken)
         }
     }
     
