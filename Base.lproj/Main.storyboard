@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -780,17 +781,44 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-ZZ-rTo">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFI-x6-yek">
+                                                <rect key="frame" x="145.5" y="24" width="123.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-gd-ZpY">
+                                                <rect key="frame" x="157" y="70" width="100" height="99"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="CTh-2m-46S"/>
+                                                    <constraint firstAttribute="height" constant="100" id="ab6-Mc-TDy"/>
+                                                </constraints>
+                                                <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="default"/>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUg-2a-EPZ">
+                                                <rect key="frame" x="224" y="126.5" width="35" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="35" id="L48-6c-H2A"/>
+                                                    <constraint firstAttribute="height" constant="35" id="y0k-nt-0DB"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                    <backgroundConfiguration key="background" cornerRadius="20" imageContentMode="center">
+                                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                                        <imageReference key="image" image="camera.fill" catalog="system" symbolScale="small"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="onClickUpdateAvatar:" destination="FDg-Uu-Vsa" eventType="touchUpInside" id="Mv3-qD-4pT"/>
+                                                </connections>
+                                            </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-Fg-vK7">
-                                                <rect key="frame" x="24" y="0.0" width="366" height="321.5"/>
+                                                <rect key="frame" x="24" y="193.5" width="366" height="268"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFI-x6-yek">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="21.5"/>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kal-tF-5iP">
-                                                        <rect key="frame" x="0.0" y="53.5" width="366" height="268"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="268"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="YFv-jR-q3U">
                                                                 <rect key="frame" x="0.0" y="0.0" width="366" height="44"/>
@@ -834,18 +862,24 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVZ-7k-yvz">
-                                                <rect key="frame" x="0.0" y="321.5" width="414" height="496.5"/>
+                                                <rect key="frame" x="0.0" y="461.5" width="414" height="356.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="ZYn-Fg-vK7" firstAttribute="top" secondItem="WP8-gd-ZpY" secondAttribute="bottom" constant="24" id="1zS-GI-MMe"/>
+                                            <constraint firstItem="WP8-gd-ZpY" firstAttribute="centerX" secondItem="Ywa-ZZ-rTo" secondAttribute="centerX" id="9SE-Fo-LAC"/>
+                                            <constraint firstItem="pUg-2a-EPZ" firstAttribute="top" secondItem="WP8-gd-ZpY" secondAttribute="top" constant="57" id="Bjx-9L-wG5"/>
                                             <constraint firstAttribute="trailing" secondItem="oVZ-7k-yvz" secondAttribute="trailing" id="Enr-tv-TKW"/>
                                             <constraint firstItem="oVZ-7k-yvz" firstAttribute="leading" secondItem="Ywa-ZZ-rTo" secondAttribute="leading" id="H35-s4-KZG"/>
                                             <constraint firstAttribute="trailing" secondItem="ZYn-Fg-vK7" secondAttribute="trailing" constant="24" id="IrP-gz-Qcx"/>
+                                            <constraint firstItem="pUg-2a-EPZ" firstAttribute="leading" secondItem="WP8-gd-ZpY" secondAttribute="leading" constant="67" id="OYB-X5-Eef"/>
                                             <constraint firstItem="oVZ-7k-yvz" firstAttribute="top" secondItem="ZYn-Fg-vK7" secondAttribute="bottom" id="PFO-cx-HNL"/>
+                                            <constraint firstItem="WP8-gd-ZpY" firstAttribute="top" secondItem="KFI-x6-yek" secondAttribute="bottom" constant="24" id="RhQ-LT-dUm"/>
                                             <constraint firstItem="ZYn-Fg-vK7" firstAttribute="leading" secondItem="Ywa-ZZ-rTo" secondAttribute="leading" constant="24" id="Y5v-F2-RMB"/>
-                                            <constraint firstItem="KFI-x6-yek" firstAttribute="top" secondItem="Ywa-ZZ-rTo" secondAttribute="top" id="YNJ-Gw-VfP"/>
+                                            <constraint firstItem="KFI-x6-yek" firstAttribute="top" secondItem="Ywa-ZZ-rTo" secondAttribute="top" constant="24" id="jFd-5C-C4B"/>
+                                            <constraint firstItem="KFI-x6-yek" firstAttribute="centerX" secondItem="Ywa-ZZ-rTo" secondAttribute="centerX" id="mhM-p5-ueu"/>
                                             <constraint firstAttribute="bottom" secondItem="oVZ-7k-yvz" secondAttribute="bottom" id="nUg-ub-1jg"/>
                                         </constraints>
                                     </view>
@@ -873,6 +907,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jVy-dM-ds5"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="WP8-gd-ZpY" id="Zlr-vD-AGH"/>
                         <outlet property="emailField" destination="L3P-u2-Wbl" id="Dsh-Wu-NOb"/>
                         <outlet property="errorLabel" destination="Kjf-Zv-ltP" id="Nff-gt-APh"/>
                         <outlet property="firstNameField" destination="YFv-jR-q3U" id="qb5-UC-rwD"/>
@@ -1446,10 +1481,12 @@
     <resources>
         <image name="DashXLogo" width="1024" height="1024"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="cylinder" catalog="system" width="121" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <namedColor name="primaryColor">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1465,6 +1502,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

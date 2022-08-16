@@ -57,6 +57,14 @@ class APIClient {
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
     
+    static func getProfile(onSuccess: @escaping (ProfileResponse?) -> Void,
+                           onError: @escaping (NetworkError) -> Void) {
+        // Prepare request parts
+        let path = "/profile"
+        
+        network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
+    }
+    
     static func updateProfile(firstName: String,
                               lastName: String,
                               email: String,

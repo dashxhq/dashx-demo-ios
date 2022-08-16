@@ -51,6 +51,12 @@ struct LoginResponse: Codable {
     }
 }
 
+// MARK: - ProfileResponse
+struct ProfileResponse: Codable {
+    var message: String?
+    var user: User?
+}
+
 // MARK: - UpdateProfileResponse
 struct UpdateProfileResponse: Codable {
     var user: User?

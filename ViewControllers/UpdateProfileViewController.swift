@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import DashX
 
 class UpdateProfileViewController: UIViewController {
     static let identifier = "UpdateProfileViewController"
     
     // MARK: Outlets
+    @IBOutlet weak var avatarImageView: UIImageView! {
+        didSet {
+            avatarImageView.layer.cornerRadius = avatarImageView.frame.height / 2
+        }
+    }
     @IBOutlet weak var firstNameField: UITextField! {
         didSet {
             firstNameField.delegate = self
@@ -38,6 +44,14 @@ class UpdateProfileViewController: UIViewController {
         }
     }
     
+    var imagePickerVC: UIImagePickerController {
+        let imagePickerVC = UIImagePickerController()
+        imagePickerVC.sourceType = .photoLibrary
+        imagePickerVC.delegate = self
+        return imagePickerVC
+    }
+    
+    var localUser: User?
     private var formUtils: FormUtils!
     
     // MARK: ViewDidLoad
@@ -55,7 +69,7 @@ class UpdateProfileViewController: UIViewController {
     }
     
     func populateProfileData() {
-        if let localUser = LocalStorage.instance.getUser() {
+        if let localUser = self.localUser {
             firstNameField.text = localUser.firstName
             lastNameField.text = localUser.lastName
             emailField.text = localUser.email
@@ -63,8 +77,15 @@ class UpdateProfileViewController: UIViewController {
     }
     
     // MARK: Actions
+    @IBAction func onClickUpdateAvatar(_ sender: Any) {
+        performUpdateAvatar()
+    }
     @IBAction func onClickUpdateProfile(_ sender: UIButton) {
         performUpdateProfile()
+    }
+    
+    func performUpdateAvatar() {
+        present(imagePickerVC, animated: true)
     }
     
     func performUpdateProfile() {
@@ -143,5 +164,21 @@ extension UpdateProfileViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+}
+
+extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage,
+            let imageURL = info[.imageURL] as? URL {
+            avatarImageView.image = image
+            DashX.uploadExternalAsset(filePath: imageURL, fileType: .image, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
+                
+            } failureCallback: { <#Error#> in
+                <#code#>
+            }
+
+        }
     }
 }
