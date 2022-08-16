@@ -130,8 +130,7 @@ class LoginViewController: UIViewController {
     
     func goToTabBarScreen() {
         let tabBarVC = UIViewController.instance(of: MainTabBarController.identifier)
-        let navVC = UINavigationController(rootViewController: tabBarVC)
-        UIApplication.shared.windows.first?.rootViewController = navVC
+        UIApplication.shared.windows.first?.rootViewController = tabBarVC
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
