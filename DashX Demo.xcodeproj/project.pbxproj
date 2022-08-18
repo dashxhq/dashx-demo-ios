@@ -31,13 +31,13 @@
 		ED3EB080289233BB00FEB6EF /* PostsListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */; };
 		ED3EB08428923B6000FEB6EF /* BookmarksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */; };
 		ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */; };
-		ED4799552864B21900EABFD7 /* ViewController+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799542864B21900EABFD7 /* ViewController+DashX.swift */; };
+		ED4799552864B21900EABFD7 /* ViewController+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799542864B21900EABFD7 /* ViewController+Demo.swift */; };
 		ED4799582864BC0100EABFD7 /* String+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799572864BC0000EABFD7 /* String+DashX.swift */; };
 		ED4884152881144F00F8F07A /* PostsListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */; };
 		ED48841728812A4B00F8F07A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841628812A4B00F8F07A /* MainTabBarController.swift */; };
-		ED48841B288175D900F8F07A /* UIApplication+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841A288175D900F8F07A /* UIApplication+DashX.swift */; };
+		ED48841B288175D900F8F07A /* UIApplication+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841A288175D900F8F07A /* UIApplication+Demo.swift */; };
 		EDA899AF28801F3500561530 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA899AE28801F3500561530 /* PostsListViewController.swift */; };
-		EDAC2D1E288993090082CD01 /* DateFormatter+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */; };
+		EDAC2D1E288993090082CD01 /* DateFormatter+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */; };
 		EDAC2D20288994200082CD01 /* Date+DashX.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1F288994200082CD01 /* Date+DashX.swift */; };
 		EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */; };
 		EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC40D4D288F0D180075F470 /* ProgressView.swift */; };
@@ -99,13 +99,13 @@
 		ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsListItemTableViewCell.xib; sourceTree = "<group>"; };
 		ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksListViewController.swift; sourceTree = "<group>"; };
 		ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		ED4799542864B21900EABFD7 /* ViewController+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+DashX.swift"; sourceTree = "<group>"; };
+		ED4799542864B21900EABFD7 /* ViewController+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Demo.swift"; sourceTree = "<group>"; };
 		ED4799572864BC0000EABFD7 /* String+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DashX.swift"; sourceTree = "<group>"; };
 		ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListItemTableViewCell.swift; sourceTree = "<group>"; };
 		ED48841628812A4B00F8F07A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		ED48841A288175D900F8F07A /* UIApplication+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+DashX.swift"; sourceTree = "<group>"; };
+		ED48841A288175D900F8F07A /* UIApplication+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Demo.swift"; sourceTree = "<group>"; };
 		EDA899AE28801F3500561530 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
-		EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+DashX.swift"; sourceTree = "<group>"; };
+		EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Demo.swift"; sourceTree = "<group>"; };
 		EDAC2D1F288994200082CD01 /* Date+DashX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DashX.swift"; sourceTree = "<group>"; };
 		EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EDC40D4D288F0D180075F470 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -170,7 +170,6 @@
 				3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */,
 				ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */,
 				ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */,
-				ED4884182881579400F8F07A /* LoadingTableViewCell.swift */,
 				EDC40D4D288F0D180075F470 /* ProgressView.swift */,
 			);
 			path = Views;
@@ -231,12 +230,12 @@
 			isa = PBXGroup;
 			children = (
 				3D9C0EDE2865847A00638BF2 /* NetworkUtils.swift */,
-				ED4799542864B21900EABFD7 /* ViewController+DashX.swift */,
+				ED4799542864B21900EABFD7 /* ViewController+Demo.swift */,
 				ED4799572864BC0000EABFD7 /* String+DashX.swift */,
 				3D9C0EE2286598DF00638BF2 /* FormUtils.swift */,
 				3D9821F7286AB85800549F7C /* LocalStorage.swift */,
-				ED48841A288175D900F8F07A /* UIApplication+DashX.swift */,
-				EDAC2D1D288993090082CD01 /* DateFormatter+DashX.swift */,
+				ED48841A288175D900F8F07A /* UIApplication+Demo.swift */,
+				EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */,
 				EDAC2D1F288994200082CD01 /* Date+DashX.swift */,
 				EDD35388289BA5B9004B77EF /* Constants.swift */,
 			);
@@ -513,21 +512,20 @@
 				ED4799582864BC0100EABFD7 /* String+DashX.swift in Sources */,
 				3D9821FC286B103300549F7C /* Models.swift in Sources */,
 				EDAC2D20288994200082CD01 /* Date+DashX.swift in Sources */,
-				ED48841B288175D900F8F07A /* UIApplication+DashX.swift in Sources */,
+				ED48841B288175D900F8F07A /* UIApplication+Demo.swift in Sources */,
 				3D9C0EE1286584C900638BF2 /* APIClient.swift in Sources */,
 				ED2AF11F286484F400374BD3 /* LoginViewController.swift in Sources */,
 				ED2AF0EF2864833800374BD3 /* AppDelegate.swift in Sources */,
 				EDA899AF28801F3500561530 /* PostsListViewController.swift in Sources */,
 				3D9C0EE3286598DF00638BF2 /* FormUtils.swift in Sources */,
-				ED4799552864B21900EABFD7 /* ViewController+DashX.swift in Sources */,
+				ED4799552864B21900EABFD7 /* ViewController+Demo.swift in Sources */,
 				EDED11A828890C700003B262 /* ContactUsViewController.swift in Sources */,
 				3DE983E6286F1BAC00C615AB /* MoreItemsViewController.swift in Sources */,
 				3D9821FE286C0A5400549F7C /* ForgotPasswordViewController.swift in Sources */,
 				3D809F04287B0C5E00679C40 /* UpdateProfileViewController.swift in Sources */,
-				EDAC2D1E288993090082CD01 /* DateFormatter+DashX.swift in Sources */,
+				EDAC2D1E288993090082CD01 /* DateFormatter+Demo.swift in Sources */,
 				ED4884152881144F00F8F07A /* PostsListItemTableViewCell.swift in Sources */,
 				ED2AF0F12864833800374BD3 /* SceneDelegate.swift in Sources */,
-				ED4884192881579400F8F07A /* LoadingTableViewCell.swift in Sources */,
 				EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */,
 				3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */,
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,

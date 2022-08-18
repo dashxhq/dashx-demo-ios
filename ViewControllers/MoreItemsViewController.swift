@@ -51,7 +51,7 @@ class MoreItemsViewController: UIViewController {
     }
     
     func showAlertToLogoutConfirmation() {
-        let logoutConfirmationAlert = UIAlertController(title: "Confirm Logout", message: "Please confirm you are logging out", preferredStyle: .alert)
+        let logoutConfirmationAlert = UIAlertController(title: "Confirm Logout", message: "Are you sure you wish to logout?", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
             logoutConfirmationAlert.dismiss(animated: true)
         })

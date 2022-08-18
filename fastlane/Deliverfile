@@ -15,7 +15,7 @@ submission_information({
 # 3
 app_rating_config_path("./fastlane/metadata/app_store_rating_config.json")
 # 4
-ipa("./fastlane/builds/DashX Demo.ipa”)
+ipa("./fastlane/builds/DashX Demo.ipa")
 # 5
 submit_for_review(false)
 # 6

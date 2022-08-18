@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DashX
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
