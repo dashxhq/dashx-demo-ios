@@ -14,7 +14,8 @@ class SettingsViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var someoneCreatesAPostSwitch: UISwitch!
     @IBOutlet weak var someoneBookmarksYourPostSwitch: UISwitch!
-    var rightBarButton: UIBarButtonItem!
+    private var rightBarButton: UIBarButtonItem!
+    
     var preferenceData: PreferenceDataResponse?
     
     private var newBookmarkNotificationEnabled: Bool = false {
@@ -113,6 +114,7 @@ class SettingsViewController: UIViewController {
         isPreferencesLoading = true
         preferenceData?.newPost.enabled = someoneCreatesAPostSwitch.isOn
         preferenceData?.newBookmark.enabled = someoneBookmarksYourPostSwitch.isOn
+        
         if let data = try? JSONEncoder().encode(preferenceData), let dictionary = try? JSONSerialization.jsonObject(with: data) as? NSDictionary {
             DashX.saveStoredPreferences(preferenceData: dictionary) { response in
                 DispatchQueue.main.async {
