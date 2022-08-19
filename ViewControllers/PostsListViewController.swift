@@ -38,7 +38,14 @@ class PostsListViewController: UIViewController {
             hideAddPostError()
         }
     }
-    @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var postButton: UIButton! {
+        didSet {
+            postButton.layer.borderWidth = 2
+            postButton.layer.cornerRadius = 6
+            postButton.layer.borderColor = UIColor.systemBlue.cgColor
+            postButton.backgroundColor = UIColor.systemBlue
+        }
+    }
     @IBOutlet weak var cancelButton: UIButton! {
         didSet {
             cancelButton.layer.borderWidth = 2

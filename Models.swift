@@ -59,6 +59,7 @@ struct ProfileResponse: Codable {
 
 // MARK: - UpdateProfileResponse
 struct UpdateProfileResponse: Codable {
+    var message: String?
     var user: User?
 }
 
@@ -175,6 +176,7 @@ struct User: Codable {
     var firstName: String?
     var lastName: String?
     var email: String?
+    var avatar: AssetData?
     
     var name: String {
         var temp = firstName ?? ""
@@ -207,4 +209,10 @@ struct PreferenceDataResponse: Codable {
         case newBookmark = "new-bookmark"
         case newPost = "new-post"
     }
+}
+
+// MARK: - AssetData
+struct AssetData: Codable {
+    var status: String?
+    var url: String?
 }

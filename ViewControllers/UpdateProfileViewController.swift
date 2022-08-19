@@ -171,14 +171,31 @@ extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         if let image = info[.originalImage] as? UIImage,
-            let imageURL = info[.imageURL] as? URL {
+           let imageURL = info[.imageURL] as? URL {
             avatarImageView.image = image
-            DashX.uploadExternalAsset(filePath: imageURL, fileType: .image, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
-                
-            } failureCallback: { <#Error#> in
-                <#code#>
+            showProgressView()
+            DashX.uploadExternalAsset(fileURL: imageURL, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
+                DispatchQueue.main.async {
+                    self.hideProgressView()
+                    if let jsonDictionary = response.jsonValue as? [String: Any] {
+                        do {
+                            let json = try JSONSerialization.data(withJSONObject: jsonDictionary)
+                            let preferenceData = try JSONDecoder().decode(PrepareExternalAssetResponse.self, from: json)
+                            // Pass status and URL to "avatar"
+                            print(preferenceData)
+                        } catch {
+                            self.showError(with: error.localizedDescription)
+                        }
+                    } else {
+                        self.showError(with: "Stored preferences response is empty.")
+                    }
+                }
+            } failureCallback: { error in
+                DispatchQueue.main.async {
+                    self.hideProgressView()
+                    self.showError(with: error.localizedDescription)
+                }
             }
-
         }
     }
 }
