@@ -787,14 +787,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fka-Yn-HIK">
+                                                <rect key="frame" x="157" y="69.5" width="100" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="P28-j5-X6q"/>
+                                                    <constraint firstAttribute="height" constant="100" id="qKf-GZ-bdY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-gd-ZpY">
-                                                <rect key="frame" x="157" y="70" width="100" height="99"/>
+                                                <rect key="frame" x="157" y="69.5" width="100" height="100"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="CTh-2m-46S"/>
                                                     <constraint firstAttribute="height" constant="100" id="ab6-Mc-TDy"/>
                                                 </constraints>
-                                                <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="default"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUg-2a-EPZ">
                                                 <rect key="frame" x="224" y="126.5" width="35" height="35"/>
@@ -811,7 +821,7 @@
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="onClickUpdateAvatar:" destination="FDg-Uu-Vsa" eventType="touchUpInside" id="Mv3-qD-4pT"/>
+                                                    <action selector="selectCameraOrGallery:" destination="FDg-Uu-Vsa" eventType="touchUpInside" id="QVv-Ny-xOv"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ZYn-Fg-vK7">
@@ -869,6 +879,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="ZYn-Fg-vK7" firstAttribute="top" secondItem="WP8-gd-ZpY" secondAttribute="bottom" constant="24" id="1zS-GI-MMe"/>
+                                            <constraint firstItem="fka-Yn-HIK" firstAttribute="centerX" secondItem="Ywa-ZZ-rTo" secondAttribute="centerX" id="2xY-Y2-bJP"/>
                                             <constraint firstItem="WP8-gd-ZpY" firstAttribute="centerX" secondItem="Ywa-ZZ-rTo" secondAttribute="centerX" id="9SE-Fo-LAC"/>
                                             <constraint firstItem="pUg-2a-EPZ" firstAttribute="top" secondItem="WP8-gd-ZpY" secondAttribute="top" constant="57" id="Bjx-9L-wG5"/>
                                             <constraint firstAttribute="trailing" secondItem="oVZ-7k-yvz" secondAttribute="trailing" id="Enr-tv-TKW"/>
@@ -879,6 +890,7 @@
                                             <constraint firstItem="WP8-gd-ZpY" firstAttribute="top" secondItem="KFI-x6-yek" secondAttribute="bottom" constant="24" id="RhQ-LT-dUm"/>
                                             <constraint firstItem="ZYn-Fg-vK7" firstAttribute="leading" secondItem="Ywa-ZZ-rTo" secondAttribute="leading" constant="24" id="Y5v-F2-RMB"/>
                                             <constraint firstItem="KFI-x6-yek" firstAttribute="top" secondItem="Ywa-ZZ-rTo" secondAttribute="top" constant="24" id="jFd-5C-C4B"/>
+                                            <constraint firstItem="ZYn-Fg-vK7" firstAttribute="top" secondItem="fka-Yn-HIK" secondAttribute="bottom" constant="24" id="kZ6-oT-ikA"/>
                                             <constraint firstItem="KFI-x6-yek" firstAttribute="centerX" secondItem="Ywa-ZZ-rTo" secondAttribute="centerX" id="mhM-p5-ueu"/>
                                             <constraint firstAttribute="bottom" secondItem="oVZ-7k-yvz" secondAttribute="bottom" id="nUg-ub-1jg"/>
                                         </constraints>
@@ -908,6 +920,7 @@
                     <navigationItem key="navigationItem" id="jVy-dM-ds5"/>
                     <connections>
                         <outlet property="avatarImageView" destination="WP8-gd-ZpY" id="Zlr-vD-AGH"/>
+                        <outlet property="avatarNameLabel" destination="fka-Yn-HIK" id="mYl-zc-Nab"/>
                         <outlet property="emailField" destination="L3P-u2-Wbl" id="Dsh-Wu-NOb"/>
                         <outlet property="errorLabel" destination="Kjf-Zv-ltP" id="Nff-gt-APh"/>
                         <outlet property="firstNameField" destination="YFv-jR-q3U" id="qb5-UC-rwD"/>
@@ -917,7 +930,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEE-k3-ZQP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-962" y="1199"/>
+            <point key="canvasLocation" x="-962.31884057971024" y="1198.6607142857142"/>
         </scene>
         <!--Store-->
         <scene sceneID="gmo-SB-DES">
@@ -1487,7 +1500,6 @@
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <namedColor name="primaryColor">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

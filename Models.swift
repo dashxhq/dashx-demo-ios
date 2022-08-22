@@ -7,6 +7,7 @@
 
 import Foundation
 import DashX
+import CoreMedia
 
 // MARK: -  Network Responses
 
@@ -170,6 +171,7 @@ struct User: Codable {
         case id, email
         case firstName = "first_name"
         case lastName = "last_name"
+        case avatar = "avatar"
     }
     
     var id: Int?
@@ -215,4 +217,25 @@ struct PreferenceDataResponse: Codable {
 struct AssetData: Codable {
     var status: String?
     var url: String?
+}
+
+// MARK: - ExternalAssetResponse
+struct ExternalAssetResponse: Codable {
+    let status: String?
+    let id: String?
+    struct ExternalAssetData: Codable {
+        let assetData: AssetData?
+        
+        enum CodingKeys: String, CodingKey {
+            case assetData = "asset"
+        }
+    }
+    let data: ExternalAssetData?
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case id = "id"
+        case data = "data"
+    }
 }

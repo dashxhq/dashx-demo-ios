@@ -65,20 +65,19 @@ class APIClient {
         network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
     }
     
-    static func updateProfile(firstName: String,
-                              lastName: String,
-                              email: String,
+    static func updateProfile(user: User,
                               onSuccess: @escaping (UpdateProfileResponse?) -> Void,
                               onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/update-profile"
-        let params: NSDictionary = [
-            "first_name": firstName,
-            "last_name": lastName,
-            "email": email
-        ]
-        
-        network.makeAPICall(path: path, httpMethod: .patch, params: params, onSuccess: onSuccess, onError: onError)
+        do {
+            let data = try JSONEncoder().encode(user)
+            let object = try JSONSerialization.jsonObject(with: data)
+            network.makeAPICall(path: path, httpMethod: .patch, params: object as? NSDictionary, onSuccess: onSuccess, onError: onError)
+        } catch {
+            // return this error in a callback
+            print(error.localizedDescription)
+        }
     }
     
     static func getPosts(onSuccess: @escaping (PostsResponse?) -> Void,

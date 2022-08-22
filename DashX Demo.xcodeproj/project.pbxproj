@@ -712,6 +712,8 @@
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please aloow Photo Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -744,6 +746,8 @@
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow camera ";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Please aloow Photo Library";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
