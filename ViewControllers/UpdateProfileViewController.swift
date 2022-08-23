@@ -310,6 +310,7 @@ extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePi
         let selectPhotosAction = UIAlertAction(title: "Select more photos",
                                                style: .default) { [unowned self] (_) in
             
+            // FIXME: Limited library access issues
             if #available(iOS 14, *) {
                 PHPhotoLibrary.shared().presentLimitedLibraryPicker(from: self)
             } else {
