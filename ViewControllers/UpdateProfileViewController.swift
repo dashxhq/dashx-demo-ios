@@ -73,16 +73,30 @@ class UpdateProfileViewController: UIViewController {
             emailField.text = localUser.email
             if let urlString = localUser.avatar?.url,
                let url = URL(string: urlString),
-               let imageData = try? Data(contentsOf: url) {
-                avatarImageView.image = UIImage(data: imageData)
-                avatarNameLabel.isHidden = true
+               let imageData = try? Data(contentsOf: url),
+               let image = UIImage(data: imageData) {
+                setAvatarImage(image)
             } else {
-                avatarImageView.isHidden = true
-                avatarNameLabel.isHidden = false
-                avatarNameLabel.text = "\(localUser.firstName?.first ?? Character(""))" + "\(localUser.lastName?.first ?? Character(""))"
-                avatarNameLabel.layer.cornerRadius = avatarNameLabel.frame.height / 2
+                if let firstName = localUser.firstName,
+                   let lastName = localUser.lastName {
+                    setInitialLettersAsAvatar(firstName: firstName, lastName: lastName)
+                }
             }
         }
+    }
+    
+    func setAvatarImage(_ image: UIImage) {
+        avatarImageView.image = image
+        
+        avatarNameLabel.isHidden = true
+    }
+    
+    func setInitialLettersAsAvatar(firstName: String, lastName: String) {
+        avatarImageView.isHidden = true
+        
+        avatarNameLabel.isHidden = false
+        avatarNameLabel.text = "\(firstName.first ?? Character(""))" + "\(lastName.first ?? Character(""))"
+        avatarNameLabel.layer.cornerRadius = avatarNameLabel.frame.height / 2
     }
     
     // MARK: Actions
@@ -98,6 +112,11 @@ class UpdateProfileViewController: UIViewController {
             self.checkGalleryPermission()
         }
         alert.addAction(galleryAction)
+        
+        let removeAvatarAction = UIAlertAction(title: "Remove Avatar", style: .default) { _ in
+            self.removeAvatar()
+        }
+        alert.addAction(removeAvatarAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(cancelAction)
@@ -141,6 +160,14 @@ class UpdateProfileViewController: UIViewController {
     
     func removeAvatar() {
         localUser?.avatar = nil
+        setUpdateProfileButtonEnabled(true)
+        
+        if let localUser = localUser {
+            if let firstName = localUser.firstName,
+               let lastName = localUser.lastName {
+                setInitialLettersAsAvatar(firstName: firstName, lastName: lastName)
+            }
+        }
     }
     
     func performUpdateProfile() {
@@ -179,7 +206,7 @@ class UpdateProfileViewController: UIViewController {
     func setFormState(isEnabled: Bool) {
         formUtils.setFieldsStatus(isEnabled: isEnabled)
     }
-        
+    
     func setTextFieldListeners() {
         firstNameField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         lastNameField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
@@ -192,15 +219,18 @@ class UpdateProfileViewController: UIViewController {
             errorLabel.text = ""
         }
         
-        let registerButtonEnabled = [firstNameField,
+        let isUpdateButtonEnabled = [firstNameField,
                                      lastNameField,
                                      emailField
-                                     ]
+        ]
             .filter {$0.text?.isEmpty ?? true}
             .count == 0
-        updateProfileButton.isEnabled = registerButtonEnabled
-        updateProfileButton.backgroundColor = registerButtonEnabled ?
-        UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
+        setUpdateProfileButtonEnabled(isUpdateButtonEnabled)
+    }
+    
+    func setUpdateProfileButtonEnabled(_ isEnabled: Bool) {
+        updateProfileButton.isEnabled = isEnabled
+        updateProfileButton.backgroundColor = isEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
     
 }
@@ -336,17 +366,26 @@ extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePi
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         DispatchQueue.main.async {
             picker.dismiss(animated: true)
-            if let image = info[.originalImage] as? UIImage, let imageURL = info[.imageURL] as? URL {
-                self.avatarNameLabel.isHidden = true
-                self.avatarImageView.isHidden = false
-                self.avatarImageView.image = image
-                self.showProgressView()
+            guard let image = info[.originalImage] as? UIImage else{ return }
+            self.avatarNameLabel.isHidden = true
+            self.avatarImageView.isHidden = false
+            self.avatarImageView.image = image
+            if let imageURL = info[.imageURL] as? URL {
+                self.uploadAvatar(fileURL: imageURL)
+            } else if (picker.sourceType == UIImagePickerController.SourceType.camera) {
+                let imgName = UUID().uuidString
+                let documentDirectory = NSTemporaryDirectory()
+                let localPath = documentDirectory.appending(imgName)
+                let data = (self.avatarImageView.image ?? UIImage()).jpegData(compressionQuality: 0.3)! as NSData
+                data.write(toFile: localPath, atomically: true)
+                let imageURL = URL.init(fileURLWithPath: localPath)
                 self.uploadAvatar(fileURL: imageURL)
             }
         }
     }
     
     func uploadAvatar(fileURL: URL) {
+        showProgressView()
         DashX.uploadExternalAsset(fileURL: fileURL, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
             DispatchQueue.main.async {
                 self.hideProgressView()
@@ -356,8 +395,7 @@ extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePi
                         let externalAssetData = try JSONDecoder().decode(ExternalAssetResponse.self, from: json)
                         let avatarAsset = AssetData(status: externalAssetData.status, url: externalAssetData.data?.assetData?.url)
                         self.localUser?.avatar = avatarAsset
-                        // Enable Update profile after avatar is uploaded
-                        self.updateProfileButton.isEnabled = true
+                        self.setUpdateProfileButtonEnabled(true)
                     } catch {
                         self.showError(with: error.localizedDescription)
                     }

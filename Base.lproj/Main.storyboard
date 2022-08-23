@@ -789,7 +789,7 @@
                                             </label>
                                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fka-Yn-HIK">
                                                 <rect key="frame" x="157" y="69.5" width="100" height="100"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                <color key="backgroundColor" name="primaryColorDisabled"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="P28-j5-X6q"/>
                                                     <constraint firstAttribute="height" constant="100" id="qKf-GZ-bdY"/>
@@ -798,16 +798,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-gd-ZpY">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WP8-gd-ZpY">
                                                 <rect key="frame" x="157" y="69.5" width="100" height="100"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="CTh-2m-46S"/>
                                                     <constraint firstAttribute="height" constant="100" id="ab6-Mc-TDy"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.10000000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUg-2a-EPZ">
                                                 <rect key="frame" x="224" y="126.5" width="35" height="35"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="L48-6c-H2A"/>
                                                     <constraint firstAttribute="height" constant="35" id="y0k-nt-0DB"/>
@@ -817,9 +823,14 @@
                                                 <buttonConfiguration key="configuration" style="plain" title=" ">
                                                     <backgroundConfiguration key="background" cornerRadius="20" imageContentMode="center">
                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                                        <imageReference key="image" image="camera.fill" catalog="system" symbolScale="small"/>
+                                                        <imageReference key="image" image="camera.circle.fill" catalog="system" symbolScale="large"/>
                                                     </backgroundConfiguration>
                                                 </buttonConfiguration>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="25"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="selectCameraOrGallery:" destination="FDg-Uu-Vsa" eventType="touchUpInside" id="QVv-Ny-xOv"/>
                                                 </connections>
@@ -1495,7 +1506,7 @@
     <resources>
         <image name="DashXLogo" width="1024" height="1024"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
-        <image name="camera.fill" catalog="system" width="128" height="94"/>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="cylinder" catalog="system" width="121" height="128"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
@@ -1503,6 +1514,9 @@
         <image name="rectangle.and.pencil.and.ellipsis" catalog="system" width="128" height="81"/>
         <namedColor name="primaryColor">
             <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="primaryColorDisabled">
+            <color red="0.3449999988079071" green="0.33700001239776611" blue="0.83899998664855957" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
