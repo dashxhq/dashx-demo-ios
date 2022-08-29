@@ -173,9 +173,9 @@ struct User: Codable {
     var name: String {
         var temp = firstName ?? ""
         if firstName != nil {
-            temp = temp + " "
+            temp += " "
         }
-        temp = temp + (lastName ?? "")
+        temp += lastName ?? ""
         return temp
     }
     
