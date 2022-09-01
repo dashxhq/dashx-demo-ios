@@ -7,7 +7,6 @@
 
 import Foundation
 import DashX
-import CoreMedia
 
 // MARK: -  Network Responses
 
@@ -171,7 +170,7 @@ struct User: Codable {
         case id, email
         case firstName = "first_name"
         case lastName = "last_name"
-        case avatar = "avatar"
+        case avatar
     }
     
     var id: Int?
@@ -234,8 +233,8 @@ struct ExternalAssetResponse: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case status = "status"
-        case id = "id"
-        case data = "data"
+        case status
+        case id
+        case data
     }
 }

@@ -20,7 +20,7 @@ class MoreItemsViewController: UIViewController {
         
         screenItems = [
             (title: "Billing", action: { return }),
-            (title: "Profile", action: fetchProfileAndNavigateToProfileScreen),
+            (title: "Profile", action: goToUpdateProfileScreen),
             (title: "Settings", action: goToSettingsScreen),
             (title: "Logout", action: showAlertToLogoutConfirmation)
         ]
@@ -40,24 +40,9 @@ class MoreItemsViewController: UIViewController {
         setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
     
-    func fetchProfileAndNavigateToProfileScreen() {
-        showProgressView()
-        APIClient.getProfile { [weak self] response in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.hideProgressView()
-                if let updateProfileVC = UIViewController.instance(of: UpdateProfileViewController.identifier) as? UpdateProfileViewController {
-                    updateProfileVC.localUser = response?.user
-                    self.navigationController?.pushViewController(updateProfileVC, animated: true)
-                }
-            }
-        } onError: { [weak self] error in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.hideProgressView()
-                self.showError(with: error.message)
-            }
-        }
+    func goToUpdateProfileScreen() {
+        let updateProfileVC = UIViewController.instance(of: UpdateProfileViewController.identifier)
+        self.navigationController?.pushViewController(updateProfileVC, animated: true)
     }
     
     func goToSettingsScreen() {

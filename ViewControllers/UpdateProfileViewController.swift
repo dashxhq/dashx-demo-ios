@@ -55,15 +55,34 @@ class UpdateProfileViewController: UIViewController {
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTextFieldListeners()
-        populateProfileData()
         
+        fetchProfile()
+        setTextFieldListeners()
         formUtils = FormUtils(fields: [firstNameField, lastNameField, emailField, updateProfileButton])
     }
     
     // MARK: TraitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
+    }
+    
+    
+    func fetchProfile() {
+        showProgressView(canShowBackground: true)
+        APIClient.getProfile { [weak self] response in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.hideProgressView()
+                self.localUser = response?.user
+                self.populateProfileData()
+            }
+        } onError: { [weak self] error in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.hideProgressView()
+                self.showError(with: error.message)
+            }
+        }
     }
     
     func populateProfileData() {
@@ -125,33 +144,45 @@ class UpdateProfileViewController: UIViewController {
     }
     
     func checkCameraPermission() {
-        let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
-        switch authStatus {
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { [weak self] authorised in
-                guard let self = self else { return }
-                if authorised {
-                    DispatchQueue.main.async {
-                        self.callCamera()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
+            
+            switch authStatus {
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) { [weak self] authorised in
+                    guard let self = self else { return }
+                    if authorised {
+                        DispatchQueue.main.async {
+                            self.callCamera()
+                        }
                     }
                 }
+                
+            case .restricted:
+                break
+                
+            case .denied:
+                self.presentCameraSettings()
+                
+            case .authorized:
+                self.callCamera()
+                
+            @unknown default:
+                break
             }
-        case .restricted:
-            print("User don't allow")
-        case .denied:
-            print("Denied status called")
-            presentCameraSettings()
-        case .authorized:
-            callCamera()
-        @unknown default:
-            print("Error Occurred")
         }
     }
     
     func checkGalleryPermission() {
-        PHPhotoLibrary.shared().register(self)
-        let status = PHPhotoLibrary.authorizationStatus()
-        showUI(for: status)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            PHPhotoLibrary.shared().register(self)
+            let status = PHPhotoLibrary.authorizationStatus()
+            self.showUI(for: status)
+        }
     }
     
     @IBAction func onClickUpdateProfile(_ sender: UIButton) {
@@ -183,7 +214,7 @@ class UpdateProfileViewController: UIViewController {
             APIClient.updateProfile(user: user) { updatedProfileResponse in
                 
                 DispatchQueue.main.async {
-                    self.updateProfileButton.setTitle("Update Profile successful!", for: UIControl.State.disabled)
+                    self.updateProfileButton.setTitle("Update profile successful!", for: UIControl.State.disabled)
                     
                     LocalStorage.instance.setUser(updatedProfileResponse?.user)
                     

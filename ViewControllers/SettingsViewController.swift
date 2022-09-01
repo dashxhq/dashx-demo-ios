@@ -35,12 +35,13 @@ class SettingsViewController: UIViewController {
     private var isPreferencesLoading: Bool = false {
         didSet {
             if self.isPreferencesLoading {
-                self.showProgressView()
+                self.showProgressView(canShowBackground: !isLoadedAlready)
             } else {
                 self.hideProgressView()
             }
         }
     }
+    private var isLoadedAlready: Bool = false
     
     // MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -85,6 +86,7 @@ class SettingsViewController: UIViewController {
     
     func fetchStoredPreferences() {
         isPreferencesLoading = true
+        isLoadedAlready = true
         DashX.fetchStoredPreferences { response in
             DispatchQueue.main.async {
                 if let jsonDictionary = response.jsonValue as? [String: Any] {

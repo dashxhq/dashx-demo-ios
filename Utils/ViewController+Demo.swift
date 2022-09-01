@@ -24,9 +24,10 @@ extension UIViewController {
         self.navigationController?.navigationBar.isTranslucent = isTranslucent
     }
     
-    func showProgressView() {
+    func showProgressView(canShowBackground: Bool = false) {
         let progressView = ProgressView.init(frame: .zero)
         progressView.translatesAutoresizingMaskIntoConstraints = false
+        progressView.backgroundColor = canShowBackground ? .systemBackground : .clear
         view.addSubview(progressView)
         NSLayoutConstraint.activate([
             NSLayoutConstraint(item: progressView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0),
