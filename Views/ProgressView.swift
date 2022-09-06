@@ -20,8 +20,6 @@ class ProgressView: UIView {
     }
     
     func setUpChildViews() {
-        self.backgroundColor = .clear
-        
         activityIndicatorView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         activityIndicatorView.color = UIColor(named: "primaryColor")
         activityIndicatorView.startAnimating()

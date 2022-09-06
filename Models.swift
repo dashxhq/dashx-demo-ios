@@ -51,8 +51,15 @@ struct LoginResponse: Codable {
     }
 }
 
+// MARK: - ProfileResponse
+struct ProfileResponse: Codable {
+    var message: String?
+    var user: User?
+}
+
 // MARK: - UpdateProfileResponse
 struct UpdateProfileResponse: Codable {
+    var message: String?
     var user: User?
 }
 
@@ -163,12 +170,14 @@ struct User: Codable {
         case id, email
         case firstName = "first_name"
         case lastName = "last_name"
+        case avatar
     }
     
     var id: Int?
     var firstName: String?
     var lastName: String?
     var email: String?
+    var avatar: AssetData?
     
     var name: String {
         var temp = firstName ?? ""
@@ -200,5 +209,32 @@ struct PreferenceDataResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case newBookmark = "new-bookmark"
         case newPost = "new-post"
+    }
+}
+
+// MARK: - AssetData
+struct AssetData: Codable {
+    var status: String?
+    var url: String?
+}
+
+// MARK: - ExternalAssetResponse
+struct ExternalAssetResponse: Codable {
+    let status: String?
+    let id: String?
+    struct ExternalAssetData: Codable {
+        let assetData: AssetData?
+        
+        enum CodingKeys: String, CodingKey {
+            case assetData = "asset"
+        }
+    }
+    let data: ExternalAssetData?
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case status
+        case id
+        case data
     }
 }
