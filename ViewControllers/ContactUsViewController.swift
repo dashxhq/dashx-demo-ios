@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DashX
 
 class ContactUsViewController: UIViewController {
     static let identifier = "ContactUsViewController"
@@ -86,6 +87,14 @@ class ContactUsViewController: UIViewController {
         
         formState(isEnabled: false)
         submitButton.setTitle("Submitting", for: UIControl.State.disabled)
+        
+        do {
+            let formValues: NSDictionary = [
+                "name": nameTextField.text!,
+                "email": emailTextField.text!
+            ]
+            try DashX.identify(withOptions: formValues)
+        } catch {}
         
         APIClient.contactUs(name: nameTextField.text!, email: emailTextField.text!, feedback: feedbackTextView.text!){ response in
             DispatchQueue.main.async {
