@@ -7,9 +7,11 @@
 
 import UIKit
 import DashX
+import FirebaseCore
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -19,6 +21,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             baseURI: try! Configuration.value(for: "DASHX_BASE_URI"),
             targetEnvironment: try! Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
+
+        // Configure Firebase
+        FirebaseApp.configure()
+
+        Messaging.messaging().delegate = self
+
+        UNUserNotificationCenter.current().delegate = self
+
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+          options: authOptions,
+          completionHandler: { _, _ in }
+        )
+
+        application.registerForRemoteNotifications()
+
 
         return true
     }
