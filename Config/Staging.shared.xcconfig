@@ -1,0 +1,13 @@
+//
+//  Staging.xcconfig
+//  DashX Demo
+//
+//  Created by Pradeep Kumar on 03/12/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DASHX_PUBLIC_KEY=ft3tP2wJlQB5NSdYrjU8UylH
+DASHX_BASE_URI=https://api.dashx-staging.com/graphql
+DASHX_TARGET_ENVIRONMENT=staging

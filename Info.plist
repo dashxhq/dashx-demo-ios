@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DASHX_BASE_URI</key>
+	<string>$(DASHX_BASE_URI)</string>
+	<key>DASHX_PUBLIC_KEY</key>
+	<string>$(DASHX_PUBLIC_KEY)</string>
+	<key>DASHX_TARGET_ENVIRONMENT</key>
+	<string>$(DASHX_TARGET_ENVIRONMENT)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

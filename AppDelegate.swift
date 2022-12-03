@@ -13,12 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        /// Configure DashX
+        // Configure DashX
         DashX.configure(
-            withPublicKey: Constants.publicKey,
-            baseURI: Constants.baseUri,
-            targetEnvironment: Constants.targetEnvironment
+            withPublicKey: try! Configuration.value(for: "DASHX_PUBLIC_KEY"),
+            baseURI: try! Configuration.value(for: "DASHX_BASE_URI"),
+            targetEnvironment: try! Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
+
         return true
     }
 

@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		278C5991293BDD7C00CCC52D /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821F7286AB85800549F7C /* LocalStorage.swift */; };
+		278C5992293BDD7C00CCC52D /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0EDE2865847A00638BF2 /* NetworkUtils.swift */; };
+		278C5993293BDD7C00CCC52D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841628812A4B00F8F07A /* MainTabBarController.swift */; };
+		278C5994293BDD7C00CCC52D /* String+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799572864BC0000EABFD7 /* String+Demo.swift */; };
+		278C5995293BDD7C00CCC52D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821FB286B103300549F7C /* Models.swift */; };
+		278C5996293BDD7C00CCC52D /* Date+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1F288994200082CD01 /* Date+Demo.swift */; };
+		278C5997293BDD7C00CCC52D /* UIApplication+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED48841A288175D900F8F07A /* UIApplication+Demo.swift */; };
+		278C5998293BDD7C00CCC52D /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0EE0286584C900638BF2 /* APIClient.swift */; };
+		278C5999293BDD7C00CCC52D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF11E286484F400374BD3 /* LoginViewController.swift */; };
+		278C599A293BDD7C00CCC52D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF0EE2864833800374BD3 /* AppDelegate.swift */; };
+		278C599B293BDD7C00CCC52D /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA899AE28801F3500561530 /* PostsListViewController.swift */; };
+		278C599C293BDD7C00CCC52D /* FormUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C0EE2286598DF00638BF2 /* FormUtils.swift */; };
+		278C599D293BDD7C00CCC52D /* ViewController+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4799542864B21900EABFD7 /* ViewController+Demo.swift */; };
+		278C599E293BDD7C00CCC52D /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED11A728890C700003B262 /* ContactUsViewController.swift */; };
+		278C599F293BDD7C00CCC52D /* MoreItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */; };
+		278C59A0293BDD7C00CCC52D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821FD286C0A5400549F7C /* ForgotPasswordViewController.swift */; };
+		278C59A1293BDD7C00CCC52D /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */; };
+		278C59A2293BDD7C00CCC52D /* DateFormatter+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */; };
+		278C59A3293BDD7C00CCC52D /* PostsListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4884142881144F00F8F07A /* PostsListItemTableViewCell.swift */; };
+		278C59A4293BDD7C00CCC52D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF0F02864833800374BD3 /* SceneDelegate.swift */; };
+		278C59A5293BDD7C00CCC52D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */; };
+		278C59A6293BDD7C00CCC52D /* MoreScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */; };
+		278C59A7293BDD7C00CCC52D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED47994F2864ADDB00EABFD7 /* RegisterViewController.swift */; };
+		278C59A8293BDD7C00CCC52D /* BookmarksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3EB08328923B6000FEB6EF /* BookmarksListViewController.swift */; };
+		278C59A9293BDD7C00CCC52D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC40D4D288F0D180075F470 /* ProgressView.swift */; };
+		278C59AC293BDD7C00CCC52D /* Pods_DashX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */; };
+		278C59AE293BDD7C00CCC52D /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2C28769AA5007A29CD /* fastlane */; };
+		278C59AF293BDD7C00CCC52D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F92864833900374BD3 /* LaunchScreen.storyboard */; };
+		278C59B0293BDD7C00CCC52D /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2D28769AA5007A29CD /* Gemfile.lock */; };
+		278C59B1293BDD7C00CCC52D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F72864833900374BD3 /* Assets.xcassets */; };
+		278C59B2293BDD7C00CCC52D /* Gemfile in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2B28769AA4007A29CD /* Gemfile */; };
+		278C59B3293BDD7C00CCC52D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D25EEA0286D5BAD0096A79C /* Podfile */; };
+		278C59B4293BDD7C00CCC52D /* PostsListItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3EB07F289233BB00FEB6EF /* PostsListItemTableViewCell.xib */; };
+		278C59B5293BDD7C00CCC52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F42864833800374BD3 /* Main.storyboard */; };
+		278C59C1293BDFBB00CCC52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278C5989293BD91800CCC52D /* GoogleService-Info.plist */; };
+		278C59C2293BDFBE00CCC52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278C5987293BD91800CCC52D /* GoogleService-Info.plist */; };
+		278C59C4293BDFC400CCC52D /* Production.shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BE293BDEEA00CCC52D /* Production.shared.xcconfig */; };
+		278C59C5293BDFC700CCC52D /* Production.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59C0293BDF7200CCC52D /* Production.debug.xcconfig */; };
+		278C59C6293BDFCA00CCC52D /* Production.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BF293BDF7200CCC52D /* Production.release.xcconfig */; };
+		278C59C7293BDFCE00CCC52D /* Staging.shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C598A293BD91800CCC52D /* Staging.shared.xcconfig */; };
+		278C59C8293BDFCE00CCC52D /* Staging.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C598C293BDD2800CCC52D /* Staging.debug.xcconfig */; };
+		278C59C9293BDFCE00CCC52D /* Staging.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BD293BDEC000CCC52D /* Staging.release.xcconfig */; };
+		278C59CB293BE55E00CCC52D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C59CA293BE44E00CCC52D /* Configuration.swift */; };
+		278C59CC293BE56600CCC52D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C59CA293BE44E00CCC52D /* Configuration.swift */; };
 		3D25EEA1286D5BAD0096A79C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D25EEA0286D5BAD0096A79C /* Podfile */; };
 		3D809F04287B0C5E00679C40 /* UpdateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */; };
 		3D9821F8286AB85800549F7C /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9821F7286AB85800549F7C /* LocalStorage.swift */; };
@@ -41,7 +85,6 @@
 		EDAC2D20288994200082CD01 /* Date+Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAC2D1F288994200082CD01 /* Date+Demo.swift */; };
 		EDB593F5288ACE2900F0EA28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */; };
 		EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC40D4D288F0D180075F470 /* ProgressView.swift */; };
-		EDD35389289BA5B9004B77EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD35388289BA5B9004B77EF /* Constants.swift */; };
 		EDED11A828890C700003B262 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDED11A728890C700003B262 /* ContactUsViewController.swift */; };
 		F7D2DC2FA7E4C95C810B28F3 /* Pods_DashX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +107,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		278C5987293BD91800CCC52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		278C5989293BD91800CCC52D /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		278C598A293BD91800CCC52D /* Staging.shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.shared.xcconfig; sourceTree = "<group>"; };
+		278C598C293BDD2800CCC52D /* Staging.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Staging.debug.xcconfig; sourceTree = "<group>"; };
+		278C59BB293BDD7C00CCC52D /* DashX Demo Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DashX Demo Staging.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		278C59BD293BDEC000CCC52D /* Staging.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.release.xcconfig; sourceTree = "<group>"; };
+		278C59BE293BDEEA00CCC52D /* Production.shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Production.shared.xcconfig; path = Config/Production.shared.xcconfig; sourceTree = SOURCE_ROOT; };
+		278C59BF293BDF7200CCC52D /* Production.release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.release.xcconfig; sourceTree = "<group>"; };
+		278C59C0293BDF7200CCC52D /* Production.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.debug.xcconfig; sourceTree = "<group>"; };
+		278C59CA293BE44E00CCC52D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		2A766F8AD77F3D07DE41501D /* Pods_DashX_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DashX_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D25EEA0286D5BAD0096A79C /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3D809F03287B0C5E00679C40 /* UpdateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +139,7 @@
 		A1144A40DE0301F8CCCB4A98 /* Pods-DashX DemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashX DemoTests.release.xcconfig"; path = "Target Support Files/Pods-DashX DemoTests/Pods-DashX DemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9BD4AA7BDA9BD372761F9D0 /* Pods_DashX_Demo_DashX_DemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DashX_Demo_DashX_DemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2AD7B73E836D5BE7CD49D6B /* Pods-DashX Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DashX Demo.release.xcconfig"; path = "Target Support Files/Pods-DashX Demo/Pods-DashX Demo.release.xcconfig"; sourceTree = "<group>"; };
-		ED2AF0EB2864833800374BD3 /* DashX Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DashX Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED2AF0EB2864833800374BD3 /* DashX Demo Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DashX Demo Production.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2AF0EE2864833800374BD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED2AF0F02864833800374BD3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ED2AF0F52864833800374BD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,11 +162,18 @@
 		EDAC2D1F288994200082CD01 /* Date+Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Demo.swift"; sourceTree = "<group>"; };
 		EDB593F4288ACE2900F0EA28 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		EDC40D4D288F0D180075F470 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
-		EDD35388289BA5B9004B77EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EDED11A728890C700003B262 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		278C59AB293BDD7C00CCC52D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278C59AC293BDD7C00CCC52D /* Pods_DashX_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED2AF0E82864833800374BD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +224,45 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		278C5984293BD91800CCC52D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				278C5985293BD91800CCC52D /* Firebase */,
+				278C59BE293BDEEA00CCC52D /* Production.shared.xcconfig */,
+				278C59C0293BDF7200CCC52D /* Production.debug.xcconfig */,
+				278C59BF293BDF7200CCC52D /* Production.release.xcconfig */,
+				278C598C293BDD2800CCC52D /* Staging.debug.xcconfig */,
+				278C59BD293BDEC000CCC52D /* Staging.release.xcconfig */,
+				278C598A293BD91800CCC52D /* Staging.shared.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		278C5985293BD91800CCC52D /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				278C5988293BD91800CCC52D /* Production */,
+				278C5986293BD91800CCC52D /* Staging */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		278C5986293BD91800CCC52D /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				278C5987293BD91800CCC52D /* GoogleService-Info.plist */,
+			);
+			path = Staging;
+			sourceTree = "<group>";
+		};
+		278C5988293BD91800CCC52D /* Production */ = {
+			isa = PBXGroup;
+			children = (
+				278C5989293BD91800CCC52D /* GoogleService-Info.plist */,
+			);
+			path = Production;
+			sourceTree = "<group>";
+		};
 		3DE983E7286F1DA100C615AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,15 +281,16 @@
 				3DAF6A2B28769AA4007A29CD /* Gemfile */,
 				3DAF6A2D28769AA5007A29CD /* Gemfile.lock */,
 				3D25EEA0286D5BAD0096A79C /* Podfile */,
+				ED2AF0FC2864833A00374BD3 /* Info.plist */,
 				ED2AF0EE2864833800374BD3 /* AppDelegate.swift */,
 				ED2AF0F02864833800374BD3 /* SceneDelegate.swift */,
-				ED2AF0F42864833800374BD3 /* Main.storyboard */,
-				3DE983E7286F1DA100C615AB /* Views */,
-				ED4799562864B4DC00EABFD7 /* Utils */,
-				ED4799532864B04000EABFD7 /* ViewControllers */,
-				ED2AF0F72864833900374BD3 /* Assets.xcassets */,
 				ED2AF0F92864833900374BD3 /* LaunchScreen.storyboard */,
-				ED2AF0FC2864833A00374BD3 /* Info.plist */,
+				ED2AF0F42864833800374BD3 /* Main.storyboard */,
+				ED2AF0F72864833900374BD3 /* Assets.xcassets */,
+				278C5984293BD91800CCC52D /* Config */,
+				ED4799562864B4DC00EABFD7 /* Utils */,
+				3DE983E7286F1DA100C615AB /* Views */,
+				ED4799532864B04000EABFD7 /* ViewControllers */,
 				3D9C0EE0286584C900638BF2 /* APIClient.swift */,
 				3D9821FB286B103300549F7C /* Models.swift */,
 				ED2AF0EC2864833800374BD3 /* Products */,
@@ -202,9 +302,10 @@
 		ED2AF0EC2864833800374BD3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ED2AF0EB2864833800374BD3 /* DashX Demo.app */,
+				ED2AF0EB2864833800374BD3 /* DashX Demo Production.app */,
 				ED2AF1012864833A00374BD3 /* DashX DemoTests.xctest */,
 				ED2AF10B2864833A00374BD3 /* DashX DemoUITests.xctest */,
+				278C59BB293BDD7C00CCC52D /* DashX Demo Staging.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,15 +330,15 @@
 		ED4799562864B4DC00EABFD7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				3D9C0EDE2865847A00638BF2 /* NetworkUtils.swift */,
-				ED4799542864B21900EABFD7 /* ViewController+Demo.swift */,
-				ED4799572864BC0000EABFD7 /* String+Demo.swift */,
+				278C59CA293BE44E00CCC52D /* Configuration.swift */,
+				EDAC2D1F288994200082CD01 /* Date+Demo.swift */,
+				EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */,
 				3D9C0EE2286598DF00638BF2 /* FormUtils.swift */,
 				3D9821F7286AB85800549F7C /* LocalStorage.swift */,
+				3D9C0EDE2865847A00638BF2 /* NetworkUtils.swift */,
+				ED4799572864BC0000EABFD7 /* String+Demo.swift */,
 				ED48841A288175D900F8F07A /* UIApplication+Demo.swift */,
-				EDAC2D1D288993090082CD01 /* DateFormatter+Demo.swift */,
-				EDAC2D1F288994200082CD01 /* Date+Demo.swift */,
-				EDD35388289BA5B9004B77EF /* Constants.swift */,
+				ED4799542864B21900EABFD7 /* ViewController+Demo.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -245,9 +346,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		ED2AF0EA2864833800374BD3 /* DashX Demo */ = {
+		278C598E293BDD7C00CCC52D /* DashX Demo Staging */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ED2AF1152864833A00374BD3 /* Build configuration list for PBXNativeTarget "DashX Demo" */;
+			buildConfigurationList = 278C59B8293BDD7C00CCC52D /* Build configuration list for PBXNativeTarget "DashX Demo Staging" */;
+			buildPhases = (
+				278C598F293BDD7C00CCC52D /* [CP] Check Pods Manifest.lock */,
+				278C5990293BDD7C00CCC52D /* Sources */,
+				278C59AB293BDD7C00CCC52D /* Frameworks */,
+				278C59AD293BDD7C00CCC52D /* Resources */,
+				278C59B6293BDD7C00CCC52D /* ShellScript */,
+				278C59B7293BDD7C00CCC52D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DashX Demo Staging";
+			productName = "DashX Demo";
+			productReference = 278C59BB293BDD7C00CCC52D /* DashX Demo Staging.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ED2AF0EA2864833800374BD3 /* DashX Demo Production */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED2AF1152864833A00374BD3 /* Build configuration list for PBXNativeTarget "DashX Demo Production" */;
 			buildPhases = (
 				1B0659BDA152699CF94D3B5A /* [CP] Check Pods Manifest.lock */,
 				ED2AF0E72864833800374BD3 /* Sources */,
@@ -260,9 +381,9 @@
 			);
 			dependencies = (
 			);
-			name = "DashX Demo";
+			name = "DashX Demo Production";
 			productName = "DashX Demo";
-			productReference = ED2AF0EB2864833800374BD3 /* DashX Demo.app */;
+			productReference = ED2AF0EB2864833800374BD3 /* DashX Demo Production.app */;
 			productType = "com.apple.product-type.application";
 		};
 		ED2AF1002864833A00374BD3 /* DashX DemoTests */ = {
@@ -342,7 +463,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ED2AF0EA2864833800374BD3 /* DashX Demo */,
+				ED2AF0EA2864833800374BD3 /* DashX Demo Production */,
+				278C598E293BDD7C00CCC52D /* DashX Demo Staging */,
 				ED2AF1002864833A00374BD3 /* DashX DemoTests */,
 				ED2AF10A2864833A00374BD3 /* DashX DemoUITests */,
 			);
@@ -350,15 +472,38 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		278C59AD293BDD7C00CCC52D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278C59C7293BDFCE00CCC52D /* Staging.shared.xcconfig in Resources */,
+				278C59AE293BDD7C00CCC52D /* fastlane in Resources */,
+				278C59AF293BDD7C00CCC52D /* LaunchScreen.storyboard in Resources */,
+				278C59C2293BDFBE00CCC52D /* GoogleService-Info.plist in Resources */,
+				278C59B0293BDD7C00CCC52D /* Gemfile.lock in Resources */,
+				278C59B1293BDD7C00CCC52D /* Assets.xcassets in Resources */,
+				278C59B2293BDD7C00CCC52D /* Gemfile in Resources */,
+				278C59C8293BDFCE00CCC52D /* Staging.debug.xcconfig in Resources */,
+				278C59B3293BDD7C00CCC52D /* Podfile in Resources */,
+				278C59B4293BDD7C00CCC52D /* PostsListItemTableViewCell.xib in Resources */,
+				278C59B5293BDD7C00CCC52D /* Main.storyboard in Resources */,
+				278C59C9293BDFCE00CCC52D /* Staging.release.xcconfig in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED2AF0E92864833800374BD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				3DAF6A2F28769AA5007A29CD /* fastlane in Resources */,
+				278C59C4293BDFC400CCC52D /* Production.shared.xcconfig in Resources */,
 				ED2AF0FB2864833900374BD3 /* LaunchScreen.storyboard in Resources */,
+				278C59C1293BDFBB00CCC52D /* GoogleService-Info.plist in Resources */,
 				3DAF6A3028769AA5007A29CD /* Gemfile.lock in Resources */,
 				ED2AF0F82864833900374BD3 /* Assets.xcassets in Resources */,
+				278C59C5293BDFC700CCC52D /* Production.debug.xcconfig in Resources */,
 				3DAF6A2E28769AA5007A29CD /* Gemfile in Resources */,
+				278C59C6293BDFCA00CCC52D /* Production.release.xcconfig in Resources */,
 				3D25EEA1286D5BAD0096A79C /* Podfile in Resources */,
 				ED3EB080289233BB00FEB6EF /* PostsListItemTableViewCell.xib in Resources */,
 				ED2AF0F62864833800374BD3 /* Main.storyboard in Resources */,
@@ -424,6 +569,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		278C598F293BDD7C00CCC52D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DashX Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		278C59B6293BDD7C00CCC52D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		278C59B7293BDD7C00CCC52D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DashX Demo/Pods-DashX Demo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		3D9821F52869B8B300549F7C /* ShellScript */ = {
@@ -502,10 +703,44 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		278C5990293BDD7C00CCC52D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				278C59CC293BE56600CCC52D /* Configuration.swift in Sources */,
+				278C5991293BDD7C00CCC52D /* LocalStorage.swift in Sources */,
+				278C5992293BDD7C00CCC52D /* NetworkUtils.swift in Sources */,
+				278C5993293BDD7C00CCC52D /* MainTabBarController.swift in Sources */,
+				278C5994293BDD7C00CCC52D /* String+Demo.swift in Sources */,
+				278C5995293BDD7C00CCC52D /* Models.swift in Sources */,
+				278C5996293BDD7C00CCC52D /* Date+Demo.swift in Sources */,
+				278C5997293BDD7C00CCC52D /* UIApplication+Demo.swift in Sources */,
+				278C5998293BDD7C00CCC52D /* APIClient.swift in Sources */,
+				278C5999293BDD7C00CCC52D /* LoginViewController.swift in Sources */,
+				278C599A293BDD7C00CCC52D /* AppDelegate.swift in Sources */,
+				278C599B293BDD7C00CCC52D /* PostsListViewController.swift in Sources */,
+				278C599C293BDD7C00CCC52D /* FormUtils.swift in Sources */,
+				278C599D293BDD7C00CCC52D /* ViewController+Demo.swift in Sources */,
+				278C599E293BDD7C00CCC52D /* ContactUsViewController.swift in Sources */,
+				278C599F293BDD7C00CCC52D /* MoreItemsViewController.swift in Sources */,
+				278C59A0293BDD7C00CCC52D /* ForgotPasswordViewController.swift in Sources */,
+				278C59A1293BDD7C00CCC52D /* UpdateProfileViewController.swift in Sources */,
+				278C59A2293BDD7C00CCC52D /* DateFormatter+Demo.swift in Sources */,
+				278C59A3293BDD7C00CCC52D /* PostsListItemTableViewCell.swift in Sources */,
+				278C59A4293BDD7C00CCC52D /* SceneDelegate.swift in Sources */,
+				278C59A5293BDD7C00CCC52D /* SettingsViewController.swift in Sources */,
+				278C59A6293BDD7C00CCC52D /* MoreScreenTableViewCell.swift in Sources */,
+				278C59A7293BDD7C00CCC52D /* RegisterViewController.swift in Sources */,
+				278C59A8293BDD7C00CCC52D /* BookmarksListViewController.swift in Sources */,
+				278C59A9293BDD7C00CCC52D /* ProgressView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED2AF0E72864833800374BD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278C59CB293BE55E00CCC52D /* Configuration.swift in Sources */,
 				3D9821F8286AB85800549F7C /* LocalStorage.swift in Sources */,
 				3D9C0EDF2865847A00638BF2 /* NetworkUtils.swift in Sources */,
 				ED48841728812A4B00F8F07A /* MainTabBarController.swift in Sources */,
@@ -531,7 +766,6 @@
 				ED4799502864ADDB00EABFD7 /* RegisterViewController.swift in Sources */,
 				ED3EB08428923B6000FEB6EF /* BookmarksListViewController.swift in Sources */,
 				EDC40D4E288F0D180075F470 /* ProgressView.swift in Sources */,
-				EDD35389289BA5B9004B77EF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,12 +788,12 @@
 /* Begin PBXTargetDependency section */
 		ED2AF1032864833A00374BD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ED2AF0EA2864833800374BD3 /* DashX Demo */;
+			target = ED2AF0EA2864833800374BD3 /* DashX Demo Production */;
 			targetProxy = ED2AF1022864833A00374BD3 /* PBXContainerItemProxy */;
 		};
 		ED2AF10D2864833A00374BD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ED2AF0EA2864833800374BD3 /* DashX Demo */;
+			target = ED2AF0EA2864833800374BD3 /* DashX Demo Production */;
 			targetProxy = ED2AF10C2864833A00374BD3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -584,6 +818,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		278C59B9293BDD7C00CCC52D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278C598C293BDD2800CCC52D /* Staging.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 21;
+				DEVELOPMENT_TEAM = AS5VW845N7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
+				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashxdemo.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.dashxdemo.app";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		278C59BA293BDD7C00CCC52D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278C59BD293BDEC000CCC52D /* Staging.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 21;
+				DEVELOPMENT_TEAM = AS5VW845N7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
+				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dashxdemo.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.dashxdemo.app";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		ED2AF1132864833A00374BD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -702,7 +1006,7 @@
 		};
 		ED2AF1162864833A00374BD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 467963F08C04D648EBE3A592 /* Pods-DashX Demo.debug.xcconfig */;
+			baseConfigurationReference = 278C59C0293BDF7200CCC52D /* Production.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -712,6 +1016,7 @@
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -736,7 +1041,7 @@
 		};
 		ED2AF1172864833A00374BD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2AD7B73E836D5BE7CD49D6B /* Pods-DashX Demo.release.xcconfig */;
+			baseConfigurationReference = 278C59BF293BDF7200CCC52D /* Production.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -746,6 +1051,7 @@
 				DEVELOPMENT_TEAM = AS5VW845N7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -843,6 +1149,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		278C59B8293BDD7C00CCC52D /* Build configuration list for PBXNativeTarget "DashX Demo Staging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				278C59B9293BDD7C00CCC52D /* Debug */,
+				278C59BA293BDD7C00CCC52D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ED2AF0E62864833800374BD3 /* Build configuration list for PBXProject "DashX Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -852,7 +1167,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ED2AF1152864833A00374BD3 /* Build configuration list for PBXNativeTarget "DashX Demo" */ = {
+		ED2AF1152864833A00374BD3 /* Build configuration list for PBXNativeTarget "DashX Demo Production" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ED2AF1162864833A00374BD3 /* Debug */,

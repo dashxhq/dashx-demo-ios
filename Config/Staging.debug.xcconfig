@@ -1,0 +1,12 @@
+//
+//  Staging.debug.xcconfig
+//  DashX Demo
+//
+//  Created by Pradeep Kumar on 03/12/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../Pods/Target Support Files/Pods-DashX Demo/Pods-DashX Demo.debug.xcconfig"
+#include "Staging.shared.xcconfig"
