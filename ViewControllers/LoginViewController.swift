@@ -92,9 +92,11 @@ class LoginViewController: UIViewController {
         APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
             guard let response = response else {
                 // TODO: Show error: Response is empty
+                DashX.track("Login Failed")
                 return
             }
             
+            DashX.track("Login Succeeded")
             self.persistDashXData(response)
             
             DispatchQueue.main.async {
@@ -121,6 +123,7 @@ class LoginViewController: UIViewController {
             LocalStorage.instance.setToken(response.token)
             
             DashX.setIdentity(uid: userId, token: dashXToken)
+            DashX.subscribe()
         }
     }
     
