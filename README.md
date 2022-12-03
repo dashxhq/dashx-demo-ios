@@ -31,4 +31,3 @@ Check out the [Developer Guide](https://docs.dashx.com/developer) to understand 
 **Don't have an Account yet?** [Sign up](https://app.dashx.com) to get started.
 
 **Need help?** [Contact us](mailto:support@dashx.com) to get your queries resolved.
-

@@ -772,7 +772,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 81396BD69BF4B9C0E4F9ACD7 /* Pods-DashX DemoTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
@@ -792,7 +791,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A1144A40DE0301F8CCCB4A98 /* Pods-DashX DemoTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
@@ -812,7 +810,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6775E11ECEA6C961565A97BA /* Pods-DashX Demo-DashX DemoUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -830,7 +827,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4EE518A63930D6B27C414750 /* Pods-DashX Demo-DashX DemoUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				GENERATE_INFOPLIST_FILE = YES;
