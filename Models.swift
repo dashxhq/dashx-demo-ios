@@ -8,7 +8,7 @@
 import Foundation
 import DashX
 
-// MARK: -  Network Responses
+// MARK: - Network Responses
 
 // MARK: - LoginResponse
 struct LoginResponse: Codable {

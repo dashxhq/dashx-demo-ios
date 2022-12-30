@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         // Configure DashX
         DashX.configure(
             withPublicKey: try! Configuration.value(for: "DASHX_PUBLIC_KEY"),
-            baseURI: try! Configuration.value(for: "DASHX_BASE_URI"),
-            targetEnvironment: try! Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
+            baseURI: try? Configuration.value(for: "DASHX_BASE_URI"),
+            targetEnvironment: try? Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
 
         // Configure Firebase
