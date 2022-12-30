@@ -90,19 +90,16 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
         
         APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
-            guard let response = response else {
-                // TODO: Show error: Response is empty
-                DashX.track("Login Failed")
-                return
-            }
-            
             DashX.track("Login Succeeded")
-            self.persistDashXData(response)
-            
+
+            self.persistDashXData(response!)
+
             DispatchQueue.main.async {
                 self.goToTabBarScreen()
             }
         } onError: { networkError in
+            DashX.track("Login Failed")
+
             DispatchQueue.main.async {
                 self.loginButton.setTitle("Login", for: UIControl.State.disabled)
                 
