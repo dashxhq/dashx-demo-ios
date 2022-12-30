@@ -41,7 +41,6 @@ platform :ios do
       key_content: ENV['APP_STORE_CONNECT_KEY_CONTENT']
     )
     match(type: 'appstore', git_private_key: ENV['GIT_PRIVATE_KEY'])
-    increment_build_number(xcodeproj: XCODEPROJ)
     build_app(workspace: WORKSPACE, scheme: options[:scheme])
     upload_to_testflight(
       skip_waiting_for_build_processing: ENV['CI'], # Saves CI minutes

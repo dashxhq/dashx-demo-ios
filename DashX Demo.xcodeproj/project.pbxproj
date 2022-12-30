@@ -831,7 +831,6 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = AS5VW845N7;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
@@ -867,7 +866,6 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = AS5VW845N7;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
@@ -1019,7 +1017,6 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = AS5VW845N7;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
@@ -1055,7 +1052,6 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 59;
 				DEVELOPMENT_TEAM = AS5VW845N7;
-				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
