@@ -43,12 +43,6 @@
 		278C59B5293BDD7C00CCC52D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F42864833800374BD3 /* Main.storyboard */; };
 		278C59C1293BDFBB00CCC52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278C5989293BD91800CCC52D /* GoogleService-Info.plist */; };
 		278C59C2293BDFBE00CCC52D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 278C5987293BD91800CCC52D /* GoogleService-Info.plist */; };
-		278C59C4293BDFC400CCC52D /* Production.shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BE293BDEEA00CCC52D /* Production.shared.xcconfig */; };
-		278C59C5293BDFC700CCC52D /* Production.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59C0293BDF7200CCC52D /* Production.debug.xcconfig */; };
-		278C59C6293BDFCA00CCC52D /* Production.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BF293BDF7200CCC52D /* Production.release.xcconfig */; };
-		278C59C7293BDFCE00CCC52D /* Staging.shared.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C598A293BD91800CCC52D /* Staging.shared.xcconfig */; };
-		278C59C8293BDFCE00CCC52D /* Staging.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C598C293BDD2800CCC52D /* Staging.debug.xcconfig */; };
-		278C59C9293BDFCE00CCC52D /* Staging.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 278C59BD293BDEC000CCC52D /* Staging.release.xcconfig */; };
 		278C59CB293BE55E00CCC52D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C59CA293BE44E00CCC52D /* Configuration.swift */; };
 		278C59CC293BE56600CCC52D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278C59CA293BE44E00CCC52D /* Configuration.swift */; };
 		3D25EEA1286D5BAD0096A79C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3D25EEA0286D5BAD0096A79C /* Podfile */; };
@@ -490,18 +484,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				278C59C7293BDFCE00CCC52D /* Staging.shared.xcconfig in Resources */,
 				278C59AE293BDD7C00CCC52D /* fastlane in Resources */,
 				278C59AF293BDD7C00CCC52D /* LaunchScreen.storyboard in Resources */,
 				278C59C2293BDFBE00CCC52D /* GoogleService-Info.plist in Resources */,
 				278C59B0293BDD7C00CCC52D /* Gemfile.lock in Resources */,
 				278C59B1293BDD7C00CCC52D /* Assets.xcassets in Resources */,
 				278C59B2293BDD7C00CCC52D /* Gemfile in Resources */,
-				278C59C8293BDFCE00CCC52D /* Staging.debug.xcconfig in Resources */,
 				278C59B3293BDD7C00CCC52D /* Podfile in Resources */,
 				278C59B4293BDD7C00CCC52D /* PostsListItemTableViewCell.xib in Resources */,
 				278C59B5293BDD7C00CCC52D /* Main.storyboard in Resources */,
-				278C59C9293BDFCE00CCC52D /* Staging.release.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,14 +501,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DAF6A2F28769AA5007A29CD /* fastlane in Resources */,
-				278C59C4293BDFC400CCC52D /* Production.shared.xcconfig in Resources */,
 				ED2AF0FB2864833900374BD3 /* LaunchScreen.storyboard in Resources */,
 				278C59C1293BDFBB00CCC52D /* GoogleService-Info.plist in Resources */,
 				3DAF6A3028769AA5007A29CD /* Gemfile.lock in Resources */,
 				ED2AF0F82864833900374BD3 /* Assets.xcassets in Resources */,
-				278C59C5293BDFC700CCC52D /* Production.debug.xcconfig in Resources */,
 				3DAF6A2E28769AA5007A29CD /* Gemfile in Resources */,
-				278C59C6293BDFCA00CCC52D /* Production.release.xcconfig in Resources */,
 				3D25EEA1286D5BAD0096A79C /* Podfile in Resources */,
 				ED3EB080289233BB00FEB6EF /* PostsListItemTableViewCell.xib in Resources */,
 				ED2AF0F62864833800374BD3 /* Main.storyboard in Resources */,
