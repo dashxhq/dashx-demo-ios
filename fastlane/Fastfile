@@ -65,11 +65,19 @@ platform :ios do
         { version_number: input_version_number }
     end
 
-    new_version_number = increment_version_number(increment_version_number_options.merge(xcodeproj: XCODEPROJ))
-    increment_build_number(
+    new_version_number = nil
+
+    [STAGING_SCHEME, PRODUCTION_SCHEME].each do |scheme|
+      new_version_number = increment_version_number_in_xcodeproj(increment_version_number_options.merge(
         xcodeproj: XCODEPROJ,
-        build_number: latest_testflight_build_number + 1
-    )
+        scheme: scheme
+      ))
+      increment_build_number_in_xcodeproj(
+          xcodeproj: XCODEPROJ,
+          scheme: scheme
+      )
+    end
+
     git_add
     git_commit(path: "*", message: "Bump version to v#{new_version_number}")
     push_to_git_remote

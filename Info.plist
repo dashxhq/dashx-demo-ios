@@ -27,10 +27,6 @@
 			</array>
 		</dict>
 	</dict>
-	<key>CFBundleVersion</key>
-	<string>61</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.2</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
