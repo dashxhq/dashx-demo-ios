@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Optional: Enable logs for troubleshooting
+        DashXLog.setLogLevel(to: .debug)
+
         // Configure DashX
         DashX.configure(
             withPublicKey: try! Configuration.value(for: "DASHX_PUBLIC_KEY"),
@@ -36,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         )
 
         application.registerForRemoteNotifications()
-
 
         return true
     }
