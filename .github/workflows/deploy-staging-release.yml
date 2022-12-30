@@ -22,4 +22,7 @@ jobs:
       - name: Upload release build for staging
         run: bundle exec fastlane staging_release
         env:
+          APP_STORE_CONNECT_KEY_ID: '${{ secrets.APP_STORE_CONNECT_KEY_ID }}'
+          APP_STORE_CONNECT_ISSUER_ID: '${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}'
+          APP_STORE_CONNECT_KEY_CONTENT: '${{ secrets.APP_STORE_CONNECT_KEY_CONTENT }}'
           GIT_PRIVATE_KEY: '${{ secrets.GIT_PRIVATE_KEY }}'
