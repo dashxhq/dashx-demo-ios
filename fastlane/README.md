@@ -31,6 +31,14 @@ Upload Release build to TestFlight for staging
 
 Upload Release build to TestFlight for production
 
+### ios bump
+
+```sh
+[bundle exec] fastlane ios bump
+```
+
+Increase version number & build number.
+
 ### ios provision_devices
 
 ```sh
