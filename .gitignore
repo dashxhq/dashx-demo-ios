@@ -87,3 +87,7 @@ build/
 **/fastlane/builds
 
 fastlane/metadata/review_information
+
+### Custom ###
+
+Keys/

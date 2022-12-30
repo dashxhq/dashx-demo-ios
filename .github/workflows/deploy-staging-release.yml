@@ -1,0 +1,25 @@
+name: Deploy release build for staging
+
+on:
+  # Triggers the workflow on push only for the "develop" branch
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  deploy:
+    name: Deploying to Testflight
+    runs-on: macOS-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Bundle Update
+        run: gem install bundler:1.17.2
+      - name: Bundle Install
+        run: bundle install
+      - name: Install Pod Dependencies
+        run: bundle exec pod install
+      - name: Upload release build for staging
+        run: bundle exec fastlane staging_release
+        env:
+          GIT_PRIVATE_KEY: '${{ secrets.GIT_PRIVATE_KEY }}'

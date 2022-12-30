@@ -15,174 +15,48 @@
 
 default_platform(:ios)
 
-USERNAME = ENV["USERNAME"]
-BUILD_SCHEME = ENV["BUILD_SCHEME"]
-WORKSPACE = ENV["WORKSPACE"]
-APP_IDENTIFIER = ENV["APP_IDENTIFIER"]
-APP_APPLE_ID = ENV["APP_APPLE_ID"]
-TEAM_ID = ENV["TEAM_ID"]
-GIT_AUTHORIZATION= ENV["GIT_AUTHORIZATION"]
-MATCH_DEVELOPMENT_PROVISIONING_PROFILE= ENV["MATCH_DEVELOPMENT_PROVISIONING_PROFILE"]
-MATCH_APP_STORE_PROVISIONING_PROFILE= ENV["MATCH_APP_STORE_PROVISIONING_PROFILE"]
-APP_STORE_CONNECT_API_KEY_KEY_ID = ENV["APP_STORE_CONNECT_API_KEY_KEY_ID"]
-APP_STORE_CONNECT_API_KEY_ISSUER_ID = ENV["APP_STORE_CONNECT_API_KEY_ISSUER_ID"]
-APP_STORE_CONNECT_API_KEY_CONTENT = ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
-TEMP_KEYCHAIN_USER = ENV["TEMP_KEYCHAIN_USER"]
-TEMP_KEYCHAIN_PASSWORD = ENV["TEMP_KEYCHAIN_PASSWORD"]
-INTERNAL_TESTERS_GROUP = ENV["INTERNAL_TESTERS_GROUP"]
-DEMO_TESTERS_GROUP = ENV["DEMO_TESTERS_GROUP"]
-CHANGELOG = ENV["CHANGELOG"]
+WORKSPACE = "DashX Demo.xcworkspace"
+XCODEPROJ = "DashX Demo.xcodeproj"
+STAGING_SCHEME = "DashX Demo Staging"
+PRODUCTION_SCHEME = "DashX Demo Production"
+INTERNAL_TESTERS_GROUP = "Internal Testers"
+DEMO_TESTERS_GROUP = "Demo Testers"
 
 platform :ios do
-  
-  desc "Upload Release build to TestFlight - for internal release"
-  lane :release_for_internal do
-    release(
-      distribute_external: false,
+  desc "Upload Release build to TestFlight for staging"
+  lane :staging_release do
+    setup_ci if ENV['CI']
+    match(type: 'appstore')
+    increment_build_number(xcodeproj: XCODEPROJ)
+    build_app(workspace: WORKSPACE, scheme: STAGING_SCHEME)
+    upload_to_testflight(
       groups: [
         INTERNAL_TESTERS_GROUP
       ],
+      distribute_external: false,
       submit_beta_review: false
     )
   end
 
-  desc "Upload Release build to TestFlight - for beta release"
-  lane :release_for_beta do
-    release(
-      distribute_external: true,
+  desc "Upload Release build to TestFlight for production"
+  lane :production_release do
+    setup_ci if ENV['CI']
+    match(type: 'appstore')
+    increment_build_number(xcodeproj: XCODEPROJ)
+    build_app(workspace: WORKSPACE, scheme: PRODUCTION_SCHEME)
+    upload_to_testflight(
       groups: [
         INTERNAL_TESTERS_GROUP,
         DEMO_TESTERS_GROUP
       ],
+      distribute_external: true,
       submit_beta_review: true
     )
   end
 
-  desc "Upload Release build to TestFlight"
-  private_lane :release do |options|
-    ensure_temp_keychain(TEMP_KEYCHAIN_USER, TEMP_KEYCHAIN_PASSWORD)
-    prepare_key()
-    build_app_with_incremented_build_number(
-      type: "appstore",
-      scheme: BUILD_SCHEME,
-      config: "Release",
-      export_method: "app-store",
-      app_identifier: APP_IDENTIFIER,
-      match_profile: MATCH_APP_STORE_PROVISIONING_PROFILE
-    )
-    upload_to_testflight(
-      username: USERNAME,
-      app_identifier: APP_IDENTIFIER,
-      apple_id: APP_APPLE_ID,
-      team_id: TEAM_ID,
-      skip_waiting_for_build_processing: false,
-      distribute_external: options[:distribute_external],
-      changelog: CHANGELOG,
-      groups: options[:groups],
-      submit_beta_review: options[:submit_beta_review]
-    )
-    delete_temp_keychain(TEMP_KEYCHAIN_USER)
+  desc "Add new devices to provisioning profile"
+  lane :provision_devices do
+    register_devices(devices_file: "./fastlane/devices.txt")
+    match(type: "development", force_for_new_devices: true)
   end
-
-  desc "Upload Debug build to TestFlight"
-  lane :debug_for_internal do
-    ensure_temp_keychain(TEMP_KEYCHAIN_USER, TEMP_KEYCHAIN_PASSWORD)
-    prepare_key()
-    build_app_with_incremented_build_number(
-      type: "development",
-      scheme: BUILD_SCHEME,
-      config: "Debug",
-      export_method: "development",
-      app_identifier: APP_IDENTIFIER,
-      match_profile: MATCH_DEVELOPMENT_PROVISIONING_PROFILE
-    )
-    upload_to_testflight(
-      username: USERNAME,
-      app_identifier: APP_IDENTIFIER,
-      apple_id: APP_APPLE_ID,
-      team_id: TEAM_ID,
-      skip_waiting_for_build_processing: false
-    )
-    delete_temp_keychain(TEMP_KEYCHAIN_USER)
-  end
-
-  desc "Run unit tests"
-  lane :unit_tests do
-    scan(
-      workspace: WORKSPACE,
-      scheme: BUILD_SCHEME
-    )
-  end
-
-# ==== Helpers ====
-
-  def set_certificates(options)
-    sync_code_signing(
-      type: options[:type],
-      app_identifier: APP_IDENTIFIER,
-      git_basic_authorization: Base64.strict_encode64(GIT_AUTHORIZATION),
-      readonly: true,
-      keychain_name: TEMP_KEYCHAIN_USER,
-      keychain_password: TEMP_KEYCHAIN_PASSWORD,
-    )
-  end
-  
-  def increment_build_number(options)
-    build_scheme = options[:scheme]
-    build_number = %x[git rev-list HEAD --count]
-    increment_build_number_in_plist(
-      build_number: build_number,
-      scheme: build_scheme
-    )
-  end
-
-  def build_app_with_incremented_build_number(options)
-    set_certificates(
-      type: options[:type]
-    )
-    increment_build_number(
-      scheme: options[:scheme]
-    )
-    build_app(
-      scheme: options[:scheme],
-      configuration: options[:config],
-      export_method: options[:export_method],
-      export_options: {
-        provisioningProfiles: {
-          options[:app_identifier]=>options[:match_profile]
-        }
-      }
-    )
-  end
-
-  def prepare_key()
-    app_store_connect_api_key(
-      key_id: APP_STORE_CONNECT_API_KEY_KEY_ID,
-      issuer_id: APP_STORE_CONNECT_API_KEY_ISSUER_ID,
-      key_content: APP_STORE_CONNECT_API_KEY_CONTENT,
-      # key_filepath: "fastlane/AuthKeyASL.p8", # if we want to provide key file path rather than key content
-      in_house: false, # optional but may be required if using match/sigh
-    )
-  end
-  
-  def delete_temp_keychain(name)
-    delete_keychain(
-      name: name
-    ) if File.exist? File.expand_path("~/Library/Keychains/#{name}-db")
-  end
-  
-  def create_temp_keychain(name, password)
-    create_keychain(
-      name: name,
-      password: password,
-      unlock: false,
-      timeout: 0
-    )
-  end
-  
-  def ensure_temp_keychain(name, password)
-    delete_temp_keychain(name)
-    create_temp_keychain(name, password)
-  end
-
 end

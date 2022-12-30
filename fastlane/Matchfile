@@ -1,12 +1,11 @@
-git_url("https://github.com/dashxhq/dashx-demo-ios-cert.git")
+git_url("git@github.com:dashxhq/dashx-demo-ios-cert.git")
 
 storage_mode("git")
 
 type("development") # The default type, can be: appstore, adhoc, enterprise or development
 
-app_identifier([ENV["APP_IDENTIFIER"]])
-
-username(ENV["USERNAME"]) # Your Apple Developer Portal username
+# app_identifier(["tools.fastlane.app", "tools.fastlane.app2"])
+# username("user@fastlane.tools") # Your Apple Developer Portal username
 
 # For all available options run `fastlane match --help`
 # Remove the # in the beginning of the line to enable the other options

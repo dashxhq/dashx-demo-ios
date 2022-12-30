@@ -1,10 +1,8 @@
 PODS:
-  - Alamofire (4.9.1)
   - Apollo (0.51.2):
     - Apollo/Core (= 0.51.2)
   - Apollo/Core (0.51.2)
-  - DashX (1.0.2):
-    - Alamofire (~> 4.7)
+  - DashX (1.0.6):
     - Apollo (~> 0.51.2)
   - FirebaseCore (9.4.0):
     - FirebaseCoreDiagnostics (~> 9.0)
@@ -66,7 +64,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Alamofire
     - Apollo
     - DashX
     - FirebaseCore
@@ -80,9 +77,8 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
-  DashX: 55c850245ff26915f79e64655b85d4ea922cb22d
+  DashX: bddc91edf41c14358a15d608eb1761ed93284cfc
   FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
   FirebaseCoreDiagnostics: aaa87098082c4d4bdd1a9557b1186d18ca85ce8c
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3

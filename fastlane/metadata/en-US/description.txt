@@ -1,5 +1,0 @@
-DashX is your All-in-One Product Stack. Visit our website to learn more: https://dashx.com
-
-This sample application demonstrates various features of the DashX iOS SDK.
-
-Check out our documentation to understand each feature in-depth: https://docs.dashx.com

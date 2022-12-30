@@ -15,45 +15,21 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios release_for_internal
+### ios beta
 
 ```sh
-[bundle exec] fastlane ios release_for_internal
+[bundle exec] fastlane ios beta
 ```
 
-Upload Release build to TestFlight - for internal release
+Push a new beta build to TestFlight
 
-### ios release_for_beta
+### ios provision_devices
 
 ```sh
-[bundle exec] fastlane ios release_for_beta
+[bundle exec] fastlane ios provision_devices
 ```
 
-Upload Release build to TestFlight - for beta release
-
-### ios release
-
-```sh
-[bundle exec] fastlane ios release
-```
-
-Upload Release build to TestFlight
-
-### ios debug_for_internal
-
-```sh
-[bundle exec] fastlane ios debug_for_internal
-```
-
-Upload Debug build to TestFlight
-
-### ios unit_tests
-
-```sh
-[bundle exec] fastlane ios unit_tests
-```
-
-Run unit tests
+Add new devices to provisioning profile
 
 ----
 
