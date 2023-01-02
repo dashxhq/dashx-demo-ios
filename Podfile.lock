@@ -2,7 +2,7 @@ PODS:
   - Apollo (0.51.2):
     - Apollo/Core (= 0.51.2)
   - Apollo/Core (0.51.2)
-  - DashX (1.0.6):
+  - DashX (1.0.7):
     - Apollo (~> 0.51.2)
   - FirebaseCore (9.4.0):
     - FirebaseCoreDiagnostics (~> 9.0)
@@ -78,7 +78,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
-  DashX: bddc91edf41c14358a15d608eb1761ed93284cfc
+  DashX: 980b043795301578cf26e5e96bff672f8cb49d21
   FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
   FirebaseCoreDiagnostics: aaa87098082c4d4bdd1a9557b1186d18ca85ce8c
   FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
