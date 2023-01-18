@@ -111,7 +111,7 @@ class LoginViewController: UIViewController {
     
     func persistDashXData(_ response: LoginResponse) {
         if let decodedToken = response.decodedToken,
-           let dashXToken = decodedToken.dashxToken,
+           let dashXToken = response.dashXToken,
            let user = decodedToken.user,
            let userId = user.idString {
             

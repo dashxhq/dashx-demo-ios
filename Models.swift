@@ -12,8 +12,14 @@ import DashX
 
 // MARK: - LoginResponse
 struct LoginResponse: Codable {
+    enum CodingKeys: String, CodingKey {
+        case message, token
+        case dashXToken = "dashx_token"
+    }
+    
     var message: String?
     var token: String?
+    var dashXToken: String?
     
     var decodedToken: JWTTokenContent? {
         if let token = self.token {
@@ -104,11 +110,9 @@ struct JWTTokenContent: Codable {
 //    // Define key mapping with JSON
     enum CodingKeys: String, CodingKey {
         case user, iat, exp
-        case dashxToken = "dashx_token"
     }
     
     var user: User?
-    var dashxToken: String?
     var iat: Int?
     var exp: Int?
 }
