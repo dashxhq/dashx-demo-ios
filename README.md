@@ -26,6 +26,18 @@ Check out the [Developer Guide](https://docs.dashx.com/developer) to understand 
 
 <br />
 
+## Setup
+- [Install ruby](https://www.ruby-lang.org/en/documentation/installation/)
+- Install [bundler](https://bundler.io/) by running the following command
+```sh
+$ gem install bundler
+```
+- Run the following commands
+```sh
+$ bundle install # install gems
+$ pod install
+```
+
 ## Useful Links
 
 **Don't have an Account yet?** [Sign up](https://app.dashx.com) to get started.
