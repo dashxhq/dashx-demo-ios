@@ -59,13 +59,12 @@ PODS:
   - PromisesObjC (2.1.1)
 
 DEPENDENCIES:
-  - DashX
+  - DashX (from `../dashx-ios`)
   - FirebaseMessaging
 
 SPEC REPOS:
   trunk:
     - Apollo
-    - DashX
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreInternal
@@ -75,6 +74,10 @@ SPEC REPOS:
     - GoogleUtilities
     - nanopb
     - PromisesObjC
+
+EXTERNAL SOURCES:
+  DashX:
+    :path: "../dashx-ios"
 
 SPEC CHECKSUMS:
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
@@ -89,6 +92,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
-PODFILE CHECKSUM: aaf720e61b34b2513082045249f16cb70f7a95f5
+PODFILE CHECKSUM: 952e40564605b044941c681db86db2288ceb2317
 
 COCOAPODS: 1.11.3

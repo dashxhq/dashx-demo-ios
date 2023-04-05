@@ -7,7 +7,7 @@ abstract_target 'DashX Demo' do
   use_frameworks!
 
   # Pods for DashX Demo
-  pod 'DashX'
+  pod 'DashX', path: '../dashx-ios'
   pod 'FirebaseMessaging'
 
   target 'DashX Demo Staging' do
