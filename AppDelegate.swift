@@ -9,6 +9,7 @@ import UIKit
 import DashX
 import FirebaseCore
 import FirebaseMessaging
+import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
@@ -39,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         )
 
         application.registerForRemoteNotifications()
+        
+        CLLocationManager().requestWhenInUseAuthorization()
 
         return true
     }

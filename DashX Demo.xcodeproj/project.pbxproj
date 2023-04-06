@@ -835,6 +835,8 @@
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By allowing us access to your location, you will be able to know your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By allowing us access to your location, you will be able to know your current location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -871,6 +873,8 @@
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By allowing us access to your location, you will be able to know your current location";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By allowing us access to your location, you will be able to know your current location";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "By allowing us access to your photos, you will be able to upload images as avatar and more";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

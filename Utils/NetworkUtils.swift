@@ -71,33 +71,31 @@ class NetworkUtils {
          
             let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
               if let error = error {
-                print("Error with request: \(error)")
-                onError(NetworkError(statusCode: 0, message: error.localizedDescription))
-                return
+                  print("Error with request: \(error)")
+                  return onError(NetworkError(statusCode: 0, message: error.localizedDescription))
               }
               
             let httpResponse = response as? HTTPURLResponse
                 
             if (200...299).contains(httpResponse?.statusCode ?? 0) {
                 if httpResponse?.statusCode == 204 {
-                    onSuccess(NoResponse() as? T)
+                    return onSuccess(NoResponse() as? T)
                 }
                 let decodedModel = try? JSONDecoder().decode(T.self, from: data!)
-                onSuccess(decodedModel)
+                return onSuccess(decodedModel)
             } else {
                 print("Error with the response. Status code: \(httpResponse?.statusCode ?? 0)")
                 let errorResponse = try? JSONDecoder().decode(ErrorResponse.self, from: data!)
-                onError(NetworkError(statusCode: httpResponse!.statusCode,
+                return onError(NetworkError(statusCode: httpResponse!.statusCode,
                                      message: errorResponse?.message ?? "",
                                      data: data))
-                return
             }
             })
             
             task.resume()
                         
         } else {
-            onError(NetworkError(statusCode: 0, message: "Invalid URL"))
+            return onError(NetworkError(statusCode: 0, message: "Invalid URL"))
         }
     }
 }

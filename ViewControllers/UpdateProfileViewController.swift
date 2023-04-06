@@ -418,29 +418,29 @@ extension UpdateProfileViewController: UINavigationControllerDelegate, UIImagePi
     
     func uploadAvatar(fileURL: URL) {
         showProgressView()
-        DashX.uploadExternalAsset(fileURL: fileURL, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
-            DispatchQueue.main.async {
-                self.hideProgressView()
-                if let jsonDictionary = response.jsonValue as? [String: Any] {
-                    do {
-                        let json = try JSONSerialization.data(withJSONObject: jsonDictionary)
-                        let externalAssetData = try JSONDecoder().decode(ExternalAssetResponse.self, from: json)
-                        let avatarAsset = AssetData(status: externalAssetData.status, url: externalAssetData.data?.assetData?.url)
-                        self.localUser?.avatar = avatarAsset
-                        self.setUpdateProfileButtonEnabled(true)
-                    } catch {
-                        self.showError(with: error.localizedDescription)
-                    }
-                } else {
-                    self.showError(with: "Stored preferences response is empty.")
-                }
-            }
-        } failureCallback: { error in
-            DispatchQueue.main.async {
-                self.hideProgressView()
-                self.showError(with: error.localizedDescription)
-            }
-        }
+//        DashX.uploadExternalAsset(fileURL: fileURL, externalColumnId: "e8b7b42f-1f23-431c-b739-9de0fba3dadf") { response in
+//            DispatchQueue.main.async {
+//                self.hideProgressView()
+//                if let jsonDictionary = response.jsonValue as? [String: Any] {
+//                    do {
+//                        let json = try JSONSerialization.data(withJSONObject: jsonDictionary)
+//                        let externalAssetData = try JSONDecoder().decode(ExternalAssetResponse.self, from: json)
+//                        let avatarAsset = AssetData(status: externalAssetData.status, url: externalAssetData.data?.assetData?.url)
+//                        self.localUser?.avatar = avatarAsset
+//                        self.setUpdateProfileButtonEnabled(true)
+//                    } catch {
+//                        self.showError(with: error.localizedDescription)
+//                    }
+//                } else {
+//                    self.showError(with: "Stored preferences response is empty.")
+//                }
+//            }
+//        } failureCallback: { error in
+//            DispatchQueue.main.async {
+//                self.hideProgressView()
+//                self.showError(with: error.localizedDescription)
+//            }
+//        }
     }
 }
 
