@@ -96,9 +96,11 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Logging in", for: UIControl.State.disabled)
 
         APIClient.loginUser(email: emailField.text!, password: passwordField.text!) { response in
-            DashX.track("Login Succeeded")
-
             self.persistDashXData(response!)
+
+            // Call track event after DashX.setIdentity within persistDashXData
+            // This ensures that track calls are made for the logged in user
+            DashX.track("Login Succeeded")
 
             DispatchQueue.main.async {
                 self.goToTabBarScreen()
@@ -126,6 +128,7 @@ class LoginViewController: UIViewController {
             LocalStorage.instance.setToken(response.token)
 
             DashX.setIdentity(uid: userId, token: dashXToken)
+
             DashX.requestNotificationPermission { authorizationStatus in
                 switch authorizationStatus {
                 case .authorized:

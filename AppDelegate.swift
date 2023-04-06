@@ -25,7 +25,7 @@ class AppDelegate: DashXAppDelegate {
             targetEnvironment: try? Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
 
-        // Configure FCM and register delegate
+        // Configure FCM
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
