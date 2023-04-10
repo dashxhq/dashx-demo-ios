@@ -2,88 +2,21 @@ PODS:
   - Apollo (0.51.2):
     - Apollo/Core (= 0.51.2)
   - Apollo/Core (0.51.2)
-  - DashX (1.0.8):
+  - DashX (1.0.9):
     - Apollo (~> 0.51.2)
-    - FirebaseMessaging (~> 10.5.0)
-  - FirebaseCore (10.6.0):
-    - FirebaseCoreInternal (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.6.0):
-    - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseInstallations (10.6.0):
-    - FirebaseCore (~> 10.0)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/UserDefaults (~> 7.8)
-    - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (10.5.0):
-    - FirebaseCore (~> 10.0)
-    - FirebaseInstallations (~> 10.0)
-    - GoogleDataTransport (~> 9.2)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.8)
-    - GoogleUtilities/Environment (~> 7.8)
-    - GoogleUtilities/Reachability (~> 7.8)
-    - GoogleUtilities/UserDefaults (~> 7.8)
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleDataTransport (9.2.1):
-    - GoogleUtilities/Environment (~> 7.7)
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-    - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/AppDelegateSwizzler (7.11.0):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.11.0):
-    - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.11.0):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/Network (7.11.0):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.11.0)"
-  - GoogleUtilities/Reachability (7.11.0):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.11.0):
-    - GoogleUtilities/Logger
-  - nanopb (2.30909.0):
-    - nanopb/decode (= 2.30909.0)
-    - nanopb/encode (= 2.30909.0)
-  - nanopb/decode (2.30909.0)
-  - nanopb/encode (2.30909.0)
-  - PromisesObjC (2.2.0)
 
 DEPENDENCIES:
-  - DashX (from `../dashx-ios`)
+  - DashX
 
 SPEC REPOS:
   trunk:
     - Apollo
-    - FirebaseCore
-    - FirebaseCoreInternal
-    - FirebaseInstallations
-    - FirebaseMessaging
-    - GoogleDataTransport
-    - GoogleUtilities
-    - nanopb
-    - PromisesObjC
-
-EXTERNAL SOURCES:
-  DashX:
-    :path: "../dashx-ios"
+    - DashX
 
 SPEC CHECKSUMS:
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
-  DashX: 75a93a582990be230f6a21a01a8c25e1bc6f5142
-  FirebaseCore: fa80ad16a62d52f67274b5b88304c3a318bbf9a4
-  FirebaseCoreInternal: c7cd505e2136811096b225ac388d6254a2622362
-  FirebaseInstallations: 13dde135fa0524e15bddb133ccc8465c53a1b3f3
-  FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
-  GoogleDataTransport: ea169759df570f4e37bdee1623ec32a7e64e67c4
-  GoogleUtilities: c2bdc4cf2ce786c4d2e6b3bcfd599a25ca78f06f
-  nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  DashX: 2ab3d37d477cab3173e215dac35417f9ad12d682
 
-PODFILE CHECKSUM: 054eab6a89acba67e3e088d3aa9741b30aa199ac
+PODFILE CHECKSUM: 0e47ddd08e90343321830f5c7fad5f0eccdeef2b
 
 COCOAPODS: 1.12.0

@@ -7,7 +7,7 @@ abstract_target 'DashX Demo' do
   use_frameworks!
 
   # Pods for DashX Demo
-  pod 'DashX', path: '../dashx-ios'
+  pod 'DashX'
 
   target 'DashX Demo Staging' do
     # Pods for Staging

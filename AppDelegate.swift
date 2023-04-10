@@ -25,7 +25,7 @@ class AppDelegate: DashXAppDelegate {
             targetEnvironment: try? Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
 
-        // Configure FCM
+        // Configure Firebase
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
@@ -48,5 +48,22 @@ class AppDelegate: DashXAppDelegate {
         // If any sessions were discarded while the application was not running,
         // this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+
+    override func notificationDeliveredInForeground(message: [AnyHashable: Any]) -> UNNotificationPresentationOptions {
+        print("\n=== Notification Delivered In Foreground ===\n")
+        print(message)
+        print("\n=================================================\n")
+
+        // This is how you want to show your notification in the foreground
+        // You can pass "[]" to not show the notification to the user or
+        // handle this with your own custom styles
+        return [.sound, .alert, .badge]
+    }
+
+    override func notificationClicked(message: [AnyHashable: Any]) {
+        print("\n=== Notification Clicked ===\n")
+        print(message)
+        print("\n=================================\n")
     }
 }
