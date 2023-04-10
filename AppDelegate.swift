@@ -28,7 +28,10 @@ class AppDelegate: DashXAppDelegate {
         // Configure Firebase
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-
+        
+        // Requesting Location Permission
+        DashX.requestLocationPermission()
+        
         return true
     }
 

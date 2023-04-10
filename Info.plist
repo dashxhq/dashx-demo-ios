@@ -10,6 +10,8 @@
 	<string>$(DASHX_PUBLIC_KEY)</string>
 	<key>DASHX_TARGET_ENVIRONMENT</key>
 	<string>$(DASHX_TARGET_ENVIRONMENT)</string>
+	<key>Privacy - Cellular Network Usage Description</key>
+	<string>By allowing us access to this, we will be able to know your carrier.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
