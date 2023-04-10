@@ -8,7 +8,6 @@ abstract_target 'DashX Demo' do
 
   # Pods for DashX Demo
   pod 'DashX'
-  pod 'FirebaseMessaging'
 
   target 'DashX Demo Staging' do
     # Pods for Staging

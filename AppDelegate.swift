@@ -5,16 +5,16 @@
 //  Created by Appala Naidu Uppada on 23/06/22.
 //
 
-import UIKit
 import DashX
 import FirebaseCore
 import FirebaseMessaging
+import UIKit
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-
+class AppDelegate: DashXAppDelegate {
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
+    {
         // Optional: Enable logs for troubleshooting
         DashXLog.setLogLevel(to: .debug)
 
@@ -27,21 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
         // Configure Firebase
         FirebaseApp.configure()
-
         Messaging.messaging().delegate = self
-
-        UNUserNotificationCenter.current().delegate = self
-
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-          options: authOptions,
-          completionHandler: { _, _ in }
-        )
-
-        application.registerForRemoteNotifications()
         
+        // Requesting Location Permission
         DashX.requestLocationPermission()
-
+        
         return true
     }
 
@@ -49,7 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+                     options: UIScene.ConnectionOptions) -> UISceneConfiguration
+    {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
@@ -62,4 +53,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    override func notificationDeliveredInForeground(message: [AnyHashable: Any]) -> UNNotificationPresentationOptions {
+        print("\n=== Notification Delivered In Foreground ===\n")
+        print(message)
+        print("\n=================================================\n")
+
+        // This is how you want to show your notification in the foreground
+        // You can pass "[]" to not show the notification to the user or
+        // handle this with your own custom styles
+        return [.sound, .alert, .badge]
+    }
+
+    override func notificationClicked(message: [AnyHashable: Any]) {
+        print("\n=== Notification Clicked ===\n")
+        print(message)
+        print("\n=================================\n")
+    }
 }
