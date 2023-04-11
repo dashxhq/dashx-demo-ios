@@ -11,7 +11,7 @@ import FirebaseMessaging
 import UIKit
 
 @main
-class AppDelegate: DashXAppDelegate {
+class AppDelegate: DashXAppDelegate, MessagingDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
@@ -25,17 +25,23 @@ class AppDelegate: DashXAppDelegate {
             targetEnvironment: try? Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
 
+        // Allow tracking of app's lifecycle events
+        DashX.enableLifecycleTracking()
+
+        // Enable Ad-tracking for all events
+        DashX.enableAdTracking()
+
         // Configure Firebase
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
-        
+
         // Requesting Location Permission
         DashX.requestLocationPermission()
-        
+
         return true
     }
 
-    // MARK: UISceneSession Lifecycle
+    // MARK: - UISceneSession Lifecycle
 
     func application(_ application: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
@@ -52,6 +58,19 @@ class AppDelegate: DashXAppDelegate {
         // this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+
+    // MARK: - FCM Token management
+
+    public func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        guard let token = fcmToken else {
+            print("FCM Token is empty")
+            return
+        }
+
+        DashX.setFCMToken(to: token)
+    }
+
+    // MARK: - Push Notification Handlers
 
     override func notificationDeliveredInForeground(message: [AnyHashable: Any]) -> UNNotificationPresentationOptions {
         print("\n=== Notification Delivered In Foreground ===\n")
