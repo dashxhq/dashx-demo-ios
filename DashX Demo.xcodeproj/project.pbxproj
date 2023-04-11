@@ -834,7 +834,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "By allowing us access to your Bluetooth, we will be able to know your Bluetooth state.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By allowing us access to your location, we will be able to know your current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By allowing us access to your location, we will be able to know your current location";
@@ -873,7 +872,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "DashX Demo";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "By allowing us access to your Bluetooth, we will be able to know your Bluetooth state.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "By allowing us access to your camera, you can take pictures and upload";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "By allowing us access to your location, we will be able to know your current location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "By allowing us access to your location, we will be able to know your current location";
