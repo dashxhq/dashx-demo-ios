@@ -2,16 +2,16 @@ PODS:
   - Apollo (0.51.2):
     - Apollo/Core (= 0.51.2)
   - Apollo/Core (0.51.2)
-  - DashX (1.0.10):
+  - DashX (1.0.11):
     - Apollo (~> 0.51.2)
     - FirebaseMessaging (~> 10.5.0)
-  - FirebaseCore (10.7.0):
+  - FirebaseCore (10.8.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Logger (~> 7.8)
-  - FirebaseCoreInternal (10.7.0):
+  - FirebaseCoreInternal (10.8.0):
     - "GoogleUtilities/NSData+zlib (~> 7.8)"
-  - FirebaseInstallations (10.7.0):
+  - FirebaseInstallations (10.8.0):
     - FirebaseCore (~> 10.0)
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
@@ -71,10 +71,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
-  DashX: 213ead20b219cccb2e87fe4ced4800f68718f0f3
-  FirebaseCore: e317665b9d744727a97e623edbbed009320afdd7
-  FirebaseCoreInternal: 8845798510aae74703467480f71ac613788d0696
-  FirebaseInstallations: 59c0e4c7a816a0f76710d83f77e5369b3e45eb96
+  DashX: a926f60876280fed5eab67f9b42a53ae322e27e5
+  FirebaseCore: e78636a990b54be427ce300aa09a0e359f4e0e87
+  FirebaseCoreInternal: fa2899eb1f340054858d289e5a0fb935a0a74e52
+  FirebaseInstallations: b2a05a3fe707df764345d68685534d07d0664af3
   FirebaseMessaging: 35ecbbc68ff547fca80f9326c9622e79288c7149
   GoogleDataTransport: 8378d1fa8ac49753ea6ce70d65a7cb70ce5f66e6
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
