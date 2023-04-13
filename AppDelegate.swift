@@ -38,6 +38,16 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         // Requesting Location Permission
         DashX.requestLocationPermission()
 
+        // Requesting Push Notifications Permission
+        DashX.requestNotificationPermission { authorizationStatus in
+            switch authorizationStatus {
+            case .authorized:
+                print("permission authorized to receive push notifications")
+            default:
+                print("permission denied to receive push notifications")
+            }
+        }
+
         return true
     }
 

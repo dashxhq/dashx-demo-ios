@@ -129,15 +129,6 @@ class LoginViewController: UIViewController {
 
             DashX.setIdentity(uid: userId, token: dashXToken)
             DashX.subscribe()
-
-            DashX.requestNotificationPermission { authorizationStatus in
-                switch authorizationStatus {
-                case .authorized:
-                   print("permission authorized to receive push notifications")
-                default:
-                    print("permission denied to receive push notifications")
-                }
-            }
         }
     }
 
