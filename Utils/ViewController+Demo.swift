@@ -8,13 +8,13 @@
 import UIKit
 
 extension UIViewController {
-    
     static func instance(of identifier: String, from storyboard: String = "Main") -> UIViewController {
         return UIStoryboard(name: storyboard, bundle: nil).instantiateViewController(withIdentifier: identifier)
     }
-    
+
     func setupThemedNavigationBar(for mode: UIUserInterfaceStyle,
-                                  isTranslucent: Bool = true) {
+                                  isTranslucent: Bool = true)
+    {
         let tintColor: UIColor = (mode == .dark) ? .white : .black
         let barTintColor: UIColor = (mode == .dark) ? .black : .white
         self.navigationController?.navigationBar.tintColor = tintColor
@@ -23,9 +23,9 @@ extension UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = isTranslucent
     }
-    
+
     func showProgressView(canShowBackground: Bool = false) {
-        let progressView = ProgressView.init(frame: .zero)
+        let progressView = ProgressView(frame: .zero)
         progressView.translatesAutoresizingMaskIntoConstraints = false
         progressView.backgroundColor = canShowBackground ? .systemBackground : .clear
         view.addSubview(progressView)
@@ -37,7 +37,7 @@ extension UIViewController {
         ])
         self.view.bringSubviewToFront(progressView)
     }
-    
+
     func hideProgressView() {
         for subView in self.view.subviews {
             if subView.isKind(of: ProgressView.self) {
@@ -46,16 +46,16 @@ extension UIViewController {
             }
         }
     }
-    
+
     func showError(with message: String?) {
         let errorAlertVC = UIAlertController(title: "Error", message: message ?? "Something went wrong", preferredStyle: .alert)
-        errorAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in errorAlertVC.dismiss(animated: true)}))
+        errorAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in errorAlertVC.dismiss(animated: true) }))
         self.present(errorAlertVC, animated: true)
     }
-    
+
     func showSuccess(with message: String) {
         let successAlertVC = UIAlertController(title: "Success", message: message, preferredStyle: .alert)
-        successAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in successAlertVC.dismiss(animated: true)}))
+        successAlertVC.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in successAlertVC.dismiss(animated: true) }))
         self.present(successAlertVC, animated: true)
     }
 }

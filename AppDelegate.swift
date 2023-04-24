@@ -98,4 +98,33 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         print(message)
         print("\n=================================\n")
     }
+
+    override func handleLink(url: URL) {
+        if let components = URLComponents(url: url, resolvingAgainstBaseURL: true) {
+            // Extract any parameters from the URL if needed
+            let path = String(components.path.dropFirst())
+
+            // Define your view controllers
+            let bookmarksViewController = UIViewController.instance(of: BookmarksListViewController.identifier)
+            let forgotPasswordViewController = UIViewController.instance(of: ForgotPasswordViewController.identifier)
+
+            let viewControllers = [
+                "bookmarks": bookmarksViewController,
+                "forgot-password": forgotPasswordViewController
+            ]
+
+            guard let targetViewController = viewControllers[path] else {
+                print("This path cannot be handled")
+                return
+            }
+
+            guard let window = UIApplication.shared.windows.first else {
+                fatalError("No available windows")
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                window.rootViewController = targetViewController
+            }
+        }
+    }
 }

@@ -5,23 +5,27 @@
 //  Created by Appala Naidu Uppada on 23/06/22.
 //
 
-import UIKit
 import DashX
+import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
-    func scene(_ scene: UIScene,
-               willConnectTo session: UISceneSession,
-               options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
         if (scene as? UIWindowScene) == nil {
             return
         }
+
         UIApplication.shared.addTapGestureRecognizer()
-        checkStoredUserAndNavigate()
+        self.checkStoredUserAndNavigate()
+
+        DashX.handleUserActivity(userActivity: connectionOptions.userActivities.first)
     }
-    
+
     func checkStoredUserAndNavigate() {
         if LocalStorage.instance.getUser() != nil {
             // User exists, go to Dashboard/Home
@@ -62,5 +66,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        DashX.handleUserActivity(userActivity: userActivity)
     }
 }
