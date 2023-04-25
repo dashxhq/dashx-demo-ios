@@ -93,7 +93,7 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         return [.sound, .alert, .badge]
     }
 
-    override func notificationClicked(message: [AnyHashable: Any]) {
+    override func notificationClicked(message: [AnyHashable: Any], actionIdentifier: String) {
         print("\n=== Notification Clicked ===\n")
         print(message)
         print("\n=================================\n")
