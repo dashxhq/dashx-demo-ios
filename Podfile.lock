@@ -2,7 +2,7 @@ PODS:
   - Apollo (0.51.2):
     - Apollo/Core (= 0.51.2)
   - Apollo/Core (0.51.2)
-  - DashX (1.0.16):
+  - DashX (1.0.17):
     - Apollo (~> 0.51.2)
     - FirebaseMessaging (~> 10.5.0)
   - FirebaseCore (10.9.0):
@@ -71,7 +71,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Apollo: e5bc805c3f3556c18edc4eae4e2ea4723cea2318
-  DashX: ac411a8cce10f5167d1e2467d491273ad49576e1
+  DashX: d6ab5ad06b761650357e0e17bee709a2cc4a2e46
   FirebaseCore: b68d3616526ec02e4d155166bbafb8eca64af557
   FirebaseCoreInternal: d2b4acb827908e72eca47a9fd896767c3053921e
   FirebaseInstallations: c58489c9caacdbf27d1da60891a87318e20218e0

@@ -93,10 +93,21 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         return [.sound, .alert, .badge]
     }
 
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+            window.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
+    }
+
     override func notificationClicked(message: [AnyHashable: Any], actionIdentifier: String) {
         print("\n=== Notification Clicked ===\n")
         print(message)
         print("\n=================================\n")
+
+        showAlert(title: "Notification Action", message: actionIdentifier)
     }
 
     override func handleLink(url: URL) {
