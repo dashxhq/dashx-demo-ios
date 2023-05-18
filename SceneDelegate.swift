@@ -8,8 +8,9 @@
 import DashX
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: DashXSceneDelegate {
     var window: UIWindow?
+    private let dashxSceneDelegateBase = DashXSceneDelegate()
 
     func scene(
         _ scene: UIScene,
@@ -47,7 +48,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // (see `application:didDiscardSceneSessions` instead).
     }
 
-    func sceneDidBecomeActive(_ scene: UIScene) {
+    override func sceneDidBecomeActive(_ scene: UIScene) {
+        // Call DashXSceneDelegate's sceneDidBecomeActive
+        super.sceneDidBecomeActive(scene)
+
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
