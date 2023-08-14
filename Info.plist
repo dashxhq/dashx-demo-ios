@@ -4,8 +4,6 @@
 <dict>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>Allow us to track IDFA values</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>By allowing us access to your Bluetooth, we will be able to know your Bluetooth state.</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>DASHX_BASE_URI</key>

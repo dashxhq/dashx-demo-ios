@@ -35,9 +35,6 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
-        // Requesting Location Permission
-        DashX.requestLocationPermission()
-
         // Requesting Push Notifications Permission
         DashX.requestNotificationPermission { authorizationStatus in
             switch authorizationStatus {
