@@ -15,21 +15,37 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios staging_release
+### ios staging_staging_release
 
 ```sh
-[bundle exec] fastlane ios staging_release
+[bundle exec] fastlane ios staging_staging_release
 ```
 
-Upload Release build to TestFlight for staging
+Upload Release build to TestFlight for staging staging
 
-### ios production_release
+### ios staging_production_release
 
 ```sh
-[bundle exec] fastlane ios production_release
+[bundle exec] fastlane ios staging_production_release
 ```
 
-Upload Release build to TestFlight for production
+Upload Release build to TestFlight for staging production
+
+### ios production_staging_release
+
+```sh
+[bundle exec] fastlane ios production_staging_release
+```
+
+Upload Release build to TestFlight for production staging
+
+### ios production_production_release
+
+```sh
+[bundle exec] fastlane ios production_production_release
+```
+
+Upload Release build to TestFlight for production production
 
 ### ios bump
 
