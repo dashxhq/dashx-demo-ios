@@ -3,6 +3,16 @@
     {
       "filename" : "DashXLogo.png",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "DashXLogo-dark.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
