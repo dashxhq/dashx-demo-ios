@@ -11,6 +11,7 @@
 // xcconfig files treat the sequence // as a comment delimiter, regardless of whether it’s enclosed in quotation marks.
 // If you try to escape with backslashes \/\/, those backslashes show up literally and must be removed from the resulting value.
 // Workaround - https://stackoverflow.com/questions/21317844/how-do-i-configure-full-urls-in-xcconfig-files
+API_BASE_URL=https:/$()/node-staging-production.dashxdemo.com
 DASHX_BASE_URI=https:/$()/api.dashx-staging.com/graphql
 DASHX_PUBLIC_KEY=1rGE0HWa6Su8F9kZVDpZICYb
 DASHX_TARGET_ENVIRONMENT=production

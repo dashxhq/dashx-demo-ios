@@ -217,26 +217,26 @@ class UpdateProfileViewController: UIViewController {
         setFormState(isEnabled: false)
         updateProfileButton.setTitle("Updating Profile", for: UIControl.State.disabled)
 
-        if let user = localUser {
-            APIClient.updateProfile(user: user) { updatedProfileResponse in
+        let user = User(firstName: firstNameField.text, lastName: lastNameField.text, email: emailField.text)
 
-                DispatchQueue.main.async {
-                    self.updateProfileButton.setTitle("Update profile successful!", for: UIControl.State.disabled)
+        APIClient.updateProfile(user: user) { updatedProfileResponse in
 
-                    LocalStorage.instance.setUser(updatedProfileResponse?.user)
+            DispatchQueue.main.async {
+                self.updateProfileButton.setTitle("Update profile successful!", for: UIControl.State.disabled)
 
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                        self.navigationController?.popViewController(animated: true)
-                    }
+                LocalStorage.instance.setUser(updatedProfileResponse?.user)
+
+                DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                    self.navigationController?.popViewController(animated: true)
                 }
-            } onError: { networkError in
+            }
+        } onError: { networkError in
 
-                DispatchQueue.main.async {
-                    self.updateProfileButton.setTitle("Update Profile", for: UIControl.State.disabled)
+            DispatchQueue.main.async {
+                self.updateProfileButton.setTitle("Update Profile", for: UIControl.State.disabled)
 
-                    self.setFormState(isEnabled: true)
-                    self.errorLabel.text = networkError.message
-                }
+                self.setFormState(isEnabled: true)
+                self.errorLabel.text = networkError.message
             }
         }
     }

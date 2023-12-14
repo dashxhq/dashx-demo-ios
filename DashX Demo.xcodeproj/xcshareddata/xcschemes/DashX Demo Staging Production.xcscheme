@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1320"
+   LastUpgradeVersion = "1500"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ED2AF0EA2864833800374BD3"
-               BuildableName = "DashX Demo Production.app"
-               BlueprintName = "DashX Demo Production"
+               BuildableName = "DashX Demo Staging Production.app"
+               BlueprintName = "DashX Demo Staging Production"
                ReferencedContainer = "container:DashX Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED2AF0EA2864833800374BD3"
-            BuildableName = "DashX Demo Production.app"
-            BlueprintName = "DashX Demo Production"
+            BuildableName = "DashX Demo Staging Production.app"
+            BlueprintName = "DashX Demo Staging Production"
             ReferencedContainer = "container:DashX Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ED2AF0EA2864833800374BD3"
-            BuildableName = "DashX Demo Production.app"
-            BlueprintName = "DashX Demo Production"
+            BuildableName = "DashX Demo Staging Production.app"
+            BlueprintName = "DashX Demo Staging Production"
             ReferencedContainer = "container:DashX Demo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -7,11 +7,8 @@
 
 import Foundation
 
-// SwaggerDoc is available at the below URL
-let demoServerBaseUrl = "https://node.dashxdemo.com"
-
 class APIClient {
-    private static let network = NetworkUtils(baseURL: demoServerBaseUrl)
+    private static let network = NetworkUtils(baseURL: try! Configuration.value(for: "API_BASE_URL"))
     
     static func loginUser(email: String,
                           password: String,

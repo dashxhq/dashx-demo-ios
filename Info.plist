@@ -6,6 +6,8 @@
 	<string>Allow us to track IDFA values</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>API_BASE_URL</key>
+	<string>$(API_BASE_URL)</string>
 	<key>DASHX_BASE_URI</key>
 	<string>$(DASHX_BASE_URI)</string>
 	<key>DASHX_PUBLIC_KEY</key>

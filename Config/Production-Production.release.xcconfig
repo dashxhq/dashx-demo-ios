@@ -1,12 +1,12 @@
 //
-//  Production.release.xcconfig
+//  Production-Production.release.xcconfig
 //  DashX Demo
 //
-//  Created by Pradeep Kumar on 03/12/22.
+//  Created by Jibreel on 13/12/23.
 //
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
 #include "../Pods/Target Support Files/Pods-DashX Demo-DashX Demo Production/Pods-DashX Demo-DashX Demo Production.release.xcconfig"
-#include "Production.shared.xcconfig"
+#include "Production-Production.shared.xcconfig"

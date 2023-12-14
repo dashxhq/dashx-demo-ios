@@ -1,0 +1,17 @@
+//
+//  Production-Production.shared.xcconfig
+//  DashX Demo
+//
+//  Created by Jibreel on 13/12/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// xcconfig files treat the sequence // as a comment delimiter, regardless of whether it’s enclosed in quotation marks.
+// If you try to escape with backslashes \/\/, those backslashes show up literally and must be removed from the resulting value.
+// Workaround - https://stackoverflow.com/questions/21317844/how-do-i-configure-full-urls-in-xcconfig-files
+API_BASE_URL=https:/$()/node.dashxdemo.com
+DASHX_BASE_URI=https:/$()/api.dashx.com/graphql
+DASHX_PUBLIC_KEY=gCIva2hP5NCKqtPVeWYhxUZQ
+DASHX_TARGET_ENVIRONMENT=production

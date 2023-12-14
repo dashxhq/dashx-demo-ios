@@ -17,20 +17,32 @@ default_platform(:ios)
 
 WORKSPACE = "DashX Demo.xcworkspace"
 XCODEPROJ = "DashX Demo.xcodeproj"
-STAGING_SCHEME = "DashX Demo Staging"
-PRODUCTION_SCHEME = "DashX Demo Production"
+STAGING_STAGING_SCHEME = "DashX Demo Staging Staging"
+STAGING_PRODUCTION_SCHEME = "DashX Demo Staging Production"
+PRODUCTION_STAGING_SCHEME = "DashX Demo Production Staging"
+PRODUCTION_PRODUCTION_SCHEME = "DashX Demo Production Production"
 INTERNAL_TESTERS_GROUP = "Internal Testers"
 DEMO_TESTERS_GROUP = "Demo Testers"
 
 platform :ios do
-  desc "Upload Release build to TestFlight for staging"
-  lane :staging_release do
-    release(scheme: STAGING_SCHEME)
+  desc "Upload Release build to TestFlight for staging staging"
+  lane :staging_staging_release do
+    release(scheme: STAGING_STAGING_SCHEME)
   end
 
-  desc "Upload Release build to TestFlight for production"
-  lane :production_release do
-    release(scheme: PRODUCTION_SCHEME)
+  desc "Upload Release build to TestFlight for staging production"
+  lane :staging_production_release do
+    release(scheme: STAGING_PRODUCTION_SCHEME)
+  end
+
+  desc "Upload Release build to TestFlight for production staging"
+  lane :production_staging_release do
+    release(scheme: PRODUCTION_STAGING_SCHEME)
+  end
+
+  desc "Upload Release build to TestFlight for production production"
+  lane :production_production_release do
+    release(scheme: PRODUCTION_PRODUCTION_SCHEME)
   end
 
   private_lane :release do |options|
@@ -67,7 +79,7 @@ platform :ios do
 
     new_version_number = nil
 
-    [STAGING_SCHEME, PRODUCTION_SCHEME].each do |scheme|
+    [STAGING_STAGING_SCHEME, STAGING_PRODUCTION_SCHEME, PRODUCTION_STAGING_SCHEME, PRODUCTION_PRODUCTION_SCHEME].each do |scheme|
       new_version_number = increment_version_number_in_xcodeproj(increment_version_number_options.merge(
         xcodeproj: XCODEPROJ,
         scheme: scheme

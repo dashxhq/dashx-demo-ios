@@ -9,4 +9,4 @@
 // https://help.apple.com/xcode/#/dev745c5c974
 
 #include "../Pods/Target Support Files/Pods-DashX Demo-DashX Demo Staging/Pods-DashX Demo-DashX Demo Staging.release.xcconfig"
-#include "Staging.shared.xcconfig"
+#include "Staging-Staging.shared.xcconfig"

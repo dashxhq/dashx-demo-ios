@@ -1,0 +1,12 @@
+//
+//  Production-Staging.release.xcconfig
+//  DashX Demo
+//
+//  Created by Jibreel on 13/12/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../Pods/Target Support Files/Pods-DashX Demo-DashX Demo Staging/Pods-DashX Demo-DashX Demo Staging.debug.xcconfig"
+#include "Production-Staging.shared.xcconfig"
