@@ -196,9 +196,8 @@ class PostsListViewController: UIViewController {
     func setBookmark(forPostWith index: Int) {
         posts[index].isBookmarked.toggle()
         postsTableView.reloadData()
-        APIClient.toggleBookmark(postId: posts[index].id) { _ in
-            DashX.track(self.posts[index].isBookmarked ? "Post Bookmarked-iOS": "post Unbookmarked-iOS")
-        } onError: { [weak self] networkError in
+        APIClient.toggleBookmark(postId: posts[index].id) { _ in }
+            onError: { [weak self] networkError in
             print(networkError)
             guard let self = self else { return }
             DispatchQueue.main.async {
