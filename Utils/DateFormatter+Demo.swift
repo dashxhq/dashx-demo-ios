@@ -16,7 +16,7 @@ extension DateFormatter {
         Static.instance.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         return Static.instance
     }
-    
+
     /// Format: "dd MMM yy"
     static var briefDate: DateFormatter {
         struct Static {
@@ -25,7 +25,7 @@ extension DateFormatter {
         Static.instance.dateFormat = "dd MMM yy"
         return Static.instance
     }
-    
+
     // MARK: - Helpers
     func stringFromDate(_ date: Date) -> String {
         return self.string(from: date)

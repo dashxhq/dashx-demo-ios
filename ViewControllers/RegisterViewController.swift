@@ -9,32 +9,32 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     static let identifier = "RegisterViewController"
-    
+
     // MARK: Outlets
     @IBOutlet weak var firstNameField: UITextField! {
         didSet {
             firstNameField.delegate = self
         }
     }
-    
+
     @IBOutlet weak var lastNameField: UITextField! {
         didSet {
             lastNameField.delegate = self
         }
     }
-    
+
     @IBOutlet weak var emailField: UITextField! {
         didSet {
             emailField.delegate = self
         }
     }
-    
+
     @IBOutlet weak var passwordField: UITextField! {
         didSet {
             passwordField.delegate = self
         }
     }
-    
+
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var registerButton: UIButton! {
         didSet {
@@ -50,45 +50,45 @@ class RegisterViewController: UIViewController {
             loginButton.layer.borderWidth = 1
         }
     }
-    
+
     private var formUtils: FormUtils!
-    
+
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
-        
+
         formUtils = FormUtils(fields: [firstNameField, lastNameField, emailField, passwordField, registerButton])
     }
-    
+
     // MARK: TraitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
     }
-    
+
     // MARK: Actions
     @IBAction func onClickRegister(_ sender: UIButton) {
         performRegistration()
     }
-    
+
     @IBAction func onClickLogin(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     func performRegistration() {
         if !(emailField.text?.isValidEmail() ?? false) {
             errorLabel.text = "Please enter a valid email"
             return
         }
-        
+
         setFormState(isEnabled: false)
         registerButton.setTitle("Registering", for: UIControl.State.disabled)
-        
+
         APIClient.registerUser(firstName: firstNameField.text!,
                                lastName: lastNameField.text!,
                                email: emailField.text!,
                                password: passwordField.text!) { _ in
-            
+
             DispatchQueue.main.async {
                 self.registerButton.setTitle("Registration successful!", for: UIControl.State.disabled)
 
@@ -97,33 +97,33 @@ class RegisterViewController: UIViewController {
                 }
             }
         } onError: { networkError in
-            
+
             DispatchQueue.main.async {
                 self.registerButton.setTitle("Register", for: UIControl.State.disabled)
-                
+
                 self.setFormState(isEnabled: true)
                 self.errorLabel.text = networkError.message
             }
         }
     }
-    
+
     func setFormState(isEnabled: Bool) {
         formUtils.setFieldsStatus(isEnabled: isEnabled)
     }
-        
+
     func setTextFieldListeners() {
         firstNameField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         lastNameField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         emailField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         passwordField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
-    
+
     @objc
     func textFieldEditingChanged(_ textField: UITextField) {
         if errorLabel.text != nil {
             errorLabel.text = ""
         }
-        
+
         let registerButtonEnabled = [firstNameField,
                                      lastNameField,
                                      emailField,
@@ -134,7 +134,7 @@ class RegisterViewController: UIViewController {
         registerButton.backgroundColor = registerButtonEnabled ?
         UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
-    
+
 }
 
 extension RegisterViewController: UITextFieldDelegate {

@@ -16,11 +16,11 @@ struct LoginResponse: Codable {
         case message, token
         case dashXToken = "dashx_token"
     }
-    
+
     var message: String?
     var token: String?
     var dashXToken: String?
-    
+
     var decodedToken: JWTTokenContent? {
         if let token = self.token {
             let result = try? decode(jwtToken: token, as: JWTTokenContent.self)
@@ -28,9 +28,9 @@ struct LoginResponse: Codable {
         }
         return nil
     }
-    
+
     private func decode<T: Decodable>(jwtToken jwt: String, as type: T.Type) throws -> T? {
-        
+
         func base64Decode(_ base64: String) throws -> Data? {
             let base64 = base64
                 .replacingOccurrences(of: "-", with: "+")
@@ -48,7 +48,7 @@ struct LoginResponse: Codable {
                 decoder.dataDecodingStrategy = .base64
                 return try? decoder.decode(T.self, from: bodyData)
             }
-            
+
             return nil
         }
 
@@ -92,7 +92,7 @@ struct Post: Codable {
     var isBookmarked: Bool {
         bookmarkedAt != nil
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case userID = "user_id"
@@ -111,7 +111,7 @@ struct JWTTokenContent: Codable {
     enum CodingKeys: String, CodingKey {
         case user, iat, exp
     }
-    
+
     var user: User?
     var iat: Int?
     var exp: Int?
@@ -176,13 +176,13 @@ struct User: Codable {
         case lastName = "last_name"
         case avatar
     }
-    
+
     var id: Int?
     var firstName: String?
     var lastName: String?
     var email: String?
     var avatar: AssetData?
-    
+
     var name: String {
         var temp = firstName ?? ""
         if firstName != nil {
@@ -191,7 +191,7 @@ struct User: Codable {
         temp += lastName ?? ""
         return temp
     }
-    
+
     var idString: String? {
         id == nil ? nil : String(id!)
     }
@@ -201,15 +201,15 @@ struct User: Codable {
 struct PreferenceDataResponse: Codable {
     var newBookmark: DashX.Preference
     var newPost: DashX.Preference
-        
+
     var newBookmarkNotificationEnabled: Bool {
         newBookmark.enabled ?? false
     }
-    
+
     var newPostNotificationEnabled: Bool {
         newPost.enabled ?? false
     }
-    
+
     enum CodingKeys: String, CodingKey {
         case newBookmark = "new-bookmark"
         case newPost = "new-post"
@@ -228,14 +228,14 @@ struct ExternalAssetResponse: Codable {
     let id: String?
     struct ExternalAssetData: Codable {
         let assetData: AssetData?
-        
+
         enum CodingKeys: String, CodingKey {
             case assetData = "asset"
         }
     }
     let data: ExternalAssetData?
-    
-    
+
+
     enum CodingKeys: String, CodingKey {
         case status
         case id

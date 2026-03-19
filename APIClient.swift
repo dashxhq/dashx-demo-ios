@@ -8,11 +8,11 @@
 import Foundation
 
 // SwaggerDoc is available at the below URL
-let demoServerBaseUrl = "https://node.dashxdemo.com"
+let demoServerBaseUrl = "http://192.168.1.10:8080"
 
 class APIClient {
     private static let network = NetworkUtils(baseURL: demoServerBaseUrl)
-    
+
     static func loginUser(email: String,
                           password: String,
                           onSuccess: @escaping (LoginResponse?) -> Void,
@@ -23,10 +23,10 @@ class APIClient {
             "email": email,
             "password": password
         ]
-        
+
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func registerUser(firstName: String,
                              lastName: String,
                              email: String,
@@ -41,10 +41,10 @@ class APIClient {
             "email": email,
             "password": password
         ]
-        
+
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func forgotPassword(email: String,
                                onSuccess: @escaping (MessageResponse?) -> Void,
                                onError: @escaping (NetworkError) -> Void) {
@@ -53,18 +53,18 @@ class APIClient {
         let params: NSDictionary = [
             "email": email
         ]
-        
+
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func getProfile(onSuccess: @escaping (ProfileResponse?) -> Void,
                            onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/profile"
-        
+
         network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func updateProfile(user: User,
                               onSuccess: @escaping (UpdateProfileResponse?) -> Void,
                               onError: @escaping (NetworkError) -> Void) {
@@ -79,15 +79,15 @@ class APIClient {
             print(error.localizedDescription)
         }
     }
-    
+
     static func getPosts(onSuccess: @escaping (PostsResponse?) -> Void,
                          onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/posts"
-        
+
         network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func addPost(text: String,
                         onSuccess: @escaping (AddPostResponse?) -> Void,
                         onError: @escaping (NetworkError) -> Void) {
@@ -96,10 +96,10 @@ class APIClient {
         let params: NSDictionary = [
             "text": text
         ]
-        
+
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func contactUs(name: String,
                           email: String,
                           feedback: String,
@@ -112,24 +112,24 @@ class APIClient {
             "email": email,
             "feedback" : feedback
         ]
-        
+
         network.makeAPICall(path: path, params: params, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func getBookmarks(onSuccess: @escaping (PostsResponse?) -> Void,
                              onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/posts/bookmarked"
-        
+
         network.makeAPICall(path: path, httpMethod: .get, onSuccess: onSuccess, onError: onError)
     }
-    
+
     static func toggleBookmark(postId: Int,
                                onSuccess: @escaping (NoResponse?) -> Void,
                                onError: @escaping (NetworkError) -> Void) {
         // Prepare request parts
         let path = "/posts/\(postId)/toggle-bookmark"
-        
+
         network.makeAPICall(path: path, httpMethod: .put, onSuccess: onSuccess, onError: onError)
     }
 }

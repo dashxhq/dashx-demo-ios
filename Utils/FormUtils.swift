@@ -10,11 +10,11 @@ import UIKit
 
 class FormUtils {
     var fields: [UIControl]
-    
+
     init(fields: [UIControl]) {
         self.fields = fields
     }
-    
+
     func setFieldsStatus(isEnabled: Bool) {
         for field in fields {
             field.isEnabled = isEnabled

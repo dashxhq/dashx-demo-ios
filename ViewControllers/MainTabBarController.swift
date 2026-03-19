@@ -10,10 +10,10 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
     static let identifier = "MainTabBarController"
-    
+
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
 }
