@@ -8,7 +8,7 @@
 import Foundation
 
 // SwaggerDoc is available at the below URL
-let demoServerBaseUrl = "http://192.168.1.10:8080"
+let demoServerBaseUrl = "http://192.168.1.26:8080"
 
 class APIClient {
     private static let network = NetworkUtils(baseURL: demoServerBaseUrl)

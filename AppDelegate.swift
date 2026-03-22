@@ -6,6 +6,7 @@
 //
 
 import DashX
+import DashXFirebase
 import FirebaseCore
 import FirebaseMessaging
 import UIKit
