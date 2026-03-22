@@ -5,7 +5,7 @@
 	<key>NSUserTrackingUsageDescription</key>
 	<string>Allow us to track IDFA values</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
+	<true/>
 	<key>DASHX_BASE_URI</key>
 	<string>$(DASHX_BASE_URI)</string>
 	<key>DASHX_PUBLIC_KEY</key>
@@ -14,6 +14,26 @@
 	<string>$(DASHX_TARGET_ENVIRONMENT)</string>
 	<key>Privacy - Cellular Network Usage Description</key>
 	<string>By allowing us access to this, we will be able to know your carrier.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>127.0.0.1</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -11,7 +11,7 @@ import DashX
 
 class PostsListViewController: UIViewController {
     static let identifier = "PostsListViewController"
-    
+
     // MARK: Outlets
     @IBOutlet weak var fetchPostsErrorLabel: UILabel! {
         didSet {
@@ -54,7 +54,7 @@ class PostsListViewController: UIViewController {
             cancelButton.layer.borderColor = UIColor.systemBlue.cgColor
         }
     }
-    
+
     typealias Post = PostsListItemTableViewCell.Post
     private var posts: [Post] = []
     private var isLoadingForTheFirstTime = true
@@ -74,28 +74,28 @@ class PostsListViewController: UIViewController {
     private var isMessageTextViewNotEdited: Bool {
         (messageTextView.textColor == UIColor.white.withAlphaComponent(0.3)) || (messageTextView.textColor == UIColor.black.withAlphaComponent(0.3))
     }
-    
+
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpRightBarButton()
         setUpTableView()
     }
-    
+
     // MARK: ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         updateViewsForUserInterfaceStyle()
         fetchPosts()
     }
-    
+
     // MARK: TraitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         updateViewsForUserInterfaceStyle()
     }
-    
+
     func updateViewsForUserInterfaceStyle() {
         if traitCollection.userInterfaceStyle == .dark {
             messageTextView.layer.borderColor = UIColor.white.cgColor
@@ -107,18 +107,18 @@ class PostsListViewController: UIViewController {
             addPostInputPlaceholderView.backgroundColor = .black.withAlphaComponent(0.3)
         }
     }
-    
+
     // MARK: Actions
     @IBAction func onClickCancel(_ sender: UIButton) {
         messageTextView.resignFirstResponder()
         dismissAndClearAddPostView()
     }
-    
+
     @IBAction func onClickPost(_ sender: UIButton) {
         messageTextView.resignFirstResponder()
         addPost()
     }
-    
+
     @objc
     func rightBarButtonTapped() {
         if isAddPostScreenVisible {
@@ -127,23 +127,23 @@ class PostsListViewController: UIViewController {
             presentAndSetUpAddPostView()
         }
     }
-    
+
     func setUpRightBarButton() {
         rightBarButton = UIBarButtonItem(title: "Add Post", style: .plain, target: self, action: #selector(rightBarButtonTapped))
         rightBarButton.tintColor = .systemBlue
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
-    
+
     func setUpTableView() {
         postsTableView.delegate = self
         postsTableView.dataSource = self
         postsTableView.register(PostsListItemTableViewCell.nib, forCellReuseIdentifier: PostsListItemTableViewCell.identifier)
     }
-    
+
     func fetchPosts() {
         isPostsLoading = true
         postsTableView.reloadData()
-        
+
         APIClient.getPosts { [weak self] data in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -164,12 +164,12 @@ class PostsListViewController: UIViewController {
             }
         }
     }
-    
+
     func addPost() {
         isAddPostLoading = true
         postButton.titleLabel?.text = "Posting"
         messageTextView.isEditable = false
-        
+
         APIClient.addPost(text: messageTextView.text) { [weak self] data in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -192,7 +192,7 @@ class PostsListViewController: UIViewController {
             }
         }
     }
-    
+
     func setBookmark(forPostWith index: Int) {
         posts[index].isBookmarked.toggle()
         postsTableView.reloadData()
@@ -207,20 +207,20 @@ class PostsListViewController: UIViewController {
             }
         }
     }
-    
+
     func dismissAndClearAddPostView() {
         addPostInputPlaceholderView.isHidden = true
         isAddPostScreenVisible = false
         showPlaceholderTextForMessageTextView()
         rightBarButton.title = "Add Post"
     }
-    
+
     func presentAndSetUpAddPostView() {
         addPostInputPlaceholderView.isHidden = false
         isAddPostScreenVisible = true
         showPlaceholderTextForMessageTextView()
         rightBarButton.title = "Cancel"
-        
+
         messageTextView.isEditable = true
         messageTextView.becomeFirstResponder()
         addPostErrorLabel.text = ""
@@ -228,7 +228,7 @@ class PostsListViewController: UIViewController {
         postButton.titleLabel?.text = "Post"
         postButton.isEnabled = false
     }
-    
+
     func validatePostMessageTextView() {
         if messageTextView.text.isEmpty {
             postButton.isEnabled = false
@@ -238,32 +238,32 @@ class PostsListViewController: UIViewController {
             hideAddPostError()
         }
     }
-    
+
     func hideFetchPostsError() {
         fetchPostsErrorLabel.text = ""
         fetchPostsErrorLabel.isHidden = true
     }
-    
+
     func showFetchPostsError(_ description: String?) {
         fetchPostsErrorLabel.text = description ?? "Something went wrong!"
         fetchPostsErrorLabel.isHidden = false
     }
-    
+
     func hideAddPostError() {
         addPostErrorLabel.text = ""
         addPostErrorLabel.isHidden = true
     }
-    
+
     func showAddPostError(_ description: String?) {
         addPostErrorLabel.text = description ?? "Something went wrong!"
         addPostErrorLabel.isHidden = false
     }
-    
+
     func showPlaceholderTextForMessageTextView() {
         messageTextView.text = "Start typing"
         messageTextView.textColor = (traitCollection.userInterfaceStyle == .dark) ? UIColor.white.withAlphaComponent(0.3) : UIColor.black.withAlphaComponent(0.3)
     }
-    
+
     func removePlaceholderTextForMessageTextView() {
         if isMessageTextViewNotEdited {
             messageTextView.text = ""
@@ -276,11 +276,11 @@ extension PostsListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PostsListItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: PostsListItemTableViewCell.identifier, for: indexPath) as! PostsListItemTableViewCell
         let rowData = posts[indexPath.row]
@@ -305,14 +305,14 @@ extension PostsListViewController: UITextViewDelegate {
         }
         return true
     }
-    
+
     func textViewDidChange(_ textView: UITextView) {
         guard textView == messageTextView else { return }
         DispatchQueue.main.async {
             self.validatePostMessageTextView()
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         guard textView == messageTextView else { return }
         DispatchQueue.main.async {

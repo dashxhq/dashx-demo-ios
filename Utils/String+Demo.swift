@@ -19,7 +19,7 @@ extension String {
         "-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: emailStr)
     }
-    
+
     func postedDate() -> String {
         let date = DateFormatter.fullDate.date(from: self) ?? Date()
         let postedDate = "Posted \(Date.timeIntervalDifference(toDate: date))"

@@ -12,5 +12,5 @@
 // If you try to escape with backslashes \/\/, those backslashes show up literally and must be removed from the resulting value.
 // Workaround - https://stackoverflow.com/questions/21317844/how-do-i-configure-full-urls-in-xcconfig-files
 DASHX_BASE_URI=https:/$()/api.dashx-staging.com/graphql
-DASHX_PUBLIC_KEY=ft3tP2wJlQB5NSdYrjU8UylH
+DASHX_PUBLIC_KEY=0nvA5vBRv2MiD1wJPT6y4Dw1
 DASHX_TARGET_ENVIRONMENT=staging

@@ -6,6 +6,7 @@
 //
 
 import DashX
+import DashXFirebase
 import FirebaseCore
 import FirebaseMessaging
 import UIKit
@@ -35,11 +36,25 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
 
+        // Force FCM token retrieval (especially useful on simulator / during debugging).
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM token via callback: \(error.localizedDescription)")
+            } else if let token = token {
+                print("FCM token (callback): \(token)")
+            } else {
+                print("FCM token (callback) is nil")
+            }
+        }
+
         // Requesting Push Notifications Permission
         DashX.requestNotificationPermission { authorizationStatus in
             switch authorizationStatus {
             case .authorized:
                 print("permission authorized to receive push notifications")
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
             default:
                 print("permission denied to receive push notifications")
             }
@@ -73,9 +88,10 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
             print("FCM Token is empty")
             return
         }
-
+        print("FCM token: \(token)")
         DashX.setFCMToken(to: token)
     }
+
 
     // MARK: - Push Notification Handlers
 

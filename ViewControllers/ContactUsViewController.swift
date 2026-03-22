@@ -10,7 +10,7 @@ import DashX
 
 class ContactUsViewController: UIViewController {
     static let identifier = "ContactUsViewController"
-    
+
     // MARK: Outlets
     @IBOutlet weak var nameTextField: UITextField! {
         didSet {
@@ -38,28 +38,28 @@ class ContactUsViewController: UIViewController {
         }
     }
     @IBOutlet weak var goBackButton: UIButton!
-    
+
     var isFeedbackTextViewNotEdited: Bool {
         (feedbackTextView.textColor == UIColor.white.withAlphaComponent(0.3)) || (feedbackTextView.textColor == UIColor.black.withAlphaComponent(0.3))
     }
-    
+
     // MARK: ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setTextFieldListeners()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateViewsForUserInterfaceStyle()
     }
-    
+
     // MARK: TraitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setupThemedNavigationBar(for: traitCollection.userInterfaceStyle)
         updateViewsForUserInterfaceStyle()
     }
-    
+
     func updateViewsForUserInterfaceStyle() {
         if traitCollection.userInterfaceStyle == .dark {
             feedbackTextView.layer.borderColor = UIColor.white.cgColor
@@ -69,25 +69,25 @@ class ContactUsViewController: UIViewController {
             feedbackTextView.textColor = isFeedbackTextViewNotEdited ? .black.withAlphaComponent(0.3) : .black
         }
     }
-    
+
     // MARK: Actions
     @IBAction func onClickSubmit(_ sender: UIButton) {
         performContactUs()
     }
-    
+
     @IBAction func onClickGoBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+
     func performContactUs() {
         if !(emailTextField.text?.isValidEmail() ?? false) {
             errorLabel.text = "Please enter a valid email"
             return
         }
-        
+
         formState(isEnabled: false)
         submitButton.setTitle("Submitting", for: UIControl.State.disabled)
-        
+
         do {
             let formValues: NSDictionary = [
                 "name": nameTextField.text!,
@@ -95,11 +95,11 @@ class ContactUsViewController: UIViewController {
             ]
             try DashX.identify(withOptions: formValues)
         } catch {}
-        
+
         APIClient.contactUs(name: nameTextField.text!, email: emailTextField.text!, feedback: feedbackTextView.text!){ response in
             DispatchQueue.main.async {
                 self.submitButton.setTitle("Submission Successful", for: UIControl.State.disabled)
-                
+
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -112,39 +112,39 @@ class ContactUsViewController: UIViewController {
             }
         }
     }
-    
+
     func formState(isEnabled: Bool) {
         nameTextField.isEnabled = isEnabled
         emailTextField.isEnabled = isEnabled
         feedbackTextView.isEditable = isEnabled
         submitButton.isEnabled = isEnabled
     }
-    
+
     func setTextFieldListeners() {
         emailTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
         nameTextField.addTarget(self, action: #selector(textFieldEditingChanged(_:)), for: .editingChanged)
     }
-    
+
     @objc
     func textFieldEditingChanged(_ textField: UITextField) {
         validateFields()
     }
-    
+
     func validateFields() {
         errorLabel.text = ""
-        
+
         var submitButtonEnabled = [nameTextField,
                                      emailTextField].filter { $0.text?.isEmpty ?? true }.count == 0
         submitButtonEnabled = submitButtonEnabled && (isFeedbackTextViewNotEdited ? false : !(feedbackTextView.text.isEmpty))
         submitButton.isEnabled = submitButtonEnabled
         submitButton.backgroundColor = submitButtonEnabled ? UIColor(named: "primaryColor") : UIColor(named: "primaryColorDisabled")
     }
-    
+
     func showPlaceholderTextForFeedbackTextView() {
         feedbackTextView.text = "Start typing"
         feedbackTextView.textColor = (traitCollection.userInterfaceStyle == .dark) ? UIColor.white.withAlphaComponent(0.3) : UIColor.black.withAlphaComponent(0.3)
     }
-    
+
     func removePlaceholderTextForFeedbackTextView() {
         if isFeedbackTextViewNotEdited {
             feedbackTextView.text = ""
@@ -175,14 +175,14 @@ extension ContactUsViewController: UITextViewDelegate {
         }
         return true
     }
-    
+
     func textViewDidChange(_ textView: UITextView) {
         guard textView == feedbackTextView else { return }
         DispatchQueue.main.async {
             self.validateFields()
         }
     }
-    
+
     func textViewDidEndEditing(_ textView: UITextView) {
         guard textView == feedbackTextView else { return }
         DispatchQueue.main.async {

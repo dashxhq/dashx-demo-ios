@@ -4,26 +4,26 @@ extension Date {
     static var second: Double {
         return 1
     }
-    
+
     static var minute: Double {
         return second * 60
     }
-    
+
     static var hour: Double {
         return minute * 60
     }
-    
+
     static var day: Double {
         return hour * 24
     }
-    
+
     static func timeIntervalDifference(between fromDate: Date = Date(), toDate: Date) -> String {
         let secondsDiffered = Double(fromDate.timeIntervalSince1970) - Double(toDate.timeIntervalSince1970)
-        
+
         guard secondsDiffered > 0 else {
             return "now"
         }
-        
+
         if secondsDiffered < Date.minute {
             if secondsDiffered <= second {
                 return "a second ago"
@@ -32,7 +32,7 @@ extension Date {
                 return "\(timeIntervalString) seconds ago"
             }
         }
-        
+
         if secondsDiffered < Date.hour {
             let min = secondsDiffered / Date.minute
             let remainingSeconds = Double(secondsDiffered.truncatingRemainder(dividingBy: Date.minute))
@@ -41,7 +41,7 @@ extension Date {
             }
             return (remainingSeconds >= Date.second) ? "\(Int(min) + 1) mins ago" : "\(Int(min)) mins ago"
         }
-        
+
         if secondsDiffered < Date.day {
             let hrs = secondsDiffered / Date.hour
             let remainingSeconds = secondsDiffered.truncatingRemainder(dividingBy: Date.hour)
@@ -50,7 +50,7 @@ extension Date {
             }
             return (remainingSeconds >= Date.minute) ? "\(Int(hrs) + 1) hours ago" : "\(Int(hrs) + 1) hours ago"
         }
-        
+
         let days = Int(secondsDiffered / Date.day)
         let remainingHours = secondsDiffered.truncatingRemainder(dividingBy: Date.day) / Date.hour
         if Int(days) == 1 && remainingHours < Date.hour {
