@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,6 +55,12 @@
 		3DAF6A3028769AA5007A29CD /* Gemfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 3DAF6A2D28769AA5007A29CD /* Gemfile.lock */; };
 		3DE983E6286F1BAC00C615AB /* MoreItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E5286F1BAB00C615AB /* MoreItemsViewController.swift */; };
 		3DE983E9286F1DC800C615AB /* MoreScreenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE983E8286F1DC800C615AB /* MoreScreenTableViewCell.swift */; };
+		92FA2D8C2F762371007874B0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D11D00010000000000000006 /* FirebaseMessaging */; };
+		92FA2D8D2F762371007874B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		92FA2D902F762371007874B0 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D11D00010000000000000006 /* FirebaseMessaging */; };
+		92FA2D912F762371007874B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		92FA2D942F762463007874B0 /* DashX in Frameworks */ = {isa = PBXBuildFile; productRef = 92FA2D932F762463007874B0 /* DashX */; };
+		92FA2D962F762463007874B0 /* DashXFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = 92FA2D952F762463007874B0 /* DashXFirebase */; };
 		ED2AF0EF2864833800374BD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF0EE2864833800374BD3 /* AppDelegate.swift */; };
 		ED2AF0F12864833800374BD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2AF0F02864833800374BD3 /* SceneDelegate.swift */; };
 		ED2AF0F62864833800374BD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED2AF0F42864833800374BD3 /* Main.storyboard */; };
@@ -150,6 +156,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FA2D942F762463007874B0 /* DashX in Frameworks */,
+				92FA2D902F762371007874B0 /* FirebaseMessaging in Frameworks */,
+				92FA2D962F762463007874B0 /* DashXFirebase in Frameworks */,
+				92FA2D912F762371007874B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +167,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92FA2D8D2F762371007874B0 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				92FA2D8C2F762371007874B0 /* FirebaseMessaging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,10 +325,10 @@
 			);
 			name = "DashX Demo Staging";
 			packageProductDependencies = (
-				D11D00010000000000000003 /* DashX */,
-				D11D00010000000000000004 /* DashXFirebase */,
 				D11D00010000000000000006 /* FirebaseMessaging */,
 				D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				92FA2D932F762463007874B0 /* DashX */,
+				92FA2D952F762463007874B0 /* DashXFirebase */,
 			);
 			productName = "DashX Demo";
 			productReference = 278C59BB293BDD7C00CCC52D /* DashX Demo Staging.app */;
@@ -337,8 +349,6 @@
 			);
 			name = "DashX Demo Production";
 			packageProductDependencies = (
-				D11D00010000000000000003 /* DashX */,
-				D11D00010000000000000004 /* DashXFirebase */,
 				D11D00010000000000000006 /* FirebaseMessaging */,
 				D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */,
 			);
@@ -417,8 +427,8 @@
 			);
 			mainGroup = ED2AF0E22864833800374BD3;
 			packageReferences = (
-				D11D00010000000000000001 /* XCRemoteSwiftPackageReference "dashx-ios" */,
 				D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				92FA2D922F762463007874B0 /* XCLocalSwiftPackageReference "../dashx-ios" */,
 			);
 			productRefGroup = ED2AF0EC2864833800374BD3 /* Products */;
 			projectDirPath = "";
@@ -611,48 +621,6 @@
 			targetProxy = ED2AF10C2864833A00374BD3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D11D00010000000000000001 /* XCRemoteSwiftPackageReference "dashx-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dashxhq/dashx-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.1;
-			};
-		};
-		D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.9.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D11D00010000000000000003 /* DashX */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D11D00010000000000000001 /* XCRemoteSwiftPackageReference "dashx-ios" */;
-			productName = DashX;
-		};
-		D11D00010000000000000004 /* DashXFirebase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D11D00010000000000000001 /* XCRemoteSwiftPackageReference "dashx-ios" */;
-			productName = DashXFirebase;
-		};
-		D11D00010000000000000006 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-		D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsWithoutAdIdSupport;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin PBXVariantGroup section */
 		ED2AF0F42864833800374BD3 /* Main.storyboard */ = {
@@ -1055,6 +1023,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		92FA2D922F762463007874B0 /* XCLocalSwiftPackageReference "../dashx-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../dashx-ios";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		92FA2D932F762463007874B0 /* DashX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashX;
+		};
+		92FA2D952F762463007874B0 /* DashXFirebase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DashXFirebase;
+		};
+		D11D00010000000000000006 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		D11D00010000000000000007 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED2AF0E32864833800374BD3 /* Project object */;
 }
