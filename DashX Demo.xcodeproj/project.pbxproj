@@ -618,7 +618,7 @@
 			repositoryURL = "https://github.com/dashxhq/dashx-ios";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.2;
+				minimumVersion = 1.6.0;
 			};
 		};
 		D11D00010000000000000002 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {

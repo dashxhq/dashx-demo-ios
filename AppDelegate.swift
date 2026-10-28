@@ -26,8 +26,9 @@ class AppDelegate: DashXAppDelegate, MessagingDelegate {
             targetEnvironment: try? Configuration.value(for: "DASHX_TARGET_ENVIRONMENT")
         )
 
-        // Allow tracking of app's lifecycle events
+        // Allow tracking of app's lifecycle events and screen views
         DashX.enableLifecycleTracking()
+        DashX.enableScreenTracking()
 
         // Enable Ad-tracking for all events
         DashX.enableAdTracking()
