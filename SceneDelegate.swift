@@ -10,7 +10,6 @@ import UIKit
 
 class SceneDelegate: DashXSceneDelegate {
     @objc var window: UIWindow?
-    private let dashxSceneDelegateBase = DashXSceneDelegate()
 
     @objc func scene(
         _ scene: UIScene,
