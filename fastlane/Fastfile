@@ -15,7 +15,6 @@
 
 default_platform(:ios)
 
-WORKSPACE = "DashX Demo.xcworkspace"
 XCODEPROJ = "DashX Demo.xcodeproj"
 STAGING_SCHEME = "DashX Demo Staging"
 PRODUCTION_SCHEME = "DashX Demo Production"
@@ -41,7 +40,7 @@ platform :ios do
       key_content: ENV['APP_STORE_CONNECT_KEY_CONTENT']
     )
     match(type: 'appstore', git_private_key: ENV['GIT_PRIVATE_KEY'])
-    build_app(workspace: WORKSPACE, scheme: options[:scheme])
+    build_app(project: XCODEPROJ, scheme: options[:scheme])
     upload_to_testflight(
       skip_waiting_for_build_processing: ENV['CI'], # Saves CI minutes
       groups: options[:scheme] === PRODUCTION_SCHEME ? [
